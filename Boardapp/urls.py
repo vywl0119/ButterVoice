@@ -5,5 +5,7 @@ from . import views
 app_name = 'Boardapp'
 
 urlpatterns = [
-
+    path('codetail/', views.codetail),
+    path('cudetail/', views.cudetail),
+    
 ]
