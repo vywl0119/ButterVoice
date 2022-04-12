@@ -6,4 +6,7 @@ app_name = 'Homeapp'
 
 urlpatterns = [
     path('role/', views.role),
+    path('home/', views.home),
+    path('signin/', views.signin),
+    path('signup/', views.signup),
 ]
