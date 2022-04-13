@@ -7,6 +7,10 @@
 
 * {
     font-family: 'Cafe24Ssurround';
+    
+}
+body{
+    background-color: aquamarine;
 }
 
 .flex-container{ 
@@ -29,5 +33,7 @@
 } 
 
 .codetail_container{
-    background-color: aqua;
+    background-color: salmon;
+    width: 1000px;
+    height: 40%;
 }
