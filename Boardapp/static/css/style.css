@@ -35,10 +35,49 @@ body{
 .profile-container{
     background-color: white;
     border-radius: 40px;
-    width: 40%;
-    height: 20%;
+    width: 60%;
+    height: 30%;
     margin-bottom: 3%;
+    display: flex; 
+    flex-direction: row;
+    
 }
+.photo-container{
+    /* background-color: aqua; */
+    width: 40%;
+}
+.profile-container .photo-container > img{
+    width: 80px;
+    height: 80px;
+    margin-top: 3%;
+    margin-left: 43%;
+}
+.name{
+    margin-left: 40%;
+}
+.info-container{
+    /* background-color: pink; */
+    width: 60%;
+    display: flex; 
+    flex-direction: column;
+    
+}
+.counselor-phonenumber{
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row;
+}
+.counselor-star{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row; 
+}
+.counselor-count{
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: row;
+}
+
 .codetail-container{
     background-color: white;
     border-radius: 40px;
@@ -52,7 +91,4 @@ body{
 }
 .star-container{
     background-color: aquamarine;
-}
-.customer-container{
-    background-color: blue;
 }
