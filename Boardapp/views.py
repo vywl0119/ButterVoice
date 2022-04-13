@@ -6,3 +6,12 @@ def codetail(request):
 
 def cudetail(request):
     return render(request, 'Board/cudetail.html')
+
+def board(request):
+    return render(request, 'Board/board.html')
+
+def coboard(request):
+    return render(request, 'Board/coboard.html')
+
+def cuboard(request):
+    return render(request, 'Board/cuboard.html')
