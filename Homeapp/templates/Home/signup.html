@@ -1,7 +1,46 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/home/signup.css' %}"/>
+
+<style>
+    body {
+        color: black;
+    }
+</style>
 
 <header class="header">
     <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
     <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
 </header>
+<div class="background">
+    <div class="container" style="width: 100%">
+        <div class="main_text">회원 정보</div>
+        <div class="row">
+            <div class="col">
+                <div class="text" style="float: left">비밀번호</div>
+                <input class="input" type="password"/>
+            </div>
+            <div class="col">
+                <div class="text" style="float: left">비밀번호 확인</div>
+                <input class="input" type="password"/>
+            </div>
+            <div class="col">
+                <div class="text" style="float: left">이름</div>
+                <input class="input" type="text"/>
+            </div>
+            <div class="col">
+                <div class="text" style="float: left">전화번호</div>
+                <input class="input" type="text"/>
+            </div>
+            <div class="col">
+                <div class="text" style="float: left">카테고리</div>
+                <input class="input" type="text"/>
+            </div>
+            <div style="text-align: center; margin-top: 5%">
+                <button class="confirm" onclick="location.href='../home'">
+                    회원 등록
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
