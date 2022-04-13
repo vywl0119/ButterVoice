@@ -7,5 +7,8 @@ app_name = 'Boardapp'
 urlpatterns = [
     path('codetail/', views.codetail),
     path('cudetail/', views.cudetail),
+    path('board/', views.board),
+    path('coboard/', views.coboard),
+    path('cuboard/', views.cuboard),
     
 ]
