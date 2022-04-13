@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Cafe24Ssurround';
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    height: 50px;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #ffffbb;
+    border: 3px solid orange;
+}
