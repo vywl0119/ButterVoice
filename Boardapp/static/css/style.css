@@ -10,7 +10,7 @@
     
 }
 body{
-    background-color: aquamarine;
+    background-color: #313131;
 }
 
 .flex-container{ 
@@ -20,6 +20,7 @@ body{
     display: -moz-box;
     display: -ms-flexbox; 
     display: flex; 
+    flex-direction: column;
 
     -webkit-box-align: center; 
     -moz-box-align: center;
@@ -31,9 +32,27 @@ body{
     -ms-flex-pack: center; 
     justify-content: center; /* 수평 정렬 */
 } 
-
-.codetail_container{
-    background-color: salmon;
-    width: 1000px;
+.profile-container{
+    background-color: white;
+    border-radius: 40px;
+    width: 40%;
+    height: 20%;
+    margin-bottom: 3%;
+}
+.codetail-container{
+    background-color: white;
+    border-radius: 40px;
+    width: 80%;
     height: 40%;
+    margin-bottom: 2%;
+}
+
+.related-profile-container{
+    background-color: aqua;
+}
+.star-container{
+    background-color: aquamarine;
+}
+.customer-container{
+    background-color: blue;
 }
