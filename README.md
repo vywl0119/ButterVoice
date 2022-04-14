@@ -125,7 +125,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163411130-5da3e5a9-81ce-494a-9da1-495e89711711.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163416825-ec312508-4510-413b-87e5-ffc3a5471620.png" width="700" height="440">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
@@ -143,7 +143,7 @@
        <h3>👩🏻 고객 게시판</h3>
         <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="480">
      <br>
-     <text>⇒고객정보게시판/상담사정보게시판으로 이루어져있다</text>
+     <text>⇒ 고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
  </details>
  <br>
@@ -151,19 +151,19 @@
  - `AI 주요 기능`
  <details>
     <summary><strong>1) 화자의 음성을 기반으로 감정을 분석</strong></summary>
-    <text>⇒CNN 기반 전이 학습을 이용한 음성 감정 인식</text>
+    <text>⇒ CNN 기반 전이 학습을 이용한 음성 감정 인식</text>
  </details>
   <details>
     <summary><strong>2) 감정 상태가 격양 되어있으면 듣기 편한 목소리로 변조</strong></summary>
-    <text>⇒기가지니 API(지니 Voice) 사용</text>
+    <text>⇒ 기가지니 API(지니 Voice) 사용</text>
  </details>
   <details>
     <summary><strong>3) 화자의 언어 중에서 욕설이 있으면 필터링</strong></summary>
-    <text>⇒STT 필터링</text>
+    <text>⇒ STT/TTS + 필터링</text>
  </details>
   <details>
     <summary><strong>4) 상담 내용 요약본 정리</strong></summary>
-    <text>⇒어텐션을 이용한 Text Summeraiztion</text>
+    <text>⇒ 어텐션을 이용한 Text Summeraiztion</text>
  </details>
 <br>
 
@@ -215,3 +215,6 @@
 
 ## 6. 개발 일정
 
+
+
+<text>Readme 출처: 전남/전북1반 안지예</text>
