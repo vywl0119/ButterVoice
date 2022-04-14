@@ -1,6 +1,6 @@
 <br>
 
-# ButterVoice : 고객CS 상담사를 위한 감정 필터링 서비스
+# 🎶 ButterVoice : 고객CS 상담사를 위한 감정 필터링 서비스
 > 2022.04.11 ~ 2022.05.13 KT AIVLE 전남/전북 2조 빅프로젝트<br>
 >  *'ButterVoice'는 폭언과 협박과 같은 환경에 노출된 CS상담사를 위해 화자의 음성을 기반으로 감정을 분석하고 욕설이나 업무에 불필요한 단어들을 자동으로 필터링해서 들려주는 AI서비스입니다*
 
@@ -8,13 +8,15 @@
 
 [1. 개발 배경 및 목적](#1-개발-배경-및-목적)
 
-[2. 기능](#2-기능)
+[2. 기능](#2-기능-및-UI/UX)
 
-[3. DB 설계](#3-DB-설계)
+[3. 서비스 FLOW](#3-서비스-FLOW)
 
-[4. 개발 환경](#4-개발-환경)
+[4. DB 설계](#4-DB-설계)
 
-[5. 개발 일정](#5-개발-일정)
+[5. 개발 환경](#5-개발-환경)
+
+[6. 개발 일정](#6-개발-일정)
 
 <br>
 
@@ -42,7 +44,7 @@
 
 <br>
 
-- `ButterVoice`
+- `🎶 ButterVoice`
   - 화자의 음성을 기반으로 감정을 분석
   - 감정상태가 격양되어있으면 상담사가 듣기 편한 목소리로 변조
   - 욕설이나 업무에 불필요한 단어들은 자동으로 필터링
@@ -54,112 +56,108 @@
 
 <br>
 
-## 2. 기능
+## 2. 기능 및 UI/UX
 <details>
   <summary>메인 화면</summary>
    <div markdown="1">       
      <br>
-     <img src="https://user-images.githubusercontent.com/68097036/151487284-f73137b0-cb68-4736-9f39-62debfca2c1c.gif" width="740" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/163407923-5b085483-b7b2-4fb6-85fc-dc8076a7eca9.png" width="740" height="412">
      <br>
-     <text>⇒ '오늘 강의' 및 '내일 강의', '오늘의 명언'을 슬라이드 형식으로 볼 수 있도록 구현</text>
+     <text>⇒ 버터보이스의 홈화면으로 회원가입과 로그인을 할 수 있는 버튼이 있다</text>
    </div>
  </details>
 
  <details>
-    <summary><strong>1) KT 에이블 스쿨을 위한 프라이빗 게시판 (회원가입/로그인)</strong></summary>
+    <summary><strong>1) 고객과 상담사를 위한 회원가입/로그인</strong></summary>
         <div markdown="1">  
-            <h3>📝 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/68097036/151476280-fa1be845-2609-4f46-8d2a-2bf76c716362.png" width="700" height="480">
-            <img src="https://user-images.githubusercontent.com/68097036/151476799-b9fa00de-3360-4092-a47b-a75dcf2ed162.png" width="700" height="480">
-            <h3>🔓 로그인</h3>
-            <img src="https://user-images.githubusercontent.com/68097036/151479107-4c444093-9c6f-4b36-8eea-98dcedc7f239.png" width="550" height="380">
-            <h3>🔒 로그아웃</h3>
-            <img src="https://user-images.githubusercontent.com/68097036/151486411-5dbd0ecb-06c8-4b67-ad97-94658a553d86.png" width="700" height="60">
+            <h3>📝 고객 회원가입</h3>
+            <img src="" width="700" height="480">
+            <h3>📝 상담사 회원가입</h3>
+            <img src="" width="550" height="380">
+            <h3>🔒 로그인</h3>
+            <img src="" width="700" height="60">
         </div>
 </details>
  
  <details>
-  <summary><strong>2) 지금 가장 인기 있는 게시물을 한 눈에 볼 수 있는 기능</strong></summary>
+  <summary><strong>2) 고객이 로그인 했을때 들어가는 고객 메인 페이지</strong></summary>
    <div markdown="1"> 
     <br>      
-     <img src="https://images.velog.io/images/jiyeah3108/post/cd12159c-60fc-4b99-934e-632cd5fc65bb/image.png" width="700" height="430">
+     <img src="https://user-images.githubusercontent.com/37900424/163409801-9a159360-4278-43cd-8f48-adf6dfd2cdf0.png" width="700" height="430">
      <br>
-     <text>⇒ 조회수를 기준으로 상위 3개의 게시물을 보여준다.</text>
+     <text>⇒ 고객이 상담할 수 있는 상담사를 선택해 상담을 신청할 수 있다</text>
    </div>
  </details>
  
  <details>
-  <summary><strong>3) 질문을 할 수 있는 에러 게시판 + 해결한 에러를 공유하는 게시판</strong></summary>
+  <summary><strong>3) 고객이 상담사와 전화연결이 되었을때 나오는 페이지</strong></summary>
    <div markdown="1">
-     <h3>❓ 질문 게시판</h3> 
-     <img src="https://images.velog.io/images/jiyeah3108/post/f7fbfd5c-cb17-4d02-bae9-e1532030c9a4/image.png" width="700" height="480">
-     <h3>💡 해결 게시판</h3> 
-     <img src="https://images.velog.io/images/jiyeah3108/post/7628d0a9-594d-4daf-983b-f3c965a886a0/image.png" width="700" height="480">
-     <h3>👀 태그 기능</h3> 
-     <img src="https://images.velog.io/images/jiyeah3108/post/931881a1-d99e-4833-94c7-946494ce6efb/%EC%97%90%EB%9F%AC%EB%B8%94%EB%9F%AC%20%E2%80%94%20Board.gif" width="700" height="350">
+     <br>      
+     <img src="https://user-images.githubusercontent.com/37900424/163410276-f70505e4-c0be-4872-9167-43ca654dba58.png" width="700" height="430">
+     <br>
+      <text>⇒ 상담 시 안내 문구와 고객이 상담을 종료하고 싶으면 누르는 상담 종료버튼으로 구성</text>
    </div>
  </details>
  
  <details>
-  <summary><strong>4) 궁금한 에러에 대해서 검색할 수 있는 기능</strong></summary>
+  <summary><strong>4) 상담사와 상담이 종료된 후 상담사에 대한 별점을 줄 수 있는 기능</strong></summary>
    <div markdown="1">  
    <br>     
-     <img src="https://images.velog.io/images/jiyeah3108/post/9dcc7a1c-7999-4d10-b297-45cc6f27126f/image.png" width="700" height="70">
-     <img src="https://images.velog.io/images/jiyeah3108/post/4b4da61e-72eb-4f34-b4d0-f2e91b63a2c5/image.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163410761-dd963844-9ba7-4e48-8900-bcf01fa5109c.png" width="700" height="430">
      <br>
-     <text>⇒ 글 제목, 글 내용, 작성자를 검색하면 그에 대한 검색 결과 반환</text>
+     <text>⇒ 상담사에 대한 별점을 1~5까지 줄 수 있다</text>
    </div>
  </details>
  
  <details>
-  <summary><strong>5) 해결/미해결 에러들을 올릴 수 있는 코드에 특화된 글쓰기 (사진 첨부 가능)</strong></summary>
+  <summary><strong>5) 상담사가 로그인했을 때 나오는 상담사 메인 페이지</strong></summary>
    <div markdown="1">
    <br>
-     <img src="https://images.velog.io/images/jiyeah3108/post/44118709-617a-4ec7-998e-ee174e4b2453/image.png" width="700" height="480">
-     <img src="https://images.velog.io/images/jiyeah3108/post/493a7888-0d92-4d8f-987b-42f391f6914d/image.png" width="650" height="480">
+     <img src="https://user-images.githubusercontent.com/37900424/163411003-8e0a4781-2630-44f4-9bd9-783288e0ce03.png" width="700" height="480">
      <br>
-     <text>⇒ 로그인 시 작성 가능 / 질문 & 해결 선택 / 파이썬 & 장고 & 기타 선택</text>
+     <text>⇒ 상담사가 전화가 걸려온 순서대로 전화 대기자들을 확인 할 수 있다 </text>
    </div>
  </details>
  
  <details>
-  <summary><strong>6) 댓글 및 좋아요와 같은 소통 기능</strong></summary>
+  <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://images.velog.io/images/jiyeah3108/post/57329d5f-0276-4247-8966-cd59f3d3182a/image.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163411130-5da3e5a9-81ce-494a-9da1-495e89711711.png" width="700" height="440">
      <br>
-     <text>⇒ 초기 : 빈 하트, 빈 스크랩 아이콘</text>
+     <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
-     <br>
-     <img src="https://images.velog.io/images/jiyeah3108/post/b42b3d01-0d69-4398-a61b-31f14a079d45/image.png" width="700" height="420">
-     <br>
-     <text>⇒ 클릭 시 아이콘 채워짐</text>
    </div>
  </details>
  
  <details>
-  <summary><strong>7) 특히! 도움이 되는 에러글을 스크랩 할 수 있는 기능 (마이페이지)</strong></summary>
+  <summary><strong>7) 관리자가 회원으로 등록된 고객과 상담사의 정보를 확인할 수 있는 게시판</strong></summary>
    <div markdown="1">    
      <br>
-     <img src="https://images.velog.io/images/jiyeah3108/post/e39a79df-65d2-434a-95cb-dcf1e4bb0e8b/image.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163411263-e498edba-7ddb-4edc-b3a7-bfa816ad8229.png" width="700" height="440">
      <br>
-     <text>⇒앞서 스크랩한 게시물 마이페이지에서 확인 가능</text>
-     <h3>✏ 프로필 수정</h3>
-     <img src="https://images.velog.io/images/jiyeah3108/post/cdefdcd4-15a2-4a25-a88c-7b8c8e58e7c3/image.png" width="390" height="440">
-     <img src="https://images.velog.io/images/jiyeah3108/post/6ca4b8cf-dd92-43f6-a86f-c978104707a6/image.png" width="390" height="440">
-     <img src="https://images.velog.io/images/jiyeah3108/post/c145c4b5-6901-4683-9b5c-447efe8ce313/image.png" width="600" height="240">
-     <br>
+      <h3>👩🏻‍🏫 상담사 게시판</h3>
+        <img src="https://user-images.githubusercontent.com/37900424/163411932-c621d148-9480-428c-9db0-8c07c226a6f7.png" width="700" height="480">    
+       <h3>👩🏻 고객 게시판</h3>
+        <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="480">
+     <text>⇒고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
  </details>
 <br>
 
+<br>
+
+## 3. 서비스 FLOW
+ 
+ ![서비스플로우](https://user-images.githubusercontent.com/37900424/163413269-f05b2bdb-bf91-454b-acda-392fb43f503a.png)
+
 
 <br>
 
-## 3. DB 설계
+## 4. DB 설계
   - `ERD`
 
-![erd](https://user-images.githubusercontent.com/68097036/151470133-5dee929a-36bd-456c-95ec-5d5dc8c48559.png)
+![erd](https://user-images.githubusercontent.com/37900424/163409334-4a2d651f-e6eb-43f9-b620-59c5a1d55876.png)
 
 
 <br>
@@ -167,7 +165,7 @@
 
 <br>
 
-## 4. 개발 환경
+## 5. 개발 환경
 
 - `Front-End`
 
@@ -176,11 +174,12 @@
   |![html](https://user-images.githubusercontent.com/68097036/151471705-99458ff8-186c-435b-ac5c-f348fd836e40.png)|![css](https://user-images.githubusercontent.com/68097036/151471805-14e89a94-59e8-468f-8192-c10746b93896.png)|![js](https://user-images.githubusercontent.com/68097036/151471854-e0134a79-b7ef-4a0f-99fd-53e8ee5baf50.png)|![bootstrap](https://user-images.githubusercontent.com/68097036/151480381-2b23a8af-c6b4-43a6-96a6-ea69e0b953e0.png)|
 
 
-- `Back-End`
+- `Back-End and Cloud`
 
-  |Python|Django|MySQL|HeidiSQL|
-  |:---:|:---:|:---:|:---:|
-  |![pngwing com](https://user-images.githubusercontent.com/68097036/151479684-a85d26d4-e79e-47c9-9023-bf6d92f57536.png)|![pngwing com (1)](https://user-images.githubusercontent.com/68097036/151466729-9cad0405-85ad-454e-815a-1a4fd065f8b7.png)|![pngwing com (2)](https://user-images.githubusercontent.com/68097036/151466853-2b56fd0f-3aa9-424e-b17b-1c7cd991ffbf.png)|<img src="https://user-images.githubusercontent.com/68097036/151467351-5a359330-8d81-47b9-a33f-f7a5e0d69319.png" width="120" height="120">|
+  |Python|Django|MySQL|HeidiSQL|AWS|
+  |:---:|:---:|:---:|:---:|:---:|
+  |![pngwing com](https://user-images.githubusercontent.com/68097036/151479684-a85d26d4-e79e-47c9-9023-bf6d92f57536.png)|![pngwing com (1)](https://user-images.githubusercontent.com/68097036/151466729-9cad0405-85ad-454e-815a-1a4fd065f8b7.png)|![pngwing com (2)](https://user-images.githubusercontent.com/68097036/151466853-2b56fd0f-3aa9-424e-b17b-1c7cd991ffbf.png)|<img src="https://user-images.githubusercontent.com/68097036/151467351-5a359330-8d81-47b9-a33f-f7a5e0d69319.png" width="120" height="120">|![AWS](https://user-images.githubusercontent.com/37900424/163412651-7bc435ac-ce9b-4de0-add1-f12b9abbc606.png)|
+
 
 - `Etc`
 
@@ -192,6 +191,5 @@
 
 <br>
 
-## 5. 개발 일정
+## 6. 개발 일정
 
-![image](https://user-images.githubusercontent.com/68097036/151492506-e5197cbe-d619-42e4-be5b-0196cbff3abb.png)
