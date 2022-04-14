@@ -9,22 +9,41 @@
 <div class="container">
     <div class="row">
         <div style="text-align: center; margin-top: 50px">
-            <div class="col">
-                <div class="textArea">
-                    <div class="text">아이디</div>
-                    <input type="text"/>
+            <form  id="send" action="." method="post" onsubmit="return false;">
+                <div class="col">
+                    <div class="textArea">
+                        <div class="text">아이디</div>
+                        <input class="input" type="text" id="id"/>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="textArea">
-                    <div class="text">비밀번호</div>
-                    <input type="text"/>
+                <div class="col">
+                    <div class="textArea">
+                        <div class="text">비밀번호</div>
+                        <input class="input" class="password" type="password" id="pw"/>
+                    </div>
                 </div>
-            </div>
-            <div class="col" style="margin-top: 40px">
-                <button class='button' onclick="opener.location.replace('../role'); self.close()">로그인</button>
-                <button class='button' onclick="opener.location.replace('../role'); self.close()">회원가입</button>
-            </div>
+                <div class="col" style="margin-top: 40px">
+                    <button class="button" onclick="result()">로그인</button>
+                    <button class='button' onclick="opener.location.replace('../role'); self.close()">회원가입</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function result() {
+        var id = document.getElementById("id").value;
+        var pw = document.getElementById("pw").value;
+        if(id == "") {
+            alert("아이디를 입력하세요.");
+        } else if(pw == "") {
+            alert("비밀번호를 입력하세요.");
+        } else {
+            //document.forms["send"].action = "/Main/cu_main";
+            document.forms["send"].submit();
+            opener.location.replace('/Main/cu_main');
+            self.close();
+        }
+    }
+</script>
