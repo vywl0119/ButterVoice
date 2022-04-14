@@ -1,8 +1,14 @@
 .bar_text {
     width: justify;
     font-size: 20px;
-    color: black;
+    color: white;
     float: right;
     margin-left: 2%;
     margin-top: 2%;
+}
+
+.logout {
+    float: right;
+    margin-top: 15px; 
+    margin-left: 10px;
 }
