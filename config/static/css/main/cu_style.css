@@ -125,13 +125,9 @@ body{
 
 .outer {
     text-align: center;
+    margin-top: 5%;
   }
 
-  .star_outer {
-    text-align: center;
-    margin-top: 5%;
-    
-  }
 
 .call_image {
     width: 7%;
