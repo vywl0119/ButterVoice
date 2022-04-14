@@ -6,11 +6,12 @@
 }
 
 * {
+    background-color: #313131;
     font-family: 'Cafe24Ssurround';
 }
 
 body {
-    background-color: #313131;
+    
     color: white;
 }
 
