@@ -73,11 +73,11 @@
     <summary><strong>1) 고객과 상담사를 위한 회원가입/로그인</strong></summary>
         <div markdown="1">  
             <h3>📝 고객 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436037-19234145-a0a7-49f5-8b48-0c64ce058aeb.png" width="700" height="480">
+            <img src="https://user-images.githubusercontent.com/37900424/163436037-19234145-a0a7-49f5-8b48-0c64ce058aeb.png" width="700" height="412">
             <h3>📝 상담사 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436261-80ec240a-bbaf-4665-9e6a-335ead82c907.png" width="550" height="380">
+            <img src="https://user-images.githubusercontent.com/37900424/163436261-80ec240a-bbaf-4665-9e6a-335ead82c907.png" width="550" height="412">
             <h3>🔒 로그인</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436370-506c899e-df35-4929-bdd4-900a752208b3.png" width="700" height="60">
+            <img src="https://user-images.githubusercontent.com/37900424/163436370-506c899e-df35-4929-bdd4-900a752208b3.png" width="700" height="412">
         </div>
 </details>
  
@@ -85,7 +85,7 @@
   <summary><strong>2) 고객이 로그인 했을때 들어가는 고객 메인 페이지</strong></summary>
    <div markdown="1"> 
     <br>      
-     <img src="https://user-images.githubusercontent.com/37900424/163409801-9a159360-4278-43cd-8f48-adf6dfd2cdf0.png" width="700" height="430">
+     <img src="https://user-images.githubusercontent.com/37900424/163409801-9a159360-4278-43cd-8f48-adf6dfd2cdf0.png" width="700" height="412">
      <br>
      <text>⇒ 고객이 상담할 수 있는 상담사를 선택해 상담을 신청할 수 있다</text>
    </div>
@@ -95,7 +95,7 @@
   <summary><strong>3) 고객이 상담사와 전화연결이 되었을때 나오는 페이지</strong></summary>
    <div markdown="1">
      <br>      
-     <img src="https://user-images.githubusercontent.com/37900424/163410276-f70505e4-c0be-4872-9167-43ca654dba58.png" width="700" height="430">
+     <img src="https://user-images.githubusercontent.com/37900424/163410276-f70505e4-c0be-4872-9167-43ca654dba58.png" width="700" height="412">
      <br>
       <text>⇒ 상담 시 안내 문구와 고객이 상담을 종료하고 싶으면 누르는 상담 종료버튼으로 구성</text>
    </div>
@@ -105,7 +105,7 @@
   <summary><strong>4) 상담사와 상담이 종료된 후 상담사에 대한 별점을 줄 수 있는 기능</strong></summary>
    <div markdown="1">  
    <br>     
-     <img src="https://user-images.githubusercontent.com/37900424/163410761-dd963844-9ba7-4e48-8900-bcf01fa5109c.png" width="700" height="430">
+     <img src="https://user-images.githubusercontent.com/37900424/163410761-dd963844-9ba7-4e48-8900-bcf01fa5109c.png" width="700" height="412">
      <br>
      <text>⇒ 상담사에 대한 별점을 1~5까지 줄 수 있다</text>
    </div>
@@ -115,7 +115,7 @@
   <summary><strong>5) 상담사가 로그인했을 때 나오는 상담사 메인 페이지</strong></summary>
    <div markdown="1">
    <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163411003-8e0a4781-2630-44f4-9bd9-783288e0ce03.png" width="700" height="480">
+     <img src="https://user-images.githubusercontent.com/37900424/163411003-8e0a4781-2630-44f4-9bd9-783288e0ce03.png" width="700" height="412">
      <br>
      <text>⇒ 상담사가 전화가 걸려온 순서대로 전화 대기자들을 확인 할 수 있다 </text>
    </div>
@@ -125,7 +125,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163416825-ec312508-4510-413b-87e5-ffc3a5471620.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163416825-ec312508-4510-413b-87e5-ffc3a5471620.png" width="700" height="412">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
@@ -136,12 +136,12 @@
   <summary><strong>7) 관리자가 회원으로 등록된 고객과 상담사의 정보를 확인할 수 있는 게시판</strong></summary>
    <div markdown="1">    
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163411263-e498edba-7ddb-4edc-b3a7-bfa816ad8229.png" width="700" height="440">
+     <img src="https://user-images.githubusercontent.com/37900424/163411263-e498edba-7ddb-4edc-b3a7-bfa816ad8229.png" width="700" height="412">
      <br>
       <h3>👩🏻‍🏫 상담사 게시판</h3>
-        <img src="https://user-images.githubusercontent.com/37900424/163411932-c621d148-9480-428c-9db0-8c07c226a6f7.png" width="700" height="480">    
+        <img src="https://user-images.githubusercontent.com/37900424/163411932-c621d148-9480-428c-9db0-8c07c226a6f7.png" width="700" height="412">    
        <h3>👩🏻 고객 게시판</h3>
-        <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="480">
+        <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="412">
      <br>
      <text>⇒ 고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
