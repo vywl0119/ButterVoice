@@ -25,21 +25,79 @@
            
                     <img class="cu_image" src="{% static 'image/img_cu.png' %}"/>
 
-                    <div class = "star_outer">
+                    <div class = "outer">
                         <h1>상담이 종료 되었습니다.</h1>
                         <h1>상담사에 대한 별점을 주세요.</h1>
                     </div>
 
                     <div class="profile-container">
-                       <div class="star_center">
-                            <img class="yes_star" src="{% static 'image/yes_star.png' %}"/>
-                            <img class="yes_star" src="{% static 'image/yes_star.png' %}"/>
-                            <img class="yes_star" src="{% static 'image/yes_star.png' %}"/>
-                            <img class="yes_star" src="{% static 'image/yes_star.png' %}"/>
-                            <img class="yes_star" src="{% static 'image/yes_star.png' %}"/>
 
+                    {% if star == 1 %}
+                    
+                       <div class="star_center">
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 1 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 2 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 3 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 4 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 5 %}'"/>
+
+                            <a class="star_text" href="{% url 'Mainapp:cu_main' %}"> 확인 </a>
                        </div>
-                      
+                       {%endif%}
+                       {% if star == 2 %}
+                    
+                       <div class="star_center">
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 1 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 2 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 3 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 4 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 5 %}'"/>
+
+                            <a class="star_text" href="{% url 'Mainapp:cu_main' %}"> 확인 </a>
+                       </div>
+                    {%endif%}
+
+                    {% if star == 3 %}
+                    
+                       <div class="star_center">
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 1 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 2 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 3 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 4 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 5 %}'"/>
+
+                            <a class="star_text" href="{% url 'Mainapp:cu_main' %}"> 확인 </a>
+                       </div>
+                    {%endif%}
+
+                    {% if star == 4 %}
+                    
+                       <div class="star_center">
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 1 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 2 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 3 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 4 %}'"/>
+                            <img class="yes_star" src="{% static 'image/no_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 5 %}'"/>
+
+                            <a class="star_text" href="{% url 'Mainapp:cu_main' %}"> 확인 </a>
+                       </div>
+                    {%endif%}
+
+                    {% if star == 5 %}
+                    
+                       <div class="star_center">
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 1 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 2 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 3 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 4 %}'"/>
+                            <img class="yes_star" src="{% static 'image/yes_star.png' %}" onclick="location.href='{% url 'Mainapp:star' 5 %}'"/>
+
+                            <a class="star_text" href="{% url 'Mainapp:cu_main' %}"> 확인 </a>
+                       </div>
+                    {%endif%}
+
+
+
                     </div>
 
                     
