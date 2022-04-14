@@ -1,42 +1,138 @@
 .background {
     border-radius: 30px;
-    background-color: white;
-    width: 90%;
-    height: 100%;
-    margin-top: 5%;
-    margin-left: 5%;
+    width: 80%;
+    height: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
     margin-right: 5%;
+    background-color: white;
+}
+.form-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    background-color: white;
+}
+.photo-container{
+    /* background-color: aqua; */
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.profile-container .photo-container > img{
+    width: 150px;
+    height: 150px;
+    margin-top: 3%;
+    margin-left: 3%;
+    
+}
+.photo{
+    background-color: #00000000;
+}
+#cophoto{
+    width: 200px;
+    height: 200px;
+    margin-top: 10%;
+    margin-left: 30%;
+    background-color: #00000000;
+}
+
+.upload_form{
+    background-color: #00000000;
+}
+#last_name{
+    width:300px;
+    margin-top: 15px;
+    margin-left: 30%;
+    color: black;
+    background-color: #00000000;
+}
+.input-container{
+    width: 60%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.col {
+    display: flex;
+    flex-direction: row;
+}
+.bg_invisible {
+    width: 100%;
+    height: 20%;
+    background-color: #00000000;
+}
+
+.container_width {
+    width: 100%;
 }
 
 .main_text {
     color: black;
     font-size: 50px;
     text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 20px;
+    background-color: #00000000;
 }
 
 .text {
     width: 20%;
     text-align: right;
-    font-size: 30px;
+    font-size: 23px;
     padding-right: 3%;
     padding-top: 0.5%;
+    color: black;
+    background-color: #00000000;
+    float: left;
 }
 
 .input {
-    width: 60%;
+    width: 500px;
+    height: 40px;
+    border: 0;
+    border-radius: 40px ;
+    outline: none;
     font-size: 30px;
     font-family: "굴림";
+    background-color: rgb(233, 233, 233);
 }
 
 .col {
     padding-bottom: 2%;
+    background-color: #00000000;
 }
 
 .confirm {
-    width: 20%;
+    width: 75%;
     font-size: 30px;
-    padding-top: 10px;
+    border: 0;
+    border-radius: 40px;
+    padding-top: 15px;
     padding-bottom: 10px;
+    margin-left: 0;
+    outline: none;
+    background-color: #fce205;
+    color: white;
+}
+
+.confirm:hover {
+    outline: none;
+    background-color: #6aafe6;
+    color: white;
+}
+
+.div_confirm {
+    text-align: center;
+    margin-top: 2%;
+    margin-right: 65%;
+    background-color: #00000000;
+}
+
+.check_pw {
+    margin-left: 24%;
+    margin-top: -10px;
+    color: #00000000;
 }

@@ -15,5 +15,4 @@ def co_main(request):
     return render(request, 'Main/co_main.html')
 
 def star(request, star):
-    print(star)
     return render(request, 'Main/star.html', {'star' : star})
