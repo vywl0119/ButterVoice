@@ -1,10 +1,15 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/bar.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/role.css' %}"/>
 
 <header class="header">
     <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
     <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
+    <div text-align="center" style="float: right; width: 50%">
+        <div class="bar_text">행복한 호랑이 님</div>
+        <img src="{% static 'image/img_co.png' %}" style="height:50; float: right"/>
+    </div>
 </header>
 <div style="text-align: center; float: bottom">
     <div class="main_text">회원 선택</div>
