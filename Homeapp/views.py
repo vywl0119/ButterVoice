@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from argon2 import PasswordHasher
 
 def role(request):
     return render(request, 'Home/role.html')
