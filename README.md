@@ -75,7 +75,7 @@
             <h3>📝 고객 회원가입</h3>
             <img src="https://user-images.githubusercontent.com/37900424/163436037-19234145-a0a7-49f5-8b48-0c64ce058aeb.png" width="700" height="412">
             <h3>📝 상담사 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436261-80ec240a-bbaf-4665-9e6a-335ead82c907.png" width="550" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/163436261-80ec240a-bbaf-4665-9e6a-335ead82c907.png" width="700" height="412">
             <h3>🔒 로그인</h3>
             <img src="https://user-images.githubusercontent.com/37900424/163436370-506c899e-df35-4929-bdd4-900a752208b3.png" width="700" height="412">
         </div>
