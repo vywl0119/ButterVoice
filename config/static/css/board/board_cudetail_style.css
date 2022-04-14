@@ -7,6 +7,8 @@
 
 * {
     font-family: 'Cafe24Ssurround';
+    margin:0;
+    padding:0;
     
 }
 body{
@@ -35,7 +37,7 @@ body{
 
     
 } 
-/* 상담사 상세정보 페이지에서 상담사정보 컨테이너 */
+/* 고객 상세정보 페이지에서 고객 정보 컨테이너 */
 .customer-container{
     width: 100%;
     height: 20%;
@@ -65,7 +67,7 @@ body{
     flex-direction: row;
     
 }
-/* 상담사사진 컨테이너 */
+/* 고객사진 컨테이너 */
 .photo-container{
     /* background-color: aqua; */
     width: 40%;
@@ -99,20 +101,13 @@ body{
 .counselor-container{
     width: 100%;
     height: 80%;
-    display: flex;
-    flex-direction: column;
     
-    -webkit-box-align: center; 
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center; /* 수직 정렬 */
+    display:inline-block;    
+    margin-left: 40%;
 
-    -webkit-box-pack: center;
-    -moz-box-pack: center; 
-    -ms-flex-pack: center; 
-    justify-content: center; /* 수평 정렬 */
-
-    overflow-y: overlay;    
+    /* background-color: aqua; */
+    overflow:auto;
+    overflow-y: overlay;
 }
 /* 고객 상세정보 페이지에서 관련 상담사 정보 컨테이너 */
 .related-profile-container{
@@ -138,39 +133,50 @@ body{
 .coname{
     margin-left: 50%;
 }
-.cuinfo-container{
+.coinfo-container{
     width: 60%;
     height: 30%;
     display: flex; 
     flex-direction: column;
 
 }
-.customer-basic-info-container{
+.counselor-basic-info-container{
     display: flex;
     flex-direction: row;
     margin-left: 5%;
     margin-bottom: 2%;
 }
-.customer-phonenumber-title{
+.counselor-phonenumber-title{
     margin-top: 3%;
     
 }
-.customer-phonenumber{
+.counselor-phonenumber{
     margin-top: 3%;
     margin-left: 5%;
 }
 .counselor-record-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 5%;
 }
-.counselor-record-title{
-   
-}
-.counselor-record-list{
+
+.counselor-date-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 2%;
     margin-left: 5%;
-   
+}
+
+.counselor-category-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+.counselor-content-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    margin-left: 5%;
 }
