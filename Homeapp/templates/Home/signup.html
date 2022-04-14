@@ -10,44 +10,58 @@
 <div class="background">
     <div class="container bg_invisible">
         <div class="main_text">회원 정보</div>
-        <div class="row bg_invisible">
-            <form class="bg_invisible" id="send" action="/Home/home" method="post" onsubmit="return false;">
-                {% csrf_token %}
-                <input type="hidden" id="type" name="type" value="{{ type }}"/>
-                <div class="col">
-                    <div class="text">아이디</div>
-                    <input class="input" type="text" id="id" name="id"/>
+        <form class="bg_invisible" id="send" action="/Home/home" method="post" onsubmit="return false;">
+            {% csrf_token %}
+            <div class="form-container">    
+                <div class="photo-container">
+                    <div class="photo">
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    </div>
+                    <div class="upload_form">
+                        <input type="file" name="last_name"
+                        id="last_name" onchange="imageView(this)">
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="text">비밀번호</div>
-                    <input class="input" type="password" id="pw" name="pw"/>
+                <div class="input-container">
+                    <div class="row bg_invisible">
+                        <input type="hidden" id="type" name="type" value="{{ type }}"/>
+                        <div class="col">
+                            <div class="text">아이디</div>
+                            <input class="input" type="text" id="id" name="id"/>
+                        </div>
+                        <div class="col">
+                            <div class="text">비밀번호</div>
+                            <input class="input" type="password" id="pw" name="pw"/>
+                        </div>
+                        <div class="col">
+                            <div class="text">비밀번호 확인</div>
+                            <input class="input" type="password" id="pw_c" name="pw_c"/>
+                        </div>
+                        <div class="col bg_invisible">
+                            <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
+                        </div>
+                        <div class="col">
+                            <div class="text">이름</div>
+                            <input class="input" type="text" id="name" name="name"/>
+                        </div>
+                        <div class="col">
+                            <div class="text">전화번호</div>
+                            <input class="input" type="text" id="phone" name="phone"/>
+                        </div>
+                        {% if type == "co" %}
+                        <div class="col">
+                            <div class="text">카테고리</div>
+                            <input class="input" type="text" id="category" name="category"/>
+                        </div>
+                        {% endif %}
+                        <div class="div_confirm">
+                            <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
+                        </div>
+                    </div>
+        
                 </div>
-                <div class="col">
-                    <div class="text">비밀번호 확인</div>
-                    <input class="input" type="password" id="pw_c" name="pw_c"/>
-                </div>
-                <div class="col bg_invisible">
-                    <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
-                </div>
-                <div class="col">
-                    <div class="text">이름</div>
-                    <input class="input" type="text" id="name" name="name"/>
-                </div>
-                <div class="col">
-                    <div class="text">전화번호</div>
-                    <input class="input" type="text" id="phone" name="phone"/>
-                </div>
-                {% if type == "co" %}
-                <div class="col">
-                    <div class="text">카테고리</div>
-                    <input class="input" type="text" id="category" name="category"/>
-                </div>
-                {% endif %}
-                <div class="div_confirm">
-                    <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 
