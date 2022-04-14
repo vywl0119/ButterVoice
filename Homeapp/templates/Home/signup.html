@@ -16,31 +16,38 @@
     <div class="container" style="width: 100%">
         <div class="main_text">회원 정보</div>
         <div class="row">
-            <div class="col">
-                <div class="text" style="float: left">비밀번호</div>
-                <input class="input" type="password"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">비밀번호 확인</div>
-                <input class="input" type="password"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">이름</div>
-                <input class="input" type="text"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">전화번호</div>
-                <input class="input" type="text"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">카테고리</div>
-                <input class="input" type="text"/>
-            </div>
-            <div style="text-align: center; margin-top: 5%">
-                <button class="confirm" onclick="location.href='../home'">
-                    회원 등록
-                </button>
-            </div>
+            <form action="/Home/home" method="post">
+                {% csrf_token %}
+                <div class="col">
+                    <div class="text" style="float: left">아이디</div>
+                    <input class="input" type="text"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">비밀번호</div>
+                    <input class="input" type="password"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">비밀번호 확인</div>
+                    <input class="input" type="password"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">이름</div>
+                    <input class="input" type="text"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">전화번호</div>
+                    <input class="input" type="text"/>
+                </div>
+                {% if type == "co" %}
+                <div class="col">
+                    <div class="text" style="float: left">카테고리</div>
+                    <input class="input" type="text"/>
+                </div>
+                {% endif %}
+                <div style="text-align: center; margin-top: 2%">
+                    <input class="confirm" type="submit" value="회원 등록" onclick="location.href='../home'"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>

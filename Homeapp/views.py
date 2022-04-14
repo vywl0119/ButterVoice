@@ -10,4 +10,11 @@ def signin(request):
     return render(request, 'Home/signin.html')
 
 def signup(request):
-    return render(request, 'Home/signup.html')
+    type = "cu"
+    if request.method == 'POST':
+        type = request.POST.get('result')
+    
+    context = {
+        'type': type,
+    }
+    return render(request, 'Home/signup.html', context)
