@@ -217,4 +217,4 @@
 
 
 
-<text>Readme 출처: 전남/전북1반 안지예</text>
+<text>Readme 템플릿 출처: 전남/전북1반 안지예</text>
