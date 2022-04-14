@@ -57,6 +57,8 @@
 <br>
 
 ## 2. 기능 및 UI/UX
+- `서비스 주요 기능`
+
 <details>
   <summary>메인 화면</summary>
    <div markdown="1">       
@@ -142,6 +144,25 @@
         <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="480">
      <text>⇒고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
+ </details>
+ <br>
+
+ - `AI 주요 기능`
+ <details>
+    <summary><strong>1) 화자의 음성을 기반으로 감정을 분석</strong></summary>
+    <text>⇒CNN 기반 전이 학습을 이용한 음성 감정 인식</text>
+ </details>
+  <details>
+    <summary><strong>2) 감정 상태가 격양 되어있으면 듣기 편한 목소리로 변조</strong></summary>
+    <text>⇒기가지니 API(지니 Voice) 사용</text>
+ </details>
+  <details>
+    <summary><strong>3) 화자의 언어 중에서 욕설이 있으면 필터링</strong></summary>
+    <text>⇒STT 필터링</text>
+ </details>
+  <details>
+    <summary><strong>4) 상담 내용 요약본 정리</strong></summary>
+    <text>⇒어텐션을 이용한 Text Summeraiztion</text>
  </details>
 <br>
 
