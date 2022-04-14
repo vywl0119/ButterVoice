@@ -64,34 +64,28 @@ body{
     margin-left: 2%;
     margin-top: 5%;
 }
-
-.image {
+.profile-container{
+    /* display: flex;
+    flex-direction: row; */
+}
+#cophoto {
     width: 15%;
     margin-top: 30px;
-    margin-left: 30%;
-   
+    padding-left: 20%;    
 }
-
-.cu_image {
-    width: 15%;
-    display: block; 
-    margin: 0px auto;
-    margin-top: 30px;
-   
-}
-
 .co_name {
-    margin-top: 30px;
-    margin-left: 50%;
+    margin-top: 13%;
+    margin-left: 5%;
   
 }
 
 .profile-container{
-    background-color: white;
     border-radius: 40px;
     width: 60%;
     height: 30%;
+    margin-top: 5%;
     margin-bottom: 3%;
+    margin-left: 23%;
     display: flex; 
     flex-direction: row;
     
