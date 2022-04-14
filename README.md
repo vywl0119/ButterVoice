@@ -142,6 +142,7 @@
         <img src="https://user-images.githubusercontent.com/37900424/163411932-c621d148-9480-428c-9db0-8c07c226a6f7.png" width="700" height="480">    
        <h3>👩🏻 고객 게시판</h3>
         <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="480">
+     <br>
      <text>⇒고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
  </details>
