@@ -10,7 +10,7 @@
 
 .text {
     font-size: 30px;
-    margin-top: 100px;
+    margin-top: 8%;
     padding-top: 20%;
     color: black;
     background-color: #00000000;
@@ -39,7 +39,7 @@
 }
 
 .button {
-    height: 45%;
+    height: 55%;
     border-radius: 30px;
     background-color: white;
 }
@@ -47,5 +47,6 @@
 #image {
     width: 30%;
     margin-top: 50px;
+    
     background-color: #00000000;
 }

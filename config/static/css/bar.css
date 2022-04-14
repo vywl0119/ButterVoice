@@ -29,6 +29,7 @@
 
 #img_Right {
     height:50;
+    margin-left: 20px;
     float: right;
     background-color: #00000000;
 }
