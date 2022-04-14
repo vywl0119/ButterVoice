@@ -3,6 +3,16 @@ input {
     height: 30px;
     margin-left: 15px;
     font-family: "굴림";
+    background-color: white;
+}
+
+.container_setting {
+    margin-top: 50px;
+}
+
+.form_div {
+    text-align: center;
+    margin-top: 50px;
 }
 
 .button {

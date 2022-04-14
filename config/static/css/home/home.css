@@ -10,11 +10,13 @@
 
 .logo {
     width: 400px;
-    margin-top: 50px;
+}
+
+.div_center {
+    text-align: center;
 }
 
 #logo_name{
-    
     width: 700px;
     height: 90px; 
 }

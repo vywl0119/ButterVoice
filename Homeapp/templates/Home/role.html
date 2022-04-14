@@ -4,31 +4,31 @@
 <link rel="stylesheet" href="{% static 'css/home/role.css' %}"/>
 
 <header class="header">
-    <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <div text-align="center" style="float: right; width: 50%">
+    <img id="img_Left" src="{% static 'image/img_logo.png' %}" onclick="location.href='/Home/home'"/>
+    <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
+    <div class="rightDiv" text-align="center">
         <button class="logout">로그아웃</button>
-        <div class="bar_text">행복한 호랑이 님</div>
-        <img src="{% static 'image/img_co.png' %}" style="height:50; float: right"/>
+        <div class="userName">행복한 호랑이 님</div>
+        <img id="img_Right" src="{% static 'image/img_co.png' %}"/>
     </div>
 </header>
-<div style="text-align: center; float: bottom">
+<div class="main_div">
     <div class="main_text">회원 선택</div>
 </div>
-<div style="text-align: center">
+<div class="select_div">
     <form id="send" action="/Home/signup/" method="post" onsubmit="return false;">
         {% csrf_token %}
         <input type="hidden" id="result" name="result" value="cu">
-        <div onclick="result('cu')" class="select" style="padding-left: 20%; padding-right: 10%" onclick="location.href='../signup'">
+        <div class="image_leftBtn select" onclick="result('cu')" onclick="location.href='../signup'">
             <div class="button">
                 <div class="text">고객</div>
-                <img class="image" src="{% static 'image/img_cu.png' %}"/>
+                <img id="image" src="{% static 'image/img_cu.png' %}"/>
             </div>
         </div>
-        <div onclick="result('co')" class="select" style="padding-left: 10%; padding-right: 20%">
+        <div class="image_rightBtn select" onclick="result('co')">
             <div class="button">
                 <div class="text">상담사</div>
-                <img class="image" src="{% static 'image/img_co.png' %}"/>
+                <img id="image" src="{% static 'image/img_co.png' %}"/>
             </div>
         </div>
     </form>

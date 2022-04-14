@@ -1,54 +1,49 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/signup.css' %}"/>
-
-<style>
-    body {
-        color: black;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/bar.css' %}"/>
 
 <header class="header">
-    <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
+    <img id="img_Left" src="{% static 'image/img_logo.png' %}" onclick="location.href='/Home/home'"/>
+    <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
 </header>
 <div class="background">
-    <div class="container" style="width: 100%">
+    <div class="container bg_invisible">
         <div class="main_text">회원 정보</div>
-        <div class="row">
-            <form id="send" action="/Home/home" method="post" onsubmit="return false;">
+        <div class="row bg_invisible">
+            <form class="bg_invisible" id="send" action="/Home/home" method="post" onsubmit="return false;">
                 {% csrf_token %}
                 <input type="hidden" id="type" name="type" value="{{ type }}"/>
                 <div class="col">
-                    <div class="text" style="float: left">아이디</div>
+                    <div class="text">아이디</div>
                     <input class="input" type="text" id="id" name="id"/>
                 </div>
                 <div class="col">
-                    <div class="text" style="float: left">비밀번호</div>
+                    <div class="text">비밀번호</div>
                     <input class="input" type="password" id="pw" name="pw"/>
                 </div>
                 <div class="col">
-                    <div class="text" style="float: left">비밀번호 확인</div>
+                    <div class="text">비밀번호 확인</div>
                     <input class="input" type="password" id="pw_c" name="pw_c"/>
                 </div>
-                <div class="col">
-                    <div id="check" style="margin-left: 24%; margin-top: -10px; color: #00000000">비밀번호가 일치하지 않습니다.</div>
+                <div class="col bg_invisible">
+                    <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
                 </div>
                 <div class="col">
-                    <div class="text" style="float: left">이름</div>
+                    <div class="text">이름</div>
                     <input class="input" type="text" id="name" name="name"/>
                 </div>
                 <div class="col">
-                    <div class="text" style="float: left">전화번호</div>
+                    <div class="text">전화번호</div>
                     <input class="input" type="text" id="phone" name="phone"/>
                 </div>
                 {% if type == "co" %}
                 <div class="col">
-                    <div class="text" style="float: left">카테고리</div>
+                    <div class="text">카테고리</div>
                     <input class="input" type="text" id="category" name="category"/>
                 </div>
                 {% endif %}
-                <div style="text-align: center; margin-top: 2%">
+                <div class="div_confirm">
                     <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
                 </div>
             </form>

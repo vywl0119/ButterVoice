@@ -8,12 +8,21 @@
     margin-right: 5%;
 }
 
+.bg_invisible {
+    background-color: #00000000;
+}
+
+.container_width {
+    width: 100%;
+}
+
 .main_text {
     color: black;
     font-size: 50px;
     text-align: center;
     padding-top: 5%;
     padding-bottom: 5%;
+    background-color: #00000000;
 }
 
 .text {
@@ -22,16 +31,21 @@
     font-size: 30px;
     padding-right: 3%;
     padding-top: 0.5%;
+    color: black;
+    background-color: #00000000;
+    float: left;
 }
 
 .input {
     width: 60%;
     font-size: 30px;
     font-family: "굴림";
+    background-color: #00000000;
 }
 
 .col {
     padding-bottom: 2%;
+    background-color: #00000000;
 }
 
 .confirm {
@@ -39,4 +53,17 @@
     font-size: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
+    background-color: #00000000;
+}
+
+.div_confirm {
+    text-align: center;
+    margin-top: 2%;
+    background-color: #00000000;
+}
+
+.check_pw {
+    margin-left: 24%;
+    margin-top: -10px;
+    color: #00000000;
 }
