@@ -7,6 +7,7 @@
 
 * {
     font-family: 'Cafe24Ssurround';
+    font-size: large;
     margin:0;
     padding:0;
     
@@ -90,21 +91,47 @@ body{
     flex-direction: column;
     
 }
-.counselor-phonenumber{
+.counselor-phonenumber-container{
     /* background-color: white; */
     display: flex;
     flex-direction: row;
 }
-.counselor-star{
+.counselor-phonenumber-title{
+    margin-top: 5%;
+
+}
+.counselor-phonenumber{
+    margin-top: 5%;
+    margin-left: 3%;
+}
+.counselor-star-container{
     /* background-color: yellow; */
     display: flex;
     flex-direction: row; 
 }
-.counselor-count{
+.counselor-star-title{
+    margin-top: 2%;
+
+}
+.counselor-star{
+    margin-top: 2%;
+    margin-left: 8%;
+}
+.counselor-count-container{
     /* background-color: blueviolet; */
     display: flex;
     flex-direction: row;
 }
+.counselor-count-title{
+    margin-top: 2%;
+
+}
+.counselor-count{
+    margin-top: 2%;
+    margin-left: 8%;
+}
+
+
 .customer-container{
     width: 100%;
     height: 80%;
@@ -136,13 +163,14 @@ body{
     height: 30%;
 }
 #cuphoto{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-top: 5%;
     margin-left: 53%;
 }
 .cuname{
-    margin-left: 50%;
+    margin-top: 2%;
+    margin-left: 53%;
 }
 .cuinfo-container{
     width: 60%;
@@ -174,9 +202,14 @@ body{
    
 }
 .counselor-record-list{
-    display: flex;
-    flex-direction: column;
+    height: 50%;
+    display:inline-block;    
+    margin-left: 40%;
     margin-top: 2%;
     margin-left: 5%;
+    overflow-y: overlay;
    
 }
+/* .counselor-record-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+} */
