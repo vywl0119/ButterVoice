@@ -10,16 +10,27 @@
     <div class="main_text">회원 선택</div>
 </div>
 <div style="text-align: center">
-    <div class="select" style="padding-left: 20%; padding-right: 10%" onclick="location.href='../signup'">
-        <div class="button">
-            <div class="text">고객</div>
-            <img class="image" src="{% static 'image/img_cu.png' %}"/>
+    <form id="send" action="/Home/signup/" method="post" onsubmit="return false;">
+        {% csrf_token %}
+        <input type="hidden" id="result" name="result" value="cu">
+        <div onclick="result('cu')" class="select" style="padding-left: 20%; padding-right: 10%" onclick="location.href='../signup'">
+            <div class="button">
+                <div class="text">고객</div>
+                <img class="image" src="{% static 'image/img_cu.png' %}"/>
+            </div>
         </div>
-    </div>
-    <div class="select" style="padding-left: 10%; padding-right: 20%" onclick="location.href='../signup'">
-        <div class="button">
-            <div class="text">상담사</div>
-            <img class="image" src="{% static 'image/img_co.png' %}"/>
+        <div onclick="result('co')" class="select" style="padding-left: 10%; padding-right: 20%">
+            <div class="button">
+                <div class="text">상담사</div>
+                <img class="image" src="{% static 'image/img_co.png' %}"/>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
+
+<script type="text/javascript">
+    function result(data) {
+        document.getElementById("result").value = data;
+        document.forms["send"].submit();
+    }
+</script>

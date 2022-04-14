@@ -16,31 +16,85 @@
     <div class="container" style="width: 100%">
         <div class="main_text">회원 정보</div>
         <div class="row">
-            <div class="col">
-                <div class="text" style="float: left">비밀번호</div>
-                <input class="input" type="password"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">비밀번호 확인</div>
-                <input class="input" type="password"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">이름</div>
-                <input class="input" type="text"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">전화번호</div>
-                <input class="input" type="text"/>
-            </div>
-            <div class="col">
-                <div class="text" style="float: left">카테고리</div>
-                <input class="input" type="text"/>
-            </div>
-            <div style="text-align: center; margin-top: 5%">
-                <button class="confirm" onclick="location.href='../home'">
-                    회원 등록
-                </button>
-            </div>
+            <form id="send" action="/Home/home" method="post" onsubmit="return false;">
+                {% csrf_token %}
+                <input type="hidden" id="type" name="type" value="{{ type }}"/>
+                <div class="col">
+                    <div class="text" style="float: left">아이디</div>
+                    <input class="input" type="text" id="id" name="id"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">비밀번호</div>
+                    <input class="input" type="password" id="pw" name="pw"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">비밀번호 확인</div>
+                    <input class="input" type="password" id="pw_c" name="pw_c"/>
+                </div>
+                <div class="col">
+                    <div id="check" style="margin-left: 24%; margin-top: -10px; color: #00000000">비밀번호가 일치하지 않습니다.</div>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">이름</div>
+                    <input class="input" type="text" id="name" name="name"/>
+                </div>
+                <div class="col">
+                    <div class="text" style="float: left">전화번호</div>
+                    <input class="input" type="text" id="phone" name="phone"/>
+                </div>
+                {% if type == "co" %}
+                <div class="col">
+                    <div class="text" style="float: left">카테고리</div>
+                    <input class="input" type="text" id="category" name="category"/>
+                </div>
+                {% endif %}
+                <div style="text-align: center; margin-top: 2%">
+                    <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    const pw = document.getElementById("pw");
+    const pw2 = document.getElementById("pw_c");
+    const check = document.getElementById("check");
+    pw.addEventListener("keyup", cp);
+    pw2.addEventListener("keyup", cp);
+    function cp() {
+        if(pw.value != pw2.value) {
+            check.style.color = "red";
+        } else if(pw.value == "" || pw2.value == "") {
+            check.style.color = "red";
+        } else {
+            check.style.color = "#00000000";
+        }
+    }
+    function result() {
+        if(document.getElementById("id").value == "") {
+            alert("아이디를 입력하세요.");
+            return false;
+        } else if(document.getElementById("pw").value == "") {
+            alert("비밀번호를 입력하세요.");
+            return false;
+        } else if(check.style.color == 'red') {
+            alert("비밀번호가 일치하지 않습니다.");
+            return false;
+        } else if(document.getElementById("name").value == "") {
+            alert("이름을 입력하세요.");
+            return false;
+        } else if(document.getElementById("phone").value == "") {
+            alert("전화번호를 입력하세요.");
+            return false;
+        } else if(document.getElementById("type").value == "co") {
+            if(document.getElementById("category").value == "") {
+                alert("카테고리를 입력하세요.");
+                return false;
+            }
+        }
+        alert("등록되었습니다.");
+        document.forms["send"].submit();
+        location.replace('/Home/home');
+    }
+</script>

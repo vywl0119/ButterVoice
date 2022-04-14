@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Cafe24Ssurround';
+    font-size: large;
+    margin:0;
+    padding:0;
+    
+}
+body{
+    background-color: #313131;
+    overflow: hidden;
+}
+
+.flex-container{ 
+    width: 100%; 
+    height: 100vh; 
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: flex; 
+    flex-direction: column;
+
+    -webkit-box-align: center; 
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; /* 수직 정렬 */
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center; 
+    -ms-flex-pack: center; 
+    justify-content: center; /* 수평 정렬 */
+
+    
+} 
+/* 상담사 상세정보 페이지에서 상담사정보 컨테이너 */
+.counselor-container{
+    width: 100%;
+    height: 20%;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    
+    -webkit-box-align: center; 
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; /* 수직 정렬 */
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center; 
+    -ms-flex-pack: center; 
+    justify-content: center; /* 수평 정렬 */
+
+    /* background-color: antiquewhite; */
+}
+.profile-container{
+    background-color: white;
+    border-radius: 40px;
+    width: 40%;
+    height: 100%;
+    margin: 2%;
+    margin-bottom: 2%;
+    display: flex; 
+    flex-direction: row;
+    
+}
+/* 상담사사진 컨테이너 */
+.photo-container{
+    /* background-color: aqua; */
+    width: 40%;
+}
+.profile-container .photo-container > img{
+    width: 80px;
+    height: 80px;
+    margin-top: 3%;
+    margin-left: 43%;
+}
+.coname{
+    margin-left: 40%;
+}
+/* 상담사 기본정보 컨테이너 */
+.coinfo-container{
+    width: 60%;
+    display: flex; 
+    flex-direction: column;
+    
+}
+.counselor-phonenumber-container{
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row;
+}
+.counselor-phonenumber-title{
+    margin-top: 5%;
+
+}
+.counselor-phonenumber{
+    margin-top: 5%;
+    margin-left: 3%;
+}
+.counselor-star-container{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row; 
+}
+.counselor-star-title{
+    margin-top: 2%;
+
+}
+.counselor-star{
+    margin-top: 2%;
+    margin-left: 8%;
+}
+.counselor-count-container{
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: row;
+}
+.counselor-count-title{
+    margin-top: 2%;
+
+}
+.counselor-count{
+    margin-top: 2%;
+    margin-left: 8%;
+}
+
+
+.customer-container{
+    width: 100%;
+    height: 80%;
+    
+    display:inline-block;    
+    margin-left: 40%;
+
+    /* background-color: aqua; */
+    overflow:auto;
+    overflow-y: overlay;
+    
+     
+}
+/* 상담사 상세정보 페이지에서 관련 고객정보 컨테이너 */
+.related-profile-container{
+    background-color: white;
+    border-radius: 40px;
+    width: 60%;
+    height: 30%;
+    margin-bottom: 2%;
+
+    display: flex; 
+    flex-direction: row;
+    
+}
+
+.related-photo-container{
+    width: 40%;
+    height: 30%;
+}
+#cuphoto{
+    width: 100px;
+    height: 100px;
+    margin-top: 5%;
+    margin-left: 53%;
+}
+.cuname{
+    margin-top: 2%;
+    margin-left: 53%;
+}
+.cuinfo-container{
+    width: 60%;
+    height: 30%;
+    display: flex; 
+    flex-direction: column;
+
+}
+.customer-basic-info-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+.customer-phonenumber-title{
+    margin-top: 3%;
+    
+}
+.customer-phonenumber{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.counselor-record-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+.counselor-record-title{
+   
+}
+.counselor-record-list{
+    height: 50%;
+    display:inline-block;    
+    margin-left: 40%;
+    margin-top: 2%;
+    margin-left: 5%;
+    overflow-y: overlay;
+   
+}
+/* .counselor-record-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+} */
