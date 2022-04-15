@@ -190,11 +190,6 @@
   - `ERD`
  
 ![erd](https://user-images.githubusercontent.com/37900424/163577340-6466295f-87a0-48de-86f5-54bfe0d9d057.png)
-
-
-<br>
-
-
 <br>
 
 ## 6. 개발 환경
