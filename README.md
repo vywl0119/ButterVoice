@@ -3,10 +3,11 @@
 # 🎶 ButterVoice : CS 상담사를 위한 감정 필터링 서비스
 > 2022.04.11 ~ 2022.05.13 KT AIVLE 전남/전북 2조 빅프로젝트<br>
 >  *'ButterVoice'는 폭언과 협박과 같은 환경에 노출된 CS상담사를 위해 화자의 음성을 기반으로 감정을 분석하고 욕설이나 업무에 불필요한 단어들을 자동으로 필터링해서 들려주는 AI서비스입니다*
-<br>
+
 ## 조원 소개
 - `AI전남/전북1반 2조[18조]`
 > 김보연(조장), 강가영, 유헤리, 정문경, 정수빈
+
 <br>
 
 [1. 개발 배경 및 목적](#1-개발-배경-및-목적)
@@ -15,11 +16,13 @@
 
 [3. 서비스 FLOW](#3-서비스-FLOW)
 
-[4. DB 설계](#4-DB-설계)
+[4. 3 Tier Architecture](#4-3-Tier-Architecture)
 
-[5. 개발 환경](#5-개발-환경)
+[5. DB 설계](#5-DB-설계)
 
-[6. 개발 일정](#6-개발-일정)
+[6. 개발 환경](#6-개발-환경)
+
+[7. 개발 일정](#7-개발-일정)
 
 <br>
 
@@ -180,18 +183,25 @@
 
 <br>
 
-## 4. DB 설계
+## 4. 3 Tier Architecture
+ 
+ ![아키텍쳐](https://user-images.githubusercontent.com/37900424/163578007-4de44cbd-4a67-4b0a-b844-958384dfe695.png)
+
+
+<br>
+
+## 5. DB 설계
   - `ERD`
-
-![erd](https://user-images.githubusercontent.com/37900424/163409334-4a2d651f-e6eb-43f9-b620-59c5a1d55876.png)
-
-
-<br>
+ 
+![erd](https://user-images.githubusercontent.com/37900424/163577340-6466295f-87a0-48de-86f5-54bfe0d9d057.png)
 
 
 <br>
 
-## 5. 개발 환경
+
+<br>
+
+## 6. 개발 환경
 
 - `Front-End`
 
@@ -217,7 +227,7 @@
 
 <br>
 
-## 6. 개발 일정
+## 7. 개발 일정
 
 
 <br><br><br>
