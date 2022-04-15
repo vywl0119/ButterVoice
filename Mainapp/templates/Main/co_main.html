@@ -8,74 +8,63 @@
     <title>ButterVoice</title>
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="{% static 'css/main/co_main_style.css' %}">
+     <link rel="stylesheet" href="{% static 'css/main/main.css' %}">
      
 </head>
+
 <body>
 
     <div class="header_container">
 
-        <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:cu_main'  %}'"/>
+        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:cu_main' %}'" />
         <a class = "profile_name">(로그아웃)</a>
         <span class = "profile_name">김상담님 반갑습니다 </span>
     </div>
 
+    <div class="flex-container_col">
+        
 
-   
+            
+                <div class = "today_text">
+                    Today : 1024
+                </div>
 
-    <div id="Today">
-        <span>Today : 1004</span>
+
+                <div class = "flex-container1">
+
+                    <div class="info-box" >                
+                        <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
+                        <h1 class = "cu_name">김상담 님</h1>            
+                        <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                    </div>
+                
+
+                
+                    <div class = "cu_box">
+                        <div class = "col">
+                            <div class = "cucall_box">
+
+                            
+                            </div>
+                            <div class = "cucall_box">
+
+                            
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            
+
+
+
+      
+        
+  
+        
     </div>
-    <div class="customer-container">
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-            <input type = "image" src = "/static/image/yes_call.png" id="call" onclick="location.href='/Main/co_call'">
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-    </div> 
-    
 </body>
-<script>
-    const onOffBtn = document.getElementById("onoff_btn");
-    state = false
-    const changeText = () => {
-        if (!state) {
-            onOffBtn.innerText = "ON";
-            state = true
-        }else {
-            onOffBtn.innerText = "OFF";
-            state = false
-        }
-
-    
-    }
-</script>
 </html>
