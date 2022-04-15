@@ -34,7 +34,7 @@
 
                     <div class="info-box" >                
                         <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
-                        <h1 class = "cu_name">김상담 님</h1>            
+                        <h1 class = "cu_name">호랑이 님</h1>            
                         <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
                     </div>
                 
@@ -44,7 +44,17 @@
                         <div class = "col">
                             <div class = "cucall_box">
 
+
+                                <div class="row">
+
+                                    <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                    <span id = "call_name">호랑이 님</span>            
+                                    <img  src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+
+                                </div>
                             
+
+
                             </div>
                             <div class = "cucall_box">
 
