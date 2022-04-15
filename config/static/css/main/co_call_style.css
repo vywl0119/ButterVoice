@@ -44,6 +44,10 @@ body{
     overflow-y: overlay;
 }
 
+.manual-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
 .note {
     position:relative;
     height: 500px;
@@ -61,7 +65,6 @@ body{
     flex-direction: column;
     width: 50%;
     height: 20%;
-    padding: 0;
 }
 
 /* 고객 정보 */
@@ -71,7 +74,7 @@ body{
     border-radius: 40px;
     width: 90%;
     height: 170px;
-    margin-top: 60px;
+    margin-top: 50px;
     margin-left: 50px;
     display: flex;
     flex-direction: row;    
@@ -144,8 +147,8 @@ body{
     background-color: white;
     border-radius: 40px;
     width: 90%;
-    height: 360px;
-    margin-top: 20px;
+    height: 350px;
+    margin-top: 30px;
     margin-left: 50px;
     display: flex;
     flex-direction: row; 
@@ -187,12 +190,12 @@ body{
 }
 
 .content{
-    width: 425px;
-    height: 120px;
+    width: 430px;
+    height: 170px;
     display: flex;
 }
 
-#onoff_btn {
+#save_btn {
     top: 57px;
     width: 80px;
     font-size: 20px;
