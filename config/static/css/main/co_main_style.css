@@ -112,11 +112,11 @@ body{
 
 /* 상담 대기 고객 */
 .customer-container{
-    width: 100%;
+    width: 70%;
     height: 550px;
     display: inline-block;
     flex-direction: column;
-    margin-left: 20%;
+    margin-left: 30%;
     
     -webkit-box-align: center; 
     -moz-box-align: center;
@@ -129,7 +129,8 @@ body{
     justify-content: center; /* 수평 정렬 */
 
     /* background-color: darkblue; */
-    overflow-y:auto;
+    overflow:auto;
+    overflow-y: overlay;
 }
 
 .related-profile-container{
