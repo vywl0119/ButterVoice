@@ -9,10 +9,14 @@
 </header>
 <div class="background">
     <div class="container bg_invisible">
-        <div class="main_text">회원 정보</div>
+        {% if type == "co" %}
+            <div class="main_text">상담사 회원가입</div>
+        {%else%}
+            <div class="main_text">고객 회원가입</div>
+        {%endif%}
 
-        
-        <form class="bg_invisible" id="send" action="/Home/home" method="post" onsubmit="return false;">
+
+        <form class="bg_invisible" id="send" action="{% url 'Homeapp:signup' %}" method="post" onsubmit="return false;">
             {% csrf_token %}
             <div class="form-container">    
                 <div class="photo-container">
@@ -20,17 +24,26 @@
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
                     </div>
                     <div class="upload_form">
-                        <input type="file" name="last_name"
+                        <input type="file" name="profile"
                         id="last_name" onchange="imageView(this)">
                     </div>
                 </div>
                 <div class="input-container">
                     <div class="row bg_invisible">
                         <input type="hidden" id="type" name="type" value="{{ type }}"/>
+                        {% if type == "co" %}
                         <div class="col">
                             <div class="text">아이디</div>
-                            <input class="input" type="text" id="id" name="id"/>
+                            <input class="input" type="text" id="id" name="co_id"/>
                         </div>
+                        {% else %}
+                        <div class="col">
+                            <div class="text">아이디</div>
+                            <input class="input" type="text" id="id" name="cu_id"/>
+                        </div>
+                        {% endif %}
+
+
                         <div class="col">
                             <div class="text">비밀번호</div>
                             <input class="input" type="password" id="pw" name="pw"/>
@@ -106,6 +119,6 @@
         }
         alert("등록되었습니다.");
         document.forms["send"].submit();
-        location.replace('/Home/home');
+        
     }
 </script>

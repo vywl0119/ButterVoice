@@ -23,7 +23,7 @@ class counselor(models.Model):
     name = models.CharField(max_length=45, null=False)
     phone = models.CharField(max_length=45, null=False)
     profile = models.CharField(max_length=100, null=True)
-    onoff = models.CharField(max_length=45, null=False)
+    onoff = models.CharField(max_length=45, null=False, default='OFF')
 
     class Meta:
         db_table = 'counselor'
