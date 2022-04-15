@@ -137,7 +137,6 @@
  <details>
   <summary><strong>7) 관리자가 회원으로 등록된 고객과 상담사의 정보를 확인할 수 있는 게시판</strong></summary>
    <div markdown="1">    
-     <br>
       <h3>📝 전체 게시판</h3>
      <img src="https://user-images.githubusercontent.com/37900424/163411263-e498edba-7ddb-4edc-b3a7-bfa816ad8229.png" width="700" height="412">
      <br>
