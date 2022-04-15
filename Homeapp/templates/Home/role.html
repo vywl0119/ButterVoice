@@ -16,22 +16,21 @@
     <div class="main_text">회원 선택</div>
 </div>
 <div class="select_div">
-    <form id="send" action="/Home/signup/" method="post" onsubmit="return false;">
-        {% csrf_token %}
-        <input type="hidden" id="result" name="result" value="cu">
-        <div class="image_leftBtn select" onclick="result('cu')" onclick="location.href='../signup'">
+
+        <div class="image_leftBtn select"  onclick="location.href='{% url 'Homeapp:signup' 'cu'%}'">
             <div class="button">
                 <div class="text">고객</div>
                 <img id="image" src="{% static 'image/img_cu.png' %}"/>
             </div>
         </div>
-        <div class="image_rightBtn select" onclick="result('co')">
+
+        <div class="image_rightBtn select" onclick="location.href='{% url 'Homeapp:signup' 'co'%}'">
             <div class="button">
                 <div class="text">상담사</div>
                 <img id="image" src="{% static 'image/img_co.png' %}"/>
             </div>
         </div>
-    </form>
+
 </div>
 
 <script type="text/javascript">

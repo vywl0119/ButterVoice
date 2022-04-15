@@ -9,12 +9,12 @@ def home(request):
 def signin(request):
     return render(request, 'Home/signin.html')
 
-def signup(request):
-    type = "cu"
-    if request.method == 'POST':
-        type = request.POST.get('result')
-    
+def signup(request, type):
+
+    print(type)
     context = {
         'type': type,
     }
     return render(request, 'Home/signup.html', context)
+
+
