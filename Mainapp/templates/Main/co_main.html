@@ -14,14 +14,10 @@
 <body>
 
     <div class="header_container">
-
         <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:cu_main'  %}'"/>
         <a class = "profile_name">(로그아웃)</a>
         <span class = "profile_name">김상담님 반갑습니다 </span>
-    </div>
-
-
-   
+    </div> 
 
     <div id="Today">
         <span>Today : 1004</span>
@@ -61,7 +57,6 @@
             <div class="cuname"><p>발랄한 호랑이님</p></div>
         </div>
     </div> 
-    
 </body>
 <script>
     const onOffBtn = document.getElementById("onoff_btn");
@@ -74,8 +69,6 @@
             onOffBtn.innerText = "OFF";
             state = false
         }
-
-    
     }
 </script>
 </html>
