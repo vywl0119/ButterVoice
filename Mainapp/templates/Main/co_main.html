@@ -22,59 +22,79 @@
     </div>
 
     <div class="flex-container_col">
-        
-
-            
-                <div class = "today_text">
-                    Today : 1024
-                </div>
-
-
                 <div class = "flex-container1">
-
-                    <div class="info-box" >                
-                        <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
-                        <h1 class = "cu_name">호랑이 님</h1>            
-                        <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                    <div class="calling-container">
+                        <div class="today_container">
+                            <div class = "today_container_title">Today:
+                                <div class="today_number">1024명</div>
+                            </div>   
+                        </div>
+                        <div class="info-box" >           
+                            <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
+                            <h1 class = "cu_name">호랑이 님</h1>            
+                            <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                        </div>
                     </div>
-                
-
-                
-                    <div class = "cu_box">
-                        <div class = "col">
-                            <div class = "cucall_box">
-
-
-                                <div class="row">
-
-                                    <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
-                                    <span id = "call_name">호랑이 님</span>            
-                                    <img  src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
-
-                                </div>
-                            
-
-
+                    <div class="waiting-container">
+                        
+                            <div class = "waiter_conatiner_title">대기자:
+                                <div class="waiting_number">24명
                             </div>
-                            <div class = "cucall_box">
-
-                            
+                        <div class = "cu_box">
+                            <div class = "col">
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">호랑이 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-
-
                     </div>
-
-                </div>
-
-            
-
-
-
-      
-        
-  
-        
-    </div>
+                </div>  
+        </div>
 </body>
 </html>

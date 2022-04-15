@@ -7,10 +7,12 @@
 
 * {
     font-family: 'Cafe24Ssurround';
+    overflow: hidden;
     
 }
 body{
     background-color: #313131;
+    overflow: hi;
 }
 
 .flex-container_col{ 
@@ -59,30 +61,44 @@ body{
 
     margin-top: 30px;
 }
-
+.calling_container{
+    width: 50%;
+    background-color: aqua;
+}
+.waiting_container{
+    width: 50%;
+    background-color: aqua;
+}
 .col{
+    display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 .row{
+    display: flex;
     flex-direction: row;
 }
 
 .cu_box{
     background-color: #313131;
-    width: 450px;
+    width: 80%;
     height: 400px;
     border-radius: 40px;
     margin-left: 10%;
     margin-top: 2%;
+    overflow-y: auto;
+}
+.cu_box::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .cucall_box{
-    background-color: #ffffff;
+    background-color: white;
     width: 450px;
     height: 100px;
     border-radius: 30px;
-    margin-top: 1.5%;
+    margin-bottom: 2.5%;
 }
 
 
@@ -117,30 +133,46 @@ body{
 
 .cu_img {
     width: 17%;
-    margin-left: 5%;
+    margin-left: 13%;
     margin-top: 2.5%;
     
 }
 
-.call_img {
-    
+#cu_stop{
+    width: 80px;
+    height: 80px;
+    margin-top: 2.5%;
 }
 
-
-#call_name {
-
-    margin-left: 10%;
+.call_name {
+    margin-top: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
     font-weight: bold;
     font-size: 30px;
 }
-
-
-.today_text {
-
-    margin-top: 5%;
-    margin-left: 22%;
+.info-container{
+    width: 100;
+    he
+    display: flex;
+    flex-direction: row;
+    background-color: pink;
+}
+.today_container_title {
+    margin-top: 2%;
+    margin-left: 23%;
     white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
 
+.today_number {
+    margin-top: 2%;
+    margin-left: 23%;
+    white-space: nowrap;
     font-family: 'Cafe24 Ssurround';
     font-style: normal;
     font-weight: bold;
@@ -154,6 +186,7 @@ body{
 
   /* header css */
 .header_container {  
+    display: flex;
     flex-direction: row;  
     margin-top: 1%;
   }
