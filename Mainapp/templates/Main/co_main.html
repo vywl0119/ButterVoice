@@ -17,7 +17,7 @@
     <div class="header_container">
 
         <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:cu_main' %}'" />
-        <a class = "profile_name">(로그아웃)</a>
+        <a class = "logout">(로그아웃)</a>
         <span class = "profile_name">김상담님 반갑습니다 </span>
     </div>
 
@@ -25,9 +25,8 @@
                 <div class = "flex-container1">
                     <div class="calling-container">
                         <div class="today_container">
-                            <div class = "today_container_title">Today:
-                                <div class="today_number">1024명</div>
-                            </div>   
+                            <div class = "today_container_title">Today:</div>
+                                <div class="today_number">1024명</div> 
                         </div>
                         <div class="info-box" >           
                             <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
@@ -36,10 +35,10 @@
                         </div>
                     </div>
                     <div class="waiting-container">
-                        
-                            <div class = "waiter_conatiner_title">대기자:
-                                <div class="waiting_number">24명
-                            </div>
+                        <div class="waiting-info-container">
+                            <div class = "waiting_conatiner_title">대기자:</div>
+                                <div class="waiting_number">24명</div>
+                        </div>
                         <div class = "cu_box">
                             <div class = "col">
                                     <div class = "cucall_box">
