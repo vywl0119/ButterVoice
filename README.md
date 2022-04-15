@@ -8,8 +8,8 @@
 - `AI전남/전북1반 2조[18조]`
 > 김보연(조장), 강가영, 유헤리, 정문경, 정수빈
 
-<br>
 
+## 목차
 [1. 개발 배경 및 목적](#1-개발-배경-및-목적)
 
 [2. 기능](#2-기능-및-UI/UX)
@@ -24,11 +24,7 @@
 
 [7. 개발 일정](#7-개발-일정)
 
-<br>
-
 ***
-
-<br>
 
 ## 1. 개발 배경 및 목적
 > 💡 **'AI기술을 통해 직접적인 폭언과 협박에 노출되어있는 CS상담환경을 바꾸기 위해 개발하게 되었다.'** 현재 고객 상담 서비스는 자동응답이나 AI서비스를 이용해 간단한 업무는 처리되고 있지만, 이러한 인공지능 서비스가 복잡한 고객의 요구를 듣고 해결하고자 하는 상담사의 역할을 완전히 대체하기엔 어려움이 있다. 하지만, 이러한 CS업무는 감정적으로 격양된 사람들을 직접적으로 대하는 일이다 보니 여전히 많은 상담사들은 감정노동으로 피로감을 느끼고 있고, 이로 인한 극단적 선택 등의 사회적인 문제가 공공연하게 일어나고 있다. 즉, 우리는 ButterVoice를 통해 기존의 상담환경에 혁신을 일으키고자 한다.
@@ -177,11 +173,10 @@
 <br>
 
 ## 3. 서비스 FLOW
- 
-
+  - `주요 기능 Flow`
  ![서비스 흐름](https://user-images.githubusercontent.com/37900424/163581807-3685f275-c2bd-43ed-8bfc-b6feeabf1de5.png)
- ![서비스플로우](https://user-images.githubusercontent.com/37900424/163413269-f05b2bdb-bf91-454b-acda-392fb43f503a.png)
-
+  - `서비스 Flow`
+ ![서비스FLOW](https://user-images.githubusercontent.com/37900424/163585048-496805b3-e3aa-4597-9d7d-736b017ab9fe.png)
 <br>
 
 ## 4. 3 Tier Architecture
@@ -213,9 +208,9 @@
 
 - `Back-End and Cloud`
 
-  |Python|Django|MySQL|HeidiSQL|AWS|
-  |:---:|:---:|:---:|:---:|:---:|
-  |![pngwing com](https://user-images.githubusercontent.com/68097036/151479684-a85d26d4-e79e-47c9-9023-bf6d92f57536.png)|![pngwing com (1)](https://user-images.githubusercontent.com/68097036/151466729-9cad0405-85ad-454e-815a-1a4fd065f8b7.png)|![pngwing com (2)](https://user-images.githubusercontent.com/68097036/151466853-2b56fd0f-3aa9-424e-b17b-1c7cd991ffbf.png)|<img src="https://user-images.githubusercontent.com/68097036/151467351-5a359330-8d81-47b9-a33f-f7a5e0d69319.png" width="120" height="120">|![AWS](https://user-images.githubusercontent.com/37900424/163412651-7bc435ac-ce9b-4de0-add1-f12b9abbc606.png)|
+  |Python|Django|MySQL|HeidiSQL|WebRTC|AWS|
+  |:---:|:---:|:---:|:---:|:---:|:---:|
+  |![pngwing com](https://user-images.githubusercontent.com/68097036/151479684-a85d26d4-e79e-47c9-9023-bf6d92f57536.png)|![pngwing com (1)](https://user-images.githubusercontent.com/68097036/151466729-9cad0405-85ad-454e-815a-1a4fd065f8b7.png)|![pngwing com (2)](https://user-images.githubusercontent.com/68097036/151466853-2b56fd0f-3aa9-424e-b17b-1c7cd991ffbf.png)|<img src="https://user-images.githubusercontent.com/68097036/151467351-5a359330-8d81-47b9-a33f-f7a5e0d69319.png" width="120" height="120">|![WEBRTC](https://user-images.githubusercontent.com/37900424/163582496-b5df138c-07de-4e0b-a1b9-cea03b4f0fc3.png)|![AWS](https://user-images.githubusercontent.com/37900424/163412651-7bc435ac-ce9b-4de0-add1-f12b9abbc606.png)|
 
 
 - `Etc`
