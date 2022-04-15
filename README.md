@@ -117,7 +117,7 @@
   <summary><strong>5) 상담사가 로그인했을 때 나오는 상담사 메인 페이지</strong></summary>
    <div markdown="1">
    <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163411003-8e0a4781-2630-44f4-9bd9-783288e0ce03.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/163586717-20420f45-7cf8-4d06-b932-5e66cef28572.png" width="700" height="412">
      <br>
      <text>⇒ 상담사가 전화가 걸려온 순서대로 전화 대기자들을 확인 할 수 있다 </text>
    </div>
@@ -127,7 +127,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163416825-ec312508-4510-413b-87e5-ffc3a5471620.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/163586786-77ab97a5-f524-41b7-be66-31cc05ade071.png" width="700" height="412">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
