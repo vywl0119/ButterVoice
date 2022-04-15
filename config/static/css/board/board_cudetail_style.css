@@ -213,3 +213,22 @@ body{
 .counselor-content{
     margin-left: 8%;
 }
+
+.header_container {  
+    flex-direction: row;  
+    margin-top: 1%;
+  }
+ 
+.logo {
+    width: 20%;
+    margin-left: 2%;
+}
+
+.profile_name {
+    font-size: large;
+    color: white;
+    display: inline-block;
+    float: right;
+    margin-top: 1%;
+    margin-right: 1%;
+}
