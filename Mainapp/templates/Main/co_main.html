@@ -8,32 +8,34 @@
     <title>ButterVoice</title>
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="{% static 'css/main/comain_style.css' %}">
+     <link rel="stylesheet" href="{% static 'css/main/co_main_style.css' %}">
      
 </head>
 <body>
-    <div class="main-header">
-        <img id="logoimg" src="/static/image/img_logo.png">
-        <div id="Butter_Voice">
-            <span>Butter Voice</span>
+    <div class="top_bar_container">
+        <div class="main-header">
+            <img id="logoimg" src="/static/image/img_logo.png">
+            <div id="Butter_Voice">
+                <span>Butter Voice</span>
+            </div>
         </div>
         <div class="n_13">
-            <button id='onoff_btn' type="button">ON</button>
+            <button id='onoff_btn' onclick='changeText()' type="button">OFF</button>
             <div id="Text">
                 <span>김상담</span>
             </div>
             <img id="coimg" src="/static/image/img_co.png">
         </div>
-        <div id="Today">
-            <span>Today : 1004</span>
-        </div>
+        
     </div>
-    
+    <div id="Today">
+        <span>Today : 1004</span>
+    </div>
     <div class="customer-container">
         <div class="related-profile-container"> 
             <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
             <div class="cuname"><p>발랄한 호랑이님</p></div>
-            <input type = "image" src = "/static/image/yes_call.png" id="call">
+            <input type = "image" src = "/static/image/yes_call.png" id="call" onclick="location.href='/Main/co_call'">
         </div>
         <div class="related-profile-container"> 
             <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
@@ -66,4 +68,19 @@
     </div> 
     
 </body>
+<script>
+    const onOffBtn = document.getElementById("onoff_btn");
+    state = false
+    const changeText = () => {
+        if (!state) {
+            onOffBtn.innerText = "ON";
+            state = true
+        }else {
+            onOffBtn.innerText = "OFF";
+            state = false
+        }
+
+    
+    }
+</script>
 </html>
