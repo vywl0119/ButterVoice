@@ -178,8 +178,9 @@
 
 ## 3. 서비스 FLOW
  
- ![서비스플로우](https://user-images.githubusercontent.com/37900424/163413269-f05b2bdb-bf91-454b-acda-392fb43f503a.png)
 
+ ![서비스 흐름](https://user-images.githubusercontent.com/37900424/163581807-3685f275-c2bd-43ed-8bfc-b6feeabf1de5.png)
+ ![서비스플로우](https://user-images.githubusercontent.com/37900424/163413269-f05b2bdb-bf91-454b-acda-392fb43f503a.png)
 
 <br>
 
