@@ -1,17 +1,17 @@
 from django.shortcuts import render
 
 # Create your views here.
-def codetail(request):
-    return render(request, 'Board/codetail.html')
+def co_detail(request):
+    return render(request, 'Board/co_detail.html')
 
-def cudetail(request):
-    return render(request, 'Board/cudetail.html')
+def cu_detail(request):
+    return render(request, 'Board/cu_detail.html')
 
 def board(request):
     return render(request, 'Board/board.html')
 
-def coboard(request):
-    return render(request, 'Board/coboard.html')
+def co_board(request):
+    return render(request, 'Board/co_board.html')
 
-def cuboard(request):
-    return render(request, 'Board/cuboard.html')
+def cu_board(request):
+    return render(request, 'Board/cu_board.html')
