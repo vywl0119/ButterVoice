@@ -12,22 +12,17 @@
      
 </head>
 <body>
-    <div class="top_bar_container">
-        <div class="main-header">
-            <img id="logoimg" src="/static/image/img_logo.png">
-            <div id="Butter_Voice">
-                <span>Butter Voice</span>
-            </div>
-        </div>
-        <div class="n_13">
-            <button id='onoff_btn' onclick='changeText()' type="button">OFF</button>
-            <div id="Text">
-                <span>김상담</span>
-            </div>
-            <img id="coimg" src="/static/image/img_co.png">
-        </div>
-        
+
+    <div class="header_container">
+
+        <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:cu_main'  %}'"/>
+        <a class = "profile_name">(로그아웃)</a>
+        <span class = "profile_name">김상담님 반갑습니다 </span>
     </div>
+
+
+   
+
     <div id="Today">
         <span>Today : 1004</span>
     </div>
