@@ -1,5 +1,5 @@
 from unicodedata import category
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from Mainapp.models import counselor, customer
 
@@ -25,20 +25,19 @@ def signup(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         profile = request.POST.get('profile')
+        id = request.POST.get('id')
 
         if request.POST.get('type')=='co':
-            id = request.POST.get('co_id')
             category = request.POST.get('category')
             comment = counselor.objects.create(co_id=id, pw=pw, category = category, name=name, phone=phone, profile=profile)
             comment.save()
 
-            return render(request, 'Home/signin.html')
+            return redirect('/Home/signin')
 
         else:
-            id = request.POST.get('cu_id')
             comment = customer.objects.create(cu_id=id, pw=pw, name=name, phone=phone, profile=profile)
             comment.save()
             
-            return render(request, 'Home/signin.html')
+            return redirect('/Home/signin')
 
 

@@ -31,18 +31,11 @@
                 <div class="input-container">
                     <div class="row bg_invisible">
                         <input type="hidden" id="type" name="type" value="{{ type }}"/>
-                        {% if type == "co" %}
+                        
                         <div class="col">
                             <div class="text">아이디</div>
-                            <input class="input" type="text" id="id" name="co_id"/>
+                            <input class="input" type="text" id="id" name="id"/>
                         </div>
-                        {% else %}
-                        <div class="col">
-                            <div class="text">아이디</div>
-                            <input class="input" type="text" id="id" name="cu_id"/>
-                        </div>
-                        {% endif %}
-
 
                         <div class="col">
                             <div class="text">비밀번호</div>

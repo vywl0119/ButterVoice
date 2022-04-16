@@ -24,8 +24,7 @@
                     </div>
                 </div>
                 <div class="col" style="margin-top: 40px">
-                    <button class="button" onclick="result()">로그인</button>
-                    <button class='button' onclick="opener.location.replace('../role'); self.close()">회원가입</button>
+                    <button class="button" onclick="result()">로그인</button>                    
                 </div>
             </form>
         </div>
@@ -42,8 +41,7 @@
             alert("비밀번호를 입력하세요.");
         } else {
             //document.forms["send"].action = "/Main/cu_main";
-            document.forms["send"].submit();
-            opener.location.replace('/Main/cu_main');
+            document.forms["send"].submit();            
             self.close();
         }
     }
