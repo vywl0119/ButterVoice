@@ -37,18 +37,26 @@ body{
     left: 0px;
     background-color: white;
     border-radius: 40px;
- 
+    width: 35%;
+    height: 30%;
+    margin-top: 50px;
+    margin-left: 10px;
+
+    overflow-y: overlay;
 }
 
-.note::-webkit-scrollbar {
-    display: none;
+.manual-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
-.font-margin {
+.note {
+    position:relative;
     height: 500px;
+    max-width: 100%;
+    padding: 12px;
     margin-top: 10px;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     margin-bottom: 10px;
 }
 
@@ -67,30 +75,31 @@ body{
     border-radius: 40px;
     width: 90%;
     height: 170px;
+    margin-top: 50px;
     margin-left: 50px;
     display: flex;
     flex-direction: row;    
 }
 
-.related-photo-container {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.related-photo-container{
+    
 }
-
 #cuphoto{
     width: 100px;
     height: 100px;
+    margin-top: 10%;
+    margin-left: 53%;
 }
 .cuname{
+    width: 150px;
+    height: 100px;
     margin-top: 2%;
+    margin-left: 53%;
 }
 .cuinfo-container{
     width: 60%;
     height: 30%;
+    margin-left: 10%;
     display: flex; 
     flex-direction: column;
 
@@ -122,7 +131,7 @@ body{
 .counselor-record-list{
     height: 100px;
     width: 300px; 
-    margin-top: 12px;
+    margin-top: 10px;
     margin-left: 3%;
 
     overflow-y: overlay;   
@@ -149,6 +158,7 @@ body{
     display: flex;
     flex-direction: row;
     margin-top: 5%;
+    margin-left: 5%;
     margin-bottom: 2%;
 }
 
@@ -164,7 +174,8 @@ body{
 .content-container{
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
+    margin-top: 5%;
+    margin-left: 5%;
     margin-bottom: 2%;
 }
 
@@ -179,7 +190,7 @@ body{
 }
 
 .content{
-    width: 450px;
+    width: 430px;
     height: 170px;
     display: flex;
 }
@@ -188,7 +199,7 @@ body{
     top: 57px;
     width: 80px;
     font-size: 20px;
-    margin-left: 90%;
+    margin-left: 80%;
     color: rgba(0,0,0,1);
     border-radius: 15px;
     background-color: rgba(254,254,254,1);
@@ -198,16 +209,11 @@ body{
 .header_container {  
     flex-direction: row;  
     margin-top: 1%;
-/*     
-    display: flex;
-    justify-content: space-between;
-    align-items: center; */
   }
  
 .logo {
-    width: 304px;
-    margin-left: 38px;
-    float: left;
+    width: 20%;
+    margin-left: 2%;
 }
 
 .profile_name {
@@ -216,22 +222,5 @@ body{
     display: inline-block;
     float: right;
     margin-top: 1%;
-    margin-right: 15px;
-}
-
-.logout {
-    font-size: large;
-    color: white;
-    display: inline-block;
-    float: right;
-    margin-top: 1%;
-    margin-right: 23.5px;
-}
-
-
-.mic {
-    width: 60px;
-    margin-top: 3%;
-    margin-bottom: 2%;
-    margin-left: 355px
+    margin-right: 1%;
 }
