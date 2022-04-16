@@ -7,10 +7,12 @@
 
 * {
     font-family: 'Cafe24Ssurround';
+    overflow: hidden;
     
 }
 body{
     background-color: #313131;
+    overflow: hi;
 }
 
 .flex-container_col{ 
@@ -59,45 +61,56 @@ body{
 
     margin-top: 30px;
 }
+.calling_container{
+    width: 50%;
+    
+}
 
 .col{
+    display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 .row{
+    display: flex;
     flex-direction: row;
 }
 
 .cu_box{
-    background-color: #313131;
-    width: 450px;
-    height: 400px;
+    width: 600px;
+    height: 700px;
     border-radius: 40px;
     margin-left: 10%;
     margin-top: 2%;
+    overflow-y: auto;
+}
+.cu_box::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .cucall_box{
-    background-color: #ffffff;
+    background-color: white;
     width: 450px;
     height: 100px;
     border-radius: 30px;
-    margin-top: 1.5%;
+    margin-bottom: 2.5%;
 }
 
 
 .info-box{
-    background-color: #ffffff;
+    background-color: white;
     width: 450px;
-    height: 400px;
+    height: 450px;
     border-radius: 40px;
 
     margin-top: 2%;
+    margin-bottom: 42%;
 }
 
 #cu_photo {
     width: 20%;
-    margin-top: 30px;
+    margin-top: 60px;
     align-items: center;
     padding-left: 40%;
 }
@@ -117,30 +130,35 @@ body{
 
 .cu_img {
     width: 17%;
-    margin-left: 5%;
+    margin-left: 13%;
     margin-top: 2.5%;
     
 }
 
-.call_img {
-    
+#cu_stop{
+    width: 80px;
+    height: 80px;
+    margin-top: 2.5%;
 }
 
-
-#call_name {
-
-    margin-left: 10%;
+.call_name {
+    margin-top: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
     font-weight: bold;
     font-size: 30px;
 }
 
-
-.today_text {
-
-    margin-top: 5%;
-    margin-left: 22%;
+.today_container{
+    display: flex;
+    flex-direction: row;
+    
+}
+.today_container_title {
+    margin-top: 2%;
+    margin-left: 25%;
+    margin-bottom: 10%;
     white-space: nowrap;
-
     font-family: 'Cafe24 Ssurround';
     font-style: normal;
     font-weight: bold;
@@ -148,12 +166,45 @@ body{
     color: rgba(254,254,254,1);
 }
 
+.today_number {
+    margin-top: 2%;
+    margin-left: 3%;
+    white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
+.waiting-info-container{
+    display: flex;
+    flex-direction: row;
+}
+.waiting_conatiner_title {
+    margin-top: 2%;
+    margin-left: 30%;
+    white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
 
-
-
+.waiting_number {
+    margin-top: 2%;
+    margin-left: 3%;
+    white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
 
   /* header css */
 .header_container {  
+    display: flex;
     flex-direction: row;  
     margin-top: 1%;
   }
@@ -162,14 +213,22 @@ body{
     width: 20%;
     margin-left: 2%;
 }
+.logout {
+    font-size: large;
+    color: white;
+    display: inline-block;
+    
+    margin-top: 2%;
+    margin-left: 55%;
+}
 
 .profile_name {
     font-size: large;
     color: white;
     display: inline-block;
-    float: right;
-    margin-top: 1%;
-    margin-right: 1%;
+    
+    margin-top: 2%;
+    margin-left: 1%;
 }
 
 
