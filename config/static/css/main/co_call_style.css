@@ -37,29 +37,7 @@ body{
     left: 0px;
     background-color: white;
     border-radius: 40px;
-<<<<<<< HEAD
-    width: 40%;
-    height: 50%;
-    margin-left: 20px;
-}
-
-.note {
-    height: 545px;
-    margin-left: 3%;
-    margin-bottom: 1%;
-    margin-right: 3%;
-    margin-top: 1%;
-
-    overflow-y: overlay;  
-=======
-
-    width: 35%;
-    height: 30%;
-    margin-left: 10px;
-    margin-top: 60px;
-    overflow-y: overlay;
-
->>>>>>> 5d7de3b3b81a41d5cd4b129a6908776687e64f3a
+ 
 }
 
 .note::-webkit-scrollbar {
