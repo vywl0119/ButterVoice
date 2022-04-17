@@ -9,18 +9,34 @@
 </header>
 <div class="container container_setting">
     <div class="row">
-        <div class="form_div">
-            <form  id="send" action="." method="post" onsubmit="return false;">
+        
+
+
+
+            <form  id="send" action="{% url 'Homeapp:signin' %}" method="post" onsubmit="return false;">
+                {% csrf_token %}
+
+                <div class="form_div">
+
+                    <input type="radio" id="type" name="type" value="cu"
+                                checked>
+                        <label for="huey">고객</label>
+                        </div>
+        
+                        <div>
+                        <input type="radio" id="type" name="type" value="co">
+                        <label for="dewey">상담사</label>
+                        </div>
                 <div class="col">
                     <div class="textArea">
                         <div class="text">아이디</div>
-                        <input class="input" type="text" id="id"/>
+                        <input class="input" type="text" id ="id" name ="id"/>
                     </div>
                 </div>
                 <div class="col">
                     <div class="textArea">
                         <div class="text">비밀번호</div>
-                        <input class="input" class="password" type="password" id="pw"/>
+                        <input class="input" class="password" type="password" id = "pw" name="pw"/>
                     </div>
                 </div>
                 <div class="col" style="margin-top: 40px">
@@ -40,7 +56,7 @@
         } else if(pw == "") {
             alert("비밀번호를 입력하세요.");
         } else {
-            //document.forms["send"].action = "/Main/cu_main";
+            
             document.forms["send"].submit();            
             self.close();
         }

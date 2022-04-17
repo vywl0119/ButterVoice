@@ -10,14 +10,39 @@ def home(request):
     return render(request, 'Home/home.html')
 
 def signin(request):
-    return render(request, 'Home/signin.html')
+
+    if request.method == 'POST':
+
+            id = request.POST.get('id')
+            pw = request.POST.get('pw')
+            type = request.POST.get('type')
+            print("id = ",id )
+            print("pw = ",pw )
+            print("type = ",type )
+        
+            if type=='co':                
+                user = counselor.objects.get(co_id = id, pw=pw)
+                print(user.pw)
+
+                context = {'user': user} 
+
+                return render(request, 'Main/co_main.html',context)
+
+                return redirect('Mainapp:co_main')
+
+
+            else:
+                user = customer.objects.filter(cu_id = id, pw=pw)   
+                context = {'user': user}              
+                return redirect('Mainapp:cu_main' )
+    else:
+        return render(request, 'Home/signin.html')
+
 
 def signups(request, type):
     print(type)
-    context = {
-        'type': type,
-    }
-    return render(request, 'Home/signup.html', context)
+
+    return render(request, 'Home/signup.html', {'type' : type})
 
 def signup(request):
     if request.method == 'POST':
