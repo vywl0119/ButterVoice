@@ -44,12 +44,12 @@ class colling(models.Model):
         managed = False
 
 
-class star(models.Model):
-    star_id = models.AutoField(primary_key=True)
+class point(models.Model):
+    star_id = models.AutoField(primary_key=True) 
     co_id = models.ForeignKey('counselor', on_delete=models.CASCADE, db_column='co_id')
     star = models.IntegerField(null=False)
 
     class Meta:
-        db_table = 'star'
+        db_table = 'point'
         managed = False
         
