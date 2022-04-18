@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-container">
                     <div class="row bg_invisible">
-                        <input type="hidden" id="type" name="type" value="{{ type }}"/>
+                        <input type="hidden" id="type" name="type" value="{{type}}"/>
                         
                         <div class="col">
                             <div class="text">아이디</div>
@@ -39,27 +39,27 @@
 
                         <div class="col">
                             <div class="text">비밀번호</div>
-                            <input class="input" type="password" id="pw" name="pw"/>
+                            <input class="input" type="password" id="pw" name="pw" />
                         </div>
                         <div class="col">
                             <div class="text">비밀번호 확인</div>
-                            <input class="input" type="password" id="pw_c" name="pw_c"/>
+                            <input class="input" type="password" id="pw_c" name="pw_c" />
                         </div>
                         <div class="col bg_invisible">
                             <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
                         </div>
                         <div class="col">
                             <div class="text">이름</div>
-                            <input class="input" type="text" id="name" name="name"/>
+                            <input class="input" type="text" id="name" name="name" />
                         </div>
                         <div class="col">
                             <div class="text">전화번호</div>
-                            <input class="input" type="text" id="phone" name="phone"/>
+                            <input class="input" type="text" id="phone" name="phone" />
                         </div>
                         {% if type == "co" %}
                         <div class="col">
                             <div class="text">카테고리</div>
-                            <input class="input" type="text" id="category" name="category"/>
+                            <input class="input" type="text" id="category" name="category" />
                         </div>
                         {% endif %}
                         <div class="div_confirm">
