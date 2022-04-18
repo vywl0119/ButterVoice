@@ -81,7 +81,7 @@ body{
     width: 600px;
     height: 700px;
     border-radius: 40px;
-    margin-left: 10%;
+    margin-left: 17%;
     margin-top: 2%;
     overflow-y: auto;
 }
@@ -122,10 +122,10 @@ body{
 
 
 .cu_call {
-    width: 330px;
-    height: 100px;
-    margin-top: 4%;
-    margin-left: 13%;
+    width: 80%;
+    height: 20%;
+    margin-top: 8%;
+    margin-left: 10%;
 }
 
 .cu_img {
@@ -182,7 +182,7 @@ body{
 }
 .waiting_conatiner_title {
     margin-top: 2%;
-    margin-left: 30%;
+    margin-left: 39%;
     white-space: nowrap;
     font-family: 'Cafe24 Ssurround';
     font-style: normal;
