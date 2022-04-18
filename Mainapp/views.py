@@ -11,11 +11,8 @@ def cu_call(request, co_id, category):
     # else:
     
     cu_id = request.session['user_id']
-
-    cu_id = customer.objects.get(cu_id=cu_id).cu_id
-    co_id = counselor.objects.get(co_id=co_id).co_id
-    print(cu_id)
-    print(co_id)  
+    co_name = counselor.objects.get(co_id=co_id).name
+ 
     today = datetime.now().date()
 
     call = colling.objects.create(cu_id_id=cu_id, co_id_id=co_id, category = category, call_date = today)
@@ -24,7 +21,7 @@ def cu_call(request, co_id, category):
     request.session['co_id'] = co_id
 
 
-    return render(request, 'Main/cu_call.html')
+    return render(request, 'Main/cu_call.html', {'co_name' : co_name})
 
 def co_call(request):
     return render(request, 'Main/co_call.html')
