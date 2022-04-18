@@ -17,8 +17,8 @@
     <div class="header_container">
 
         <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:co_main' %}'" />
-        <a class = "logout">(로그아웃)</a>
-        <span class = "profile_name">김상담님 반갑습니다 </span>
+        <a class = "logout" href="{% url 'Homeapp:logout' %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.user_name}}님 반갑습니다 </span>
     </div>
 
     <div class="flex-container_col">
