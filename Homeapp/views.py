@@ -28,7 +28,7 @@ def signin(request):
             if type=='co':                
                 user = counselor.objects.get(co_id = id, pw=pw)
                 print(user.pw)
-                request.session['user'] = json.dumps(user, cls=DjangoJSONEncoder)  
+                request.session['user'] = user.pw  
 
               
 

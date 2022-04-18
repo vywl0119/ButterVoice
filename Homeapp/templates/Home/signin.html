@@ -8,7 +8,7 @@
     <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
 </header>
 <div class="container container_setting">
-    <div class="row">
+    <div class="col">
         
 
 
@@ -18,15 +18,12 @@
 
                 <div class="form_div">
 
-                    <input type="radio" id="type" name="type" value="cu"
-                                checked>
-                        <label for="huey">고객</label>
-                        </div>
-        
-                        <div>
-                        <input type="radio" id="type" name="type" value="co">
-                        <label for="dewey">상담사</label>
-                        </div>
+                    <input type="radio" id="type" name="type" value="cu" checked class="radio">
+                        고객
+                   
+                    <input type="radio" id="type" name="type" value="co" class="radio">
+                        상담사
+                    </div>
                 <div class="col">
                     <div class="textArea">
                         <div class="text">아이디</div>
@@ -39,8 +36,9 @@
                         <input class="input" class="password" type="password" id = "pw" name="pw"/>
                     </div>
                 </div>
-                <div class="col" style="margin-top: 40px">
-                    <button class="button" onclick="result()">로그인</button>                    
+                <div class="buttons" style="margin-top: 40px">
+                    <button class="button" onclick="result()">로그인</button> 
+                    <button class="button" onclick="result()">회원가입</button>                    
                 </div>
             </form>
         </div>

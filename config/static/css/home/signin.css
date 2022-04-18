@@ -1,43 +1,59 @@
 input {
-    width: 70%;
-    height: 30px;
-    margin-left: 15px;
+    width: 35%;
+    height: 50px;
     font-family: "굴림";
     border: 0;
     border-radius: 40px ;
     outline: none;
     background-color: rgb(233, 233, 233);
+    margin-left: 10%;
 }
 
 .container_setting {
     margin-top: 50px;
 }
+.buttons{
+    flex-direction: row;
+    margin-left: 42%;
+}
 
 .form_div {
-    text-align: center;
-    margin-top: 50px;
+  
+    margin-top: 100px;
+    margin-left: 35%;
+    margin-bottom: 80px;
+    flex-direction: row;
+}
+
+.radio { 
+    width: 3%;
+    height: 3%;
 }
 
 .button {
     border-radius: 40px;
-    width: 30%;
+    width: 12%;
     height: 10%;
-    margin-left: 5%;
+   
     margin-right: 5%;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
     font-size: 20px;
 }
 
 .textArea {
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
     font-size: 20px;
+    margin-left: 35%;
+    flex-direction: column;
+    
     
 }
 
 .text {
+    margin-top: 50px;
     width: 20%;
-    float: left;
+    
 }
