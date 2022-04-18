@@ -14,6 +14,11 @@ def role(request):
 def home(request):
     return render(request, 'Home/home.html')
 
+def logout(request):
+    del request.session['user_id']
+    del request.session['user_name']
+    return redirect('Homeapp:home')
+
 def signin(request):
 
     if request.method == 'POST':
@@ -28,9 +33,8 @@ def signin(request):
             if type=='co':                
                 user = counselor.objects.get(co_id = id, pw=pw)
                 print(user.pw)
-                request.session['user'] = user.pw  
-
-              
+                request.session['user_id'] = user.co_id
+                request.session['user_name'] = user.name
 
                 return redirect('Mainapp:co_main')
 
@@ -38,9 +42,10 @@ def signin(request):
             else:
                 user = customer.objects.get(cu_id = id, pw=pw)   
                    
-                request.session['user'] = json.dumps(user, cls=DjangoJSONEncoder)  
+                request.session['user_id'] = user.cu_id
+                request.session['user_name'] = user.name 
  
-                return render(request, 'Main/cu_main.html')
+                return redirect('Mainapp:cu_main')
     else:
         return render(request, 'Home/signin.html')
 

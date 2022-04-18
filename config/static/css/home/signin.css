@@ -14,13 +14,13 @@ input {
 }
 .buttons{
     flex-direction: row;
-    margin-left: 42%;
+    margin-left: 43%;
 }
 
 .form_div {
   
     margin-top: 100px;
-    margin-left: 35%;
+    margin-left: 36%;
     margin-bottom: 80px;
     flex-direction: row;
 }
