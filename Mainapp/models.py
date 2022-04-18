@@ -52,4 +52,6 @@ class point(models.Model):
     class Meta:
         db_table = 'point'
         managed = False
+
+
         
