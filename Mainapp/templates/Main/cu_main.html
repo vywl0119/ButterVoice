@@ -37,51 +37,72 @@
         
 
 
+            {% comment %} <div class="flex-container1">
+
+                <div class="cuinfo-box">
+                    <div class="profile-container">
+                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
+                        <div class="profile-container_col">
+                            <h2 class="comain_name">호랑이 상담사</h2>
+                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+                <div class="cuinfo-box">
+                    <div class="profile-container">
+                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
+                        <div class="profile-container_col">
+                            <h2 class="comain_name">호랑이 상담사</h2>
+                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+                <div class="cuinfo-box">
+                    <div class="profile-container">
+                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
+                        <div class="profile-container_col">
+                            <h2 class="comain_name">호랑이 상담사</h2>
+                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+            </div> {% endcomment %}
+     
+        
+
+
             <div class="flex-container1">
 
-                <div class="cuinfo-box">
-                    <div class="profile-container">
-                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
-                        <div class="profile-container_col">
-                            <h2 class="comain_name">호랑이 상담사</h2>
-                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
-                        </div>
-                       
-                    </div>
-                    
-                </div>
+            {% for co in total_co %}
 
                 <div class="cuinfo-box">
                     <div class="profile-container">
                         <img class="comain_image" src="{% static 'image/img_co.png' %}" />
                         <div class="profile-container_col">
-                            <h2 class="comain_name">호랑이 상담사</h2>
-                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
+                            <h2 class="comain_name">{{co.name}} 상담사</h2>
+                            
+                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='{% url 'Mainapp:cu_call' co.co_id co.category%}'"/>
                         </div>
                        
                     </div>
-                    
-                </div>
-
-                <div class="cuinfo-box">
-                    <div class="profile-container">
-                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
-                        <div class="profile-container_col">
-                            <h2 class="comain_name">호랑이 상담사</h2>
-                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
-                        </div>
-                       
-                    </div>
-                    
-                </div>
+                </div>   
+            {%endfor%}
 
             </div>
+                    
+                
 
 
-
-
-
-            <div class="flex-container1">
+{% comment %} 
 
                 <div class="cuinfo-box">
                     <div class="profile-container">
@@ -106,20 +127,7 @@
                     </div>
                     
                 </div>
-
-                <div class="cuinfo-box">
-                    <div class="profile-container">
-                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
-                        <div class="profile-container_col">
-                            <h2 class="comain_name">호랑이 상담사</h2>
-                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='/Main/cu_call'"/>
-                        </div>
-                       
-                    </div>
-                    
-                </div>
-
-            </div>
+            </div> {% endcomment %}
 
 
   

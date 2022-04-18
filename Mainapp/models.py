@@ -31,8 +31,8 @@ class counselor(models.Model):
 
 class colling(models.Model):
     c_no = models.AutoField(primary_key=True)
-    cu_id = models.ForeignKey('customer', on_delete=models.CASCADE, db_column='cu_id')
-    co_id = models.ForeignKey('counselor', on_delete=models.CASCADE, db_column='co_id')
+    cu_id = models.OneToOneField('customer',  on_delete=models.CASCADE, db_column='cu_id')
+    co_id = models.ForeignKey('counselor',  on_delete=models.CASCADE, db_column='co_id')
     current = models.CharField(max_length=45, null=False, default='대기')
     call_date = models.DateTimeField(null=False, auto_now_add=True)
     category = models.CharField(max_length=45, null=True)
