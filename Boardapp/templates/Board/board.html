@@ -13,28 +13,49 @@
 </head>
 <body>
     <div class="header_container">
-        <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:cu_main'  %}'"/>
-        <a class = "profile_name">(로그아웃)</a>
-        <span class = "profile_name">김상담님 반갑습니다 </span>
+        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:co_main' %}'" />
+        <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
     
     
     <div class="flex-container">
         <div class="menu-container">
+
+            {%if type == 'co'%}
+
             <div class="cu-container">
-                <div style="width:80px;height:80px;float:left;">
-                    <a href="../co_board">
-                        <img src="{% static 'image/img_co.png' %}" width="90">
-                    </a>
+                <div style="width:80px;height:80px;float:left;">                   
+                        <img src="{% static 'image/img_co.png' %}" width="90" onclick="location.href='{% url 'Boardapp:board' 'co' %}'">
+                </div>
+            </div>
+            <div class="co-container">
+                <div style="width:80px;height:80px;float:left;margin-right:60px">                   
+                        <img src="{% static 'image/img_cu_black.png' %}" width="90" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'">
+                </div>
+            </div>
+
+            {%else%}
+
+            <div class="cu-container">
+                <div style="width:80px;height:80px;float:left;">                   
+                        <img src="{% static 'image/img_co_black.png' %}" width="90" onclick="location.href='{% url 'Boardapp:board' 'co' %}'">
                 </div>
             </div>
             <div class="co-container">
                 <div style="width:80px;height:80px;float:left;margin-right:60px">
-                    <a href="../cu_board">
-                        <img src="{% static 'image/img_cu.png' %}" width="90">
-                    </a>
+  
+                        <img src="{% static 'image/img_cu.png' %}" width="90" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'">
+                  
                 </div>
             </div>
+
+
+            {%endif%}
+
+
+
+
             <div class="search-container">
                 <input type="text" placeholder="이름을 검색하세요.">
                 <button class="search-button" style="border:none;background-color:transparent;margin-left:4%;">
@@ -45,116 +66,28 @@
 
         <div class="info-container">
             <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
-            </div>
-            <div class="profile-container">
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>위험한 호랑이</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_co.png' %}">
-                    <p>호랑이 상담사</p>
-                </div>
-                <div class="move-container" onclick="location.href='../cudetail'">
-                    <img src="{% static 'image/img_cu.png' %}">
-                    <p>어지러운 호랑이</p>
-                </div>
+
+                {% for user in users%}
+
+                {% if type == 'co'%}
+
+                    <div class="move-container" onclick="location.href='../co_detail'">
+                        <img src="{% static 'image/img_co.png' %}">
+                        <p>{{user.name}}</p>
+                    </div>
+                {% else %}
+
+                    <div class="move-container" onclick="location.href='../cu_detail'">
+                        <img src="{% static 'image/img_cu.png' %}">
+                        <p>{{user.name}}</p>
+                    </div>
+
+                {% endif %}
+
+                
+                {%endfor%}
+
+
             </div>
     </div>
 </body>
