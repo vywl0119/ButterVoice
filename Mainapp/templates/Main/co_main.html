@@ -28,11 +28,21 @@
                             <div class = "today_container_title">Today:</div>
                                 <div class="today_number">1024명</div> 
                         </div>
+
+                        {% if first_call %}
                         <div class="info-box" >           
                             <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
                             <h1 class = "cu_name">{{first_call.cu_name}} 님</h1>            
                             <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
                         </div>
+                        {% else %}
+                        <div class="info-box" >           
+                            <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/> 
+                        </div>
+
+                        {% endif %}
+
+
                     </div>
                     <div class="waiting-container">
                         <div class="waiting-info-container">

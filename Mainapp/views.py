@@ -39,10 +39,15 @@ def co_main(request):
     co_id = request.session['co_id']
 
     wait_call = calling.objects.filter(co_id=co_id,current='대기')
+
+    if wait_call:
     
-    first_call = wait_call[0]
-    wait_call = wait_call[1:]
-    call_len = len(wait_call)
+        first_call = wait_call[0]
+        wait_call = wait_call[1:]
+        call_len = len(wait_call)
+    else:
+        first_call = ""
+        call_len = 0
 
     context = {'wait_call': wait_call,
                 'first_call': first_call,
