@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from Mainapp.models import counselor, customer, calling, point
 
 # Create your views here.
 def co_detail(request):
@@ -7,11 +8,12 @@ def co_detail(request):
 def cu_detail(request):
     return render(request, 'Board/cu_detail.html')
 
-def board(request):
-    return render(request, 'Board/board.html')
+def board(request, type):
 
-def co_board(request):
-    return render(request, 'Board/co_board.html')
+    if type == 'co':
+        users = counselor.objects.all()
+    else:
+        users = customer.objects.all()
 
-def cu_board(request):
-    return render(request, 'Board/cu_board.html')
+    return render(request, 'Board/board.html', {'users':users,'type':type})
+

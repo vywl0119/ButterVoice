@@ -19,11 +19,11 @@ def logout(request, type):
     if type == 'co':
         del request.session['co_id']
         del request.session['co_name']
-        del request.session['type']
+        del request.session['co_type']
     else:
         del request.session['cu_id']
         del request.session['cu_name']
-        del request.session['type']
+        del request.session['cu_type']
 
     
     return redirect('Homeapp:home')
@@ -44,7 +44,7 @@ def signin(request):
                 print(user.pw)
                 request.session['co_id'] = user.co_id
                 request.session['co_name'] = user.name
-                request.session['type'] = 'co'
+                request.session['co_type'] = 'co'
 
                 return redirect('Mainapp:co_main')
 
@@ -54,7 +54,7 @@ def signin(request):
                    
                 request.session['cu_id'] = user.cu_id
                 request.session['cu_name'] = user.name 
-                request.session['type'] = 'cu'
+                request.session['cu_type'] = 'cu'
  
                 return redirect('Mainapp:cu_main')
     else:
