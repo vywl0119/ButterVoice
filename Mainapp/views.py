@@ -20,14 +20,35 @@ def cu_call(request, co_id, category):
 
 def co_call(request, c_no):
 
-    print(c_no)
-
+    # 해당 전화 내역
     call = calling.objects.get(c_no=c_no)
-    call.current = '통화중'
-    call.save()
+
+    if call.current == '대기':
+        call.current = '통화중'
+        call.save()
+
+    # 전화를 건 고객 id
+    cu_id = calling.objects.get(c_no=c_no).cu_id_id
+
+    print(cu_id)
+
+    # 전화를 건 고객 정보
+    cu = customer.objects.get(cu_id = cu_id)
+
+    # 전화를 건 고객 상담 정보
+    cu_call = calling.objects.filter(cu_id_id=cu_id)
+    date = cu_call[0].call_date.date()
+    
+
+    print(date)
+
+    context = {'cu':cu,
+               'cu_call':cu_call,
+               'call':call,
+    }
 
 
-    return render(request, 'Main/co_call.html')
+    return render(request, 'Main/co_call.html', context)
 
 def cu_main(request):
 

@@ -155,25 +155,19 @@
             <div class="related-profile-container"> 
                 <div class="related-photo-container">
                     <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-                    <div class="cuname"><p>강가영</p></div>
+                    <div class="cuname"><p>{{cu.name}}</p></div>
                 </div>
                 <div class="cuinfo-container">
                     <div class="customer-basic-info-container">
                         <div class="customer-phonenumber-title">고객 번호</div>
-                        <div class="customer-phonenumber">010-1234-5678</div>
+                        <div class="customer-phonenumber">{{cu.phone}}</div>
                     </div>
                     <div class="counselor-record-container">
                         <div class="counselor-record-title">상담 이력</div>
                         <div class="counselor-record-list">
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
-                            <div class="couselor-record">2022/04/12. 김보연. 00건에 대해서 요청</div>
+                            {% for call in cu_call %}
+                                <div class="couselor-record">{{call.call_date.date}} {{call.title}}</div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -181,7 +175,7 @@
             <div class="couselor-container"> 
                 <div class="related-photo-container">
                     <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
-                    <div class="cuname"><p>김상담</p></div>
+                    <div class="cuname"><p>{{request.session.co_name}} 님</p></div>
                 </div>
                 <div class="cuinfo-container">
                     <div class="category-container">
