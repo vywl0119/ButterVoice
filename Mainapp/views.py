@@ -138,3 +138,6 @@ def stars(request, star, co_id):
 
 def index(request):
     return render(request, 'Main/index.html')
+
+def call(request):
+    return render(request, 'Main/call.html')

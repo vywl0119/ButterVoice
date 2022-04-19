@@ -16,5 +16,6 @@ urlpatterns = [
     path('stars/<int:star>/<str:co_id>', views.stars, name = 'stars'),
 
     path('index/', views.index, name='index'),
+    path('call/', views.call, name='call'),
 ]
 
