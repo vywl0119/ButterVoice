@@ -8,7 +8,7 @@ def co_detail(request, id):
     # 상담사 정보
     user = counselor.objects.get(co_id=id)
 
-    # 상담사가 담담한 call list
+    # 상담사가 담담한 모든 call list
     call_list = calling.objects.filter(co_id_id=id)
 
     # 상담사가 담당한 고객 이름 중복제거
@@ -21,12 +21,15 @@ def co_detail(request, id):
     user_list = []
     for id in call_id:
         user_list.append(customer.objects.get(cu_id=id))
+
+    user_call = {}
+    for i in user_list:
+        user_call[customer.objects.get(cu_id=i.cu_id)] = calling.objects.filter(cu_id_id=i.cu_id)
     
 
-    print(user_list)
+
 
     if call_list:
-
         call_cnt = len(call_list)
         total_star = point.objects.filter(co_id_id=id) 
         if total_star:
@@ -49,6 +52,7 @@ def co_detail(request, id):
         'call_cnt':call_cnt,
         'avg_point':avg_point,
         'user_list':user_list,
+        'user_call':user_call,
     }
 
     return render(request, 'Board/co_detail.html', context)

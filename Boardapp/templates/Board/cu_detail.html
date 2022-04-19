@@ -72,10 +72,10 @@
                 {%endfor%}
 
                     </div>
-                </div> 
-            </div>
-            <button id="back_btn" type="button" onclick="location.href='/Board/cu_board'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
+              
+            <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
         </div>
+    </div>
     </div>
 </body>
 </html>
