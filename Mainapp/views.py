@@ -6,7 +6,7 @@ from datetime import date, datetime, timedelta
 
 def cu_call(request, co_id, category):
 
-    cu_id = request.session['user_id']
+    cu_id = request.session['cu_id']
     co_name = counselor.objects.get(co_id=co_id).name
     cu_name = customer.objects.get(cu_id=cu_id).name
  
@@ -36,7 +36,7 @@ def cu_main(request):
 
 def co_main(request):
 
-    co_id = request.session['user_id']
+    co_id = request.session['co_id']
 
     wait_call = calling.objects.filter(co_id=co_id,current='대기')
     

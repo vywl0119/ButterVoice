@@ -14,9 +14,18 @@ def role(request):
 def home(request):
     return render(request, 'Home/home.html')
 
-def logout(request):
-    del request.session['user_id']
-    del request.session['user_name']
+def logout(request, type):
+
+    if type == 'co':
+        del request.session['co_id']
+        del request.session['co_name']
+        del request.session['type']
+    else:
+        del request.session['cu_id']
+        del request.session['cu_name']
+        del request.session['type']
+
+    
     return redirect('Homeapp:home')
 
 def signin(request):
@@ -33,8 +42,9 @@ def signin(request):
             if type=='co':                
                 user = counselor.objects.get(co_id = id, pw=pw)
                 print(user.pw)
-                request.session['user_id'] = user.co_id
-                request.session['user_name'] = user.name
+                request.session['co_id'] = user.co_id
+                request.session['co_name'] = user.name
+                request.session['type'] = 'co'
 
                 return redirect('Mainapp:co_main')
 
@@ -42,8 +52,9 @@ def signin(request):
             else:
                 user = customer.objects.get(cu_id = id, pw=pw)   
                    
-                request.session['user_id'] = user.cu_id
-                request.session['user_name'] = user.name 
+                request.session['cu_id'] = user.cu_id
+                request.session['cu_name'] = user.name 
+                request.session['type'] = 'cu'
  
                 return redirect('Mainapp:cu_main')
     else:
@@ -78,62 +89,3 @@ def signup(request):
             comment.save()
             
             return redirect('/Home/signin')
-
-# def signup(request):
-#     if request.method == 'POST':
-#         if request.POST['pw'] == request.POST['pw_c']:
-#             print('a')
-#             user = User.objects.create_user(
-#                                             username=request.POST['id'],
-#                                             password=request.POST['pw'],
-#                                             first_name =request.POST['name'],
-#                                             phone=request.POST['phone'],
-#                                             category =request.POST['category'],
-#                                             profile =request.POST['profile'],
-#                                             type =request.POST['type'],)
-#             auth.login(request, user)
-#             return redirect('/')
-#         return render(request, 'signup.html')
-#     return render(request, 'signup.html')
-
-
-
-# def signup(request):
-#     if request.method == "POST":
-#         form = UserForm(request.POST)
-#         print('test')
-#         if form.is_valid():
-#             print('a')
-#             u = form.save(commit=False)
-#             # 이메일
-#             username = form.cleaned_data.get('username')
-#             # 비밀번호
-#             raw_password = form.cleaned_data.get('password1')
-#             # 닉네임
-#             first_name = form.cleaned_data.get('first_name')
-#             # 고객/상담사
-#             type = form.cleaned_data.get('type')
-#             # 카테고리
-#             category = form.cleaned_data.get('category')
-#             # 핸드폰
-#             phone = form.cleaned_data.get('phone')
-#             # 프로필
-#             profile_path = request.FILES.get('profile')
-#             if profile_path:  
-#                 name = profile_path.name
-#                 with open('media/%s' % name, 'wb') as file:
-#                     for chunk in profile_path.chunks():
-#                         file.write(chunk)
-#                 u.last_name = name
-                
-#             u.save()
-#             print('b')
-#             user = authenticate(username=username, password=raw_password, first_name=first_name, phone=phone, type=type, category=category,profile_path = profile_path)
-#             print('c')
-#             login(request, user)
-#             return redirect('Mainapp:cu_main')
-#     else:
-#         form = UserForm()
-#     return render(request, 'Home/signup.html', {'form': form})
-
-
