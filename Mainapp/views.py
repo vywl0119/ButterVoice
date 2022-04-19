@@ -18,15 +18,52 @@ def cu_call(request, co_id, category):
 
     return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no})
 
-def co_call(request):
+def co_call(request, c_no):
 
-    # call = calling.objects.get(c_no=c_no)
-    # call.current = '통화중'
-    # call.save()
+    # 해당 전화 내역
+    call = calling.objects.get(c_no=c_no)
 
-    
+    if call.current == '대기':
+        call.current = '통화중'
+        call.save()
 
-    return render(request, 'Main/co_call.html')
+    # 전화를 건 고객 id
+    cu_id = calling.objects.get(c_no=c_no).cu_id_id
+
+    # 전화를 건 고객 정보
+    cu = customer.objects.get(cu_id = cu_id)
+
+    # 전화를 건 고객 상담 정보
+    cu_call = calling.objects.filter(cu_id_id=cu_id)
+
+    context = {'cu':cu,
+               'cu_call':cu_call,
+               'call':call,
+    }
+
+
+    return render(request, 'Main/co_call.html', context)
+
+def call_update(request):
+
+    if request.method == 'POST':
+        print('a')
+   
+        
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        c_no = request.POST.get('c_no')
+
+        call = calling.objects.get(c_no=c_no)
+        call.title = title
+        call.content = content
+        call.save()
+        
+        
+        
+
+
+    return redirect('Mainapp:co_call', c_no=c_no )
 
 def cu_main(request):
 
@@ -39,10 +76,15 @@ def co_main(request):
     co_id = request.session['co_id']
 
     wait_call = calling.objects.filter(co_id=co_id,current='대기')
+
+    if wait_call:
     
-    first_call = wait_call[0]
-    wait_call = wait_call[1:]
-    call_len = len(wait_call)
+        first_call = wait_call[0]
+        wait_call = wait_call[1:]
+        call_len = len(wait_call)
+    else:
+        first_call = ""
+        call_len = 0
 
     context = {'wait_call': wait_call,
                 'first_call': first_call,
