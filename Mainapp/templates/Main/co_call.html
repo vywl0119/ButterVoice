@@ -16,7 +16,7 @@
     <div class="header_container">
         <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:co_main'  %}'"/>
         <img class="mic" id='mic' src="{% static 'image/mic_on.png' %}" onclick='changeImg()'/>
-        <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.type %}">(로그아웃)</a>
+        <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
 
@@ -166,7 +166,7 @@
                         <div class="counselor-record-title">상담 이력</div>
                         <div class="counselor-record-list">
                             {% for call in cu_call %}
-                                <div class="couselor-record">{{call.call_date.date}} {{call.title}}</div>
+                                <div class="couselor-record">{{call.call_date}} {{call.title}}</div>
                             {% endfor %}
                         </div>
                     </div>

@@ -30,15 +30,20 @@ def co_call(request, c_no):
     # 전화를 건 고객 id
     cu_id = calling.objects.get(c_no=c_no).cu_id_id
 
+    # 상담사 id
+    co_id = calling.objects.get(c_no=c_no).co_id_id
+
     # 전화를 건 고객 정보
     cu = customer.objects.get(cu_id = cu_id)
 
     # 전화를 건 고객 상담 정보
     cu_call = calling.objects.filter(cu_id_id=cu_id)
 
+    
     context = {'cu':cu,
                'cu_call':cu_call,
                'call':call,
+               
     }
 
 
@@ -60,9 +65,6 @@ def call_update(request):
         call.save()
         
         
-        
-
-
     return redirect('Mainapp:co_call', c_no=c_no )
 
 def cu_main(request):
@@ -77,6 +79,11 @@ def co_main(request):
 
     wait_call = calling.objects.filter(co_id=co_id,current='대기')
 
+    today = datetime.today()
+
+    today_call = calling.objects.filter(call_date=today, co_id_id=co_id)
+    today_call = len(today_call)
+
     if wait_call:
     
         first_call = wait_call[0]
@@ -86,9 +93,17 @@ def co_main(request):
         first_call = ""
         call_len = 0
 
+    
+    
+
+    
+    
+
+
     context = {'wait_call': wait_call,
                 'first_call': first_call,
                 'call_len':call_len,
+                'today_call':today_call,
                 } 
 
     return render(request, 'Main/co_main.html', context)

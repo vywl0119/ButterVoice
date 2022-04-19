@@ -35,7 +35,7 @@ class calling(models.Model):
     co_id = models.ForeignKey('counselor',  on_delete=models.CASCADE, db_column='co_id')
     cu_name = models.CharField(max_length=45, null=False)
     current = models.CharField(max_length=45, null=False, default='대기')
-    call_date = models.DateTimeField(null=False, auto_now_add=True)
+    call_date = models.DateField(null=False)
     category = models.CharField(max_length=45, null=True)
     title = models.CharField(max_length=100, null=True)
     content = models.CharField(max_length=500, null=True)
