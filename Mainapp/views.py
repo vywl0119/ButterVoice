@@ -12,7 +12,7 @@ def cu_call(request, co_id, category):
  
     today = datetime.now().date()
 
-    call = calling.objects.create(cu_id_id=cu_id, co_id_id=co_id, cu_name=cu_name, category = category, call_date = today)
+    call = calling.objects.create(cu_id_id=cu_id, co_id_id=co_id, cu_name=cu_name, co_name=co_name, category = category, call_date = today)
     call.save()
 
 

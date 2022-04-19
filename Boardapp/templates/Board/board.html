@@ -71,13 +71,13 @@
 
                 {% if type == 'co'%}
 
-                    <div class="move-container" onclick="location.href='../co_detail'">
+                    <div class="move-container" onclick="location.href='{% url 'Boardapp:co_detail' user.co_id %}'">
                         <img src="{% static 'image/img_co.png' %}">
                         <p>{{user.name}}</p>
                     </div>
                 {% else %}
 
-                    <div class="move-container" onclick="location.href='../cu_detail'">
+                    <div class="move-container" onclick="location.href='{% url 'Boardapp:cu_detail' user.cu_id %}'">
                         <img src="{% static 'image/img_cu.png' %}">
                         <p>{{user.name}}</p>
                     </div>

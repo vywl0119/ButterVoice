@@ -24,20 +24,20 @@
             <div class="profile-container">
                 <div class="photo-container">
                     <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                    <div class="coname"><p>김미영 상담사</p></div>
+                    <div class="coname"><p>{{user.co_id}} 상담사</p></div>
                 </div>
                 <div class="coinfo-container">
                     <div class="counselor-phonenumber-container">
                         <div class="counselor-phonenumber-title">상담사 번호</div>
-                        <div class="counselor-phonenumber">010-1234-5678</div>
+                        <div class="counselor-phonenumber">{{user.phone}}</div>
                     </div>
                     <div class="counselor-star-container">
                         <div class="counselor-star-title">상담 별점</div>
-                        <div class="counselor-star">5점</div>
+                        <div class="counselor-star">{{avg_point}}점</div>
                     </div>
                     <div class="counselor-count-container">
                         <div class="counselor-count-title">상담 횟수</div>
-                        <div class="counselor-count">5번</div>
+                        <div class="counselor-count">{{call_cnt}}번</div>
                     </div>
                 </div>
             </div>
@@ -391,7 +391,7 @@
                     </div>
                 </div> 
             </div>
-            <button id="back_btn" type="button" onclick="location.href='/Board/co_board'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
+            <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'co' %}'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
         </div>  
     </div>
 </body>

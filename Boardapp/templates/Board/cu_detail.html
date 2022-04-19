@@ -24,176 +24,53 @@
             <div class="profile-container">
                 <div class="photo-container">
                     <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-                    <div class="cuname"><p>발랄한 호랑이님</p></div>
+                    <div class="cuname"><p>{{user.name}}님</p></div>
                 </div>
                 <div class="cuinfo-container">
                     <div class="customer-phonenumber-container">
                         <div class="customer-phonenumber-title">고객 번호</div>
-                        <div class="customer-phonenumber">010-1234-5678</div>
+                        <div class="customer-phonenumber">{{user.phone}}</div>
                     </div>
                     <div class="customer-count-container">
                         <div class="customer-count-title">상담 횟수</div>
-                        <div class="customer-count">5번</div>
+                        <div class="customer-count">{{call_cnt}}번</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="counselor-info-container">
+
+            
             <div class="counselor-container">
+            {%for call in call_list %}
                 <div class="related-profile-container"> 
                     <div class="related-photo-container">
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
+                        <div class="coname"><p>{{call.co_name}} 상담사</p></div>
                     </div>
                     <div class="coinfo-container">
                         <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
+                            
                         </div>
                         <div class="counselor-record-container">
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
+                                <div class="counselor-date">{{call.call_date}}</div>
                             </div>
                             <div class="counselor-category-container">
                                 <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
+                                <div class="counselor-category">{{call.title}}</div>
                             </div>
                             <div class="counselor-content-container">
                                 <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
+                                <div class="counselor-content">{{call.content}}</div>
                             </div>
                         </div>
                     </div>
+
                 </div> 
-                <div class="related-profile-container"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
-                    </div>
-                    <div class="coinfo-container">
-                        <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
-                        </div>
-                        <div class="counselor-record-container">
-                            <div class="counselor-date-container">
-                                <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
-                            </div>
-                            <div class="counselor-category-container">
-                                <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
-                            </div>
-                            <div class="counselor-content-container">
-                                <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="related-profile-container"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
-                    </div>
-                    <div class="coinfo-container">
-                        <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
-                        </div>
-                        <div class="counselor-record-container">
-                            <div class="counselor-date-container">
-                                <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
-                            </div>
-                            <div class="counselor-category-container">
-                                <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
-                            </div>
-                            <div class="counselor-content-container">
-                                <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="related-profile-container"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
-                    </div>
-                    <div class="coinfo-container">
-                        <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
-                        </div>
-                        <div class="counselor-record-container">
-                            <div class="counselor-date-container">
-                                <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
-                            </div>
-                            <div class="counselor-category-container">
-                                <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
-                            </div>
-                            <div class="counselor-content-container">
-                                <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="related-profile-container"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
-                    </div>
-                    <div class="coinfo-container">
-                        <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
-                        </div>
-                        <div class="counselor-record-container">
-                            <div class="counselor-date-container">
-                                <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
-                            </div>
-                            <div class="counselor-category-container">
-                                <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
-                            </div>
-                            <div class="counselor-content-container">
-                                <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="related-profile-container"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>김미영 상담사</p></div>
-                    </div>
-                    <div class="coinfo-container">
-                        <div class="counselor-basic-info-container">
-                            <div class="counselor-phonenumber-title">상담사 번호</div>
-                            <div class="counselor-phonenumber">010-1234-5678</div>
-                        </div>
-                        <div class="counselor-record-container">
-                            <div class="counselor-date-container">
-                                <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">2022/04/14</div>
-                            </div>
-                            <div class="counselor-category-container">
-                                <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">와이파이건</div>
-                            </div>
-                            <div class="counselor-content-container">
-                                <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">와이파이 불량으로 인한 인터넷 연결 불안정</div>
-                            </div>
-                        </div>
+                {%endfor%}
+
                     </div>
                 </div> 
             </div>

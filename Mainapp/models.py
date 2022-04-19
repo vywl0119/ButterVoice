@@ -34,6 +34,7 @@ class calling(models.Model):
     cu_id = models.OneToOneField('customer',  on_delete=models.CASCADE, db_column='cu_id')
     co_id = models.ForeignKey('counselor',  on_delete=models.CASCADE, db_column='co_id')
     cu_name = models.CharField(max_length=45, null=False)
+    co_name = models.CharField(max_length=45, null=False)
     current = models.CharField(max_length=45, null=False, default='대기')
     call_date = models.DateField(null=False)
     category = models.CharField(max_length=45, null=True)
