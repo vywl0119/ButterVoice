@@ -28,6 +28,7 @@ def cu_main(request):
 def co_main(request):
     return render(request, 'Main/co_main.html')
 
+
 def star(request, co_id, star):
 
     print(co_id, star)
@@ -51,3 +52,7 @@ def stars(request, star, co_id):
 
 
     return redirect('Mainapp:cu_main')
+
+
+def index(request):
+    return render(request, 'Main/index.html')

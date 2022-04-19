@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,11 @@ STATICFILES_DIRS = [
 ]
 
 # AUTH_USER_MODEL = 'Mainapp.User'
+
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS={
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+     }
+}
