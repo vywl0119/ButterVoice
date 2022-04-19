@@ -8,6 +8,14 @@ from Mainapp.models import counselor, customer
 from django.core.serializers.json import DjangoJSONEncoder
 import json
 
+import numpy as np
+import sounddevice as sd
+import wave
+from gtts import gTTS
+import speech_recognition as sr
+from threading import Thread
+import threading
+
 def role(request):
     return render(request, 'Home/role.html')
 
@@ -89,3 +97,44 @@ def signup(request):
             comment.save()
             
             return redirect('/Home/signin')
+
+def mike(request):
+    th = Thread(target=work)
+    th.start()
+    return render(request, 'Home/mike.html')
+
+def work():
+    FILE_NAME = './test.wav'
+    wave_length = 10
+    sample_rate = 16_000
+
+    data = sd.rec(int(wave_length * sample_rate), sample_rate, channels=1)
+    sd.wait()
+
+    data = data / data.max() * np.iinfo(np.int16).max
+
+    data = data.astype(np.int16)
+
+    with wave.open(FILE_NAME, mode='wb') as wb:
+        wb.setnchannels(1)
+        wb.setsampwidth(2)
+        wb.setframerate(sample_rate)
+        wb.writeframes(data.tobytes())
+
+    r = sr.Recognizer()
+    harvard = sr.AudioFile('test.wav')
+    with harvard as source:
+        audio = r.record(source)
+        try:
+            stt_result = r.recognize_google(audio, language='ko_KR')
+        except:
+            stt_result = ""
+        print(stt_result)
+
+    if stt_result != "":
+        kor_wav = gTTS(stt_result, lang='ko')
+        kor_wav.save('test.wav')
+    
+        threading.Timer(0.5, work).start()
+    else:
+        print("## 대화 종료 ##")
