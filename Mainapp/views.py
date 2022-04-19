@@ -14,7 +14,8 @@ def cu_call(request, co_id, category):
     call = colling.objects.create(cu_id_id=cu_id, co_id_id=co_id, category = category, call_date = today)
     call.save()
 
-    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id})
+
+    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no})
 
 def co_call(request):
     return render(request, 'Main/co_call.html')
@@ -29,15 +30,17 @@ def co_main(request):
     return render(request, 'Main/co_main.html')
 
 
-def star(request, co_id, star):
+def star(request, co_id, star, c_no):
+
+    if star == 6:
+        call = colling.objects.get(c_no=c_no)
+        call.current = '종료'
+        call.save()
+
 
     print(co_id, star)
 
-    # star = star.objects.create(co_id_id=co_id, star=star)                                                                                                                                                                                                                                                                                                                                                                                                           
-    # star.save()
-
-
-    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id})
+    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id, 'c_no':c_no})
 
 
 def stars(request, star, co_id):

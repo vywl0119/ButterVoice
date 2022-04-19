@@ -10,7 +10,7 @@ urlpatterns = [
     path('cu_main/', views.cu_main, name = 'cu_main'),
     path('co_main/', views.co_main, name = 'co_main'),
 
-    path('star/<str:co_id>/<int:star>', views.star, name = 'star'),
+    path('star/<str:co_id>/<int:star>/<int:c_no>', views.star, name = 'star'),
     path('stars/<int:star>/<str:co_id>', views.stars, name = 'stars'),
 
     path('index/', views.index, name='index'),
