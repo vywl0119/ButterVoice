@@ -1,194 +1,44 @@
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-family: 'GimpoGothicRegular00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicRegular00.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'Cafe24Ssurround';
-    margin:0;
-    padding:0;
+    font-family: 'GimpoGothicRegular00';
+    overflow: hidden;
     
 }
 body{
     background-color: #313131;
-    overflow-y: hidden;
+    overflow: hi;
 }
 
-.top_bar_container {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.main-header{
-    width: 100px;
-    height: 20%;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    
-}
-
-#Today {
-    text-align: center;
-    font-family: 'Cafe24 Ssurround';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 50px;
-    margin-bottom: 10px;
-    color: rgba(255,255,255,1);
-}
-
-
-/* 왼쪽 상단 로고 */
-#logoimg {
-    width: 100px;
-    height: 100px;
-    left: 50px;
-    top: 30px;
-}
-
-#Butter_Voice {
-    left: 100px;
-    top: 75px;
-    width: 259px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: 'Cafe24 Ssurround';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 25px;
-    color: rgba(254,254,254,1);
-}
-
-/* 오른쪽 상단 로고 및 on/off 버튼*/
-.n_13 {
-    display : flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    height: 75px;
-    left: 1100px;
-    top: 10px;
-}
-
-#coimg {
-    width: 80px;
-    height: 80px;
-    left: 175px;
-    top: 20px;
-}
-
-#onoff_btn {
-    top: 57px;
-    width: 80px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: 'Cafe24 Ssurround';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    color: rgba(0,0,0,1);
-    border-radius: 15px;
-    background-color: rgba(254,254,254,1);
-}
-
-#Text {
-    left: 87px;
-    top: 50px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: 'Cafe24 Ssurround';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    color: rgba(254,254,254,1);
-}
-
-/* 상담 대기 고객 */
-.customer-container{
-    width: 70%;
-    height: 550px;
-    display: inline-block;
+.flex-container_col{ 
+    width: 100%; 
+    height: 90%; 
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: flex; 
     flex-direction: column;
-    margin-left: 30%;
-    
-    -webkit-box-align: center; 
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center; /* 수직 정렬 */
+  
+} 
+.flex-container{ 
+    width: 100%; 
+    height: 100%; 
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: flex; 
+    align-items: center;
 
     -webkit-box-pack: center;
     -moz-box-pack: center; 
     -ms-flex-pack: center; 
     justify-content: center; /* 수평 정렬 */
-
-    /* background-color: darkblue; */
-    overflow:auto;
-    overflow-y: overlay;
-}
-
-.related-profile-container{
-    background-color: white;
-    border-radius: 40px;
-    width: 60%;
-    height: 25%;
-    margin-bottom: 2%;
-    display: flex; 
-    justify-content: space-evenly;
-    align-items: center;
-
-    -webkit-box-pack: center;
-    -moz-box-pack: center; 
-    -ms-flex-pack: center;  /* 수평 정렬 */ 
-}
-
-#cuphoto{
-    width: 100px;
-    height: 100px;
-
-}
-
-.cuname{
-    white-space: nowrap;
-    text-align: center;
-    font-family: 'Cafe24 Ssurround';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 50px;
-    color: rgba(0,0,0,1);
-}
-
-#call{
-    width: 100px;
-    height: 100px;
-}
-
-.header_container {  
-    flex-direction: row;  
-    margin-top: 1%;
-  }
- 
-.logo {
-    width: 20%;
-    margin-left: 2%;
-}
-
-.profile_name {
-    font-size: large;
-    color: white;
-    display: inline-block;
-    float: right;
-    margin-top: 1%;
-    margin-right: 1%;
-}
-
-
+} 
 .flex-container1{
     width: 100%; 
     height: 30%;
@@ -212,23 +62,182 @@ body{
     margin-top: 30px;
 }
 
-
-.flex-container{
-    width: 100%; 
-    height: 90%; 
-    display: -webkit-box; 
-    display: -moz-box;
-    display: -ms-flexbox; 
-    display: flex; 
+/* call */
+.calling-container{
+    display: flex;
     flex-direction: column;
-} 
+    align-items: center;
+    margin-left: 5%;
+}
+
+.today_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    margin-bottom: 10%;
+}
+
+.today_container_title {
+    margin-top: 2%;
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
+
+.today_number {
+    margin-top: 2%;
+    margin-left: 3%;
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
+
+/* waiting */
+.waiting-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.waiting-info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.waiting_conatiner_title {
+    margin-top: 2%;
+    white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
+
+.waiting_number {
+    margin-top: 2%;
+    margin-left: 3%;
+    white-space: nowrap;
+    font-family: 'Cafe24 Ssurround';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(254,254,254,1);
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cu_box{
+    width: 600px;
+    height: 700px;
+    border-radius: 40px;
+    margin-top: 2%;
+    overflow-y: auto;
+}
+.cu_box::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+.cucall_box{
+    background-color: white;
+    width: 73%;
+    height: 100px;
+    border-radius: 30px;
+    margin-bottom: 2.5%;
+}
+
 
 .info-box{
-    background-color: #ffffff;
-    width: 80%;
-    height: 250%;
+    background-color: white;
+    width: 450px;
+    height: 450px;
     border-radius: 40px;
-    margin-left: 2%;
+
     margin-top: 2%;
-  
+    margin-bottom: 42%;
+}
+
+#cu_photo {
+    width: 20%;
+    margin-top: 60px;
+    align-items: center;
+    padding-left: 40%;
+}
+
+.cu_name {
+    margin-top: 10%;
+    text-align: center;
+}
+
+
+.cu_call {
+    width: 80%;
+    height: 20%;
+    margin-top: 8%;
+    margin-left: 10%;
+}
+
+.cu_img {
+    width: 17%;
+    margin-top: 2.5%;
+    
+}
+
+#cu_stop{
+    width: 80px;
+    height: 80px;
+    margin-top: 2.5%;
+}
+
+.call_name {
+    margin-top: 8%;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+  /* header css */
+.header_container {  
+    flex-direction: row;  
+    margin-top: 1%;
+}
+ 
+.logo {
+    margin-top: 1%;
+    width: 20%;
+    margin-left: 4%;
+    margin-right: 45%;
+}
+
+.profile_name {
+    font-size: large;
+    color: white;
+    display: inline-block;
+    float: right;
+    margin-top: 2%;
+    margin-right: 1%;
+}
+
+.logout {
+    font-size: large;
+    color: white;
+    display: inline-block;
+    
+    margin-top: 2%;
+    margin-left: 55%;
 }

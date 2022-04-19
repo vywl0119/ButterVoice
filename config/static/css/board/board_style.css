@@ -68,15 +68,6 @@ body{
     margin-right: 1%;
 }
 
-input{
-    width:90%;
-    height: 80%;
-    border:none;
-    padding: 10px;
-    font-size: 40px;
-    border-radius: 40px;
-}
-
 .info-box{
     background-color: #ffffff;
     width: 20%;
@@ -112,7 +103,6 @@ input{
     /* border-radius: 40px; */
     width: 8%;
     height: 100%;
-    margin-left: 2%;
     display: flex; 
     flex-direction: row;
 
@@ -132,7 +122,6 @@ input{
     /* border-radius: 40px; */
     width: 8%;
     height: 100%;
-    margin-left: 2%;
     display: flex; 
     flex-direction: row;
 
@@ -152,7 +141,7 @@ input{
     border-radius: 40px;
     width: 40%;
     height: 80%;
-    margin: 2%;
+    margin-top: 2%;
     margin-bottom: 2%;
     display: flex; 
     flex-direction: row;
@@ -172,9 +161,13 @@ input{
     width:90%;
     height: 80%;
     border:none;
-    padding: 10px;
-    font-size: 45px;
+    padding-top: 10px;
+    font-size: 120%;
     border-radius: 40px;
+    margin-top: 2%;
+
+    line-height: 1000px;
+    text-align: center;
 }
 
 .info-container{
@@ -231,7 +224,7 @@ input{
 }
 
 img{
-    width: 90px;
+    width: 45%;
 
 }
 
@@ -246,8 +239,9 @@ p{
   }
  
 .logo {
+    margin-top: 1%;
     width: 20%;
-    margin-left: 2%;
+    margin-left: 4%;
 }
 
 .profile_name {
@@ -257,4 +251,9 @@ p{
     float: right;
     margin-top: 1%;
     margin-right: 1%;
+}
+
+.search-img{
+    width: 40%;
+    margin-right: 30%;
 }
