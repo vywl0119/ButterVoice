@@ -177,22 +177,29 @@
                     <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
                     <div class="cuname"><p>{{request.session.co_name}} 님</p></div>
                 </div>
-                <div class="cuinfo-container">
-                    <div class="category-container">
-                        <div class="category-title">카테고리</div>
-                        <select class="content-category" name="카테고리" required="required" size="1">
-                            <option value="와이파이">와이파이</option>
-                            <option value="핸드폰">핸드폰</option>
-                            <option value="가입">가입</option>
-                        </select>
+
+                <form  id="send" action="{% url 'Mainapp:call_update' %}" method="post" >
+                    {% csrf_token %}
+                    <input type="hidden" name="c_no" value="{{call.c_no}}"/>
+
+                    <div class="cuinfo-container">
+                        <div class="category-container">
+
+                            <div class="category-title">카테고리 </div>
+                            {{call.category}}
+
+                        </div>
+                        <div class="content-container">
+                            <div class="content-title">제목</div>
+                            <p><input name="title" type="text" class="content-title-name" value={{call.title}}></p> 
+                        </div>
+                        <p><textarea name="content" class="content">{{call.content}}</textarea></p>
+                        <button id="save_btn" type="submit" >저장</button>
                     </div>
-                    <div class="content-container">
-                        <div class="content-title">제목</div>
-                        <p><input name="상담제목" type="text" class="content-title-name"/></p> 
-                    </div>
-                    <p><textarea name="상담내용" class="content"></textarea></p>
-                    <button id="save_btn" type="button" onclick='changeBtnName()'>저장</button>
-                </div>
+                </form>
+
+
+
             </div>
         </div> 
     </div>

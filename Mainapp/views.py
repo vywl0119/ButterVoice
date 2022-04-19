@@ -30,17 +30,11 @@ def co_call(request, c_no):
     # 전화를 건 고객 id
     cu_id = calling.objects.get(c_no=c_no).cu_id_id
 
-    print(cu_id)
-
     # 전화를 건 고객 정보
     cu = customer.objects.get(cu_id = cu_id)
 
     # 전화를 건 고객 상담 정보
     cu_call = calling.objects.filter(cu_id_id=cu_id)
-    date = cu_call[0].call_date.date()
-    
-
-    print(date)
 
     context = {'cu':cu,
                'cu_call':cu_call,
@@ -49,6 +43,27 @@ def co_call(request, c_no):
 
 
     return render(request, 'Main/co_call.html', context)
+
+def call_update(request):
+
+    if request.method == 'POST':
+        print('a')
+   
+        
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        c_no = request.POST.get('c_no')
+
+        call = calling.objects.get(c_no=c_no)
+        call.title = title
+        call.content = content
+        call.save()
+        
+        
+        
+
+
+    return redirect('Mainapp:co_call', c_no=c_no )
 
 def cu_main(request):
 
