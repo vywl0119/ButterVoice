@@ -3,31 +3,25 @@
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/role.css' %}"/>
 
-<header class="header">
-    <img id="img_Left" src="{% static 'image/img_logo.png' %}" onclick="location.href='/Home/home'"/>
-    <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
-    {% comment %} <div class="rightDiv" text-align="center">
-        <img id="img_Right" src="{% static 'image/img_co.png' %}"/>
-        <div class="userName">행복한 호랑이 님</div>
-        
-    </div> {% endcomment %}
-</header>
+<div class="header_container">
+    <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Homeapp:home'  %}'"/>
+</div>
 <div class="main_div">
     <div class="main_text">회원 선택</div>
 </div>
 <div class="select_div">
 
-        <div class="image_leftBtn select"  onclick="location.href='{% url 'Homeapp:signups' 'cu'%}'">
-            <div class="button">
-                <div class="text">고객</div>
+        <div class="image_leftBtn select">
+            <div class="button" onclick="location.href='{% url 'Homeapp:signups' 'cu'%}'">
                 <img id="image" src="{% static 'image/img_cu.png' %}"/>
+                <div class="text">고객</div>                
             </div>
         </div>
 
-        <div class="image_rightBtn select" onclick="location.href='{% url 'Homeapp:signups' 'co'%}'">
-            <div class="button">
-                <div class="text">상담사</div>
+        <div class="image_rightBtn select">
+            <div class="button" onclick="location.href='{% url 'Homeapp:signups' 'co'%}'">
                 <img id="image" src="{% static 'image/img_co.png' %}"/>
+                <div class="text">상담사</div>
             </div>
         </div>
 
