@@ -17,8 +17,8 @@
     <div class="header_container">
 
         <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:co_main' %}'" />
-        <a class = "profile_name" href="{% url 'Homeapp:logout' %}">(로그아웃)</a>
-        <span class = "profile_name">{{request.session.user_name}}님 반갑습니다 </span>
+        <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.type %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
 
     <div class="flex-container_col">
@@ -30,18 +30,27 @@
                         </div>
                         <div class="info-box" >           
                             <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
-                            <h1 class = "cu_name">호랑이 님</h1>            
+                            <h1 class = "cu_name">{{first_call.cu_name}} 님</h1>            
                             <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
                         </div>
                     </div>
                     <div class="waiting-container">
                         <div class="waiting-info-container">
                             <div class = "waiting_conatiner_title">대기자:</div>
-                                <div class="waiting_number">24명</div>
+                                <div class="waiting_number">{{call_len}}명</div>
                         </div>
                         <div class = "cu_box">
                             <div class = "col">
+                                {%for call in wait_call %}
                                     <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">{{call.cu_name}} 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% comment %} <div class = "cucall_box">
                                         <div class="row">
                                             <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
                                             <div class="call_name">호랑이 님</div>            
@@ -82,14 +91,7 @@
                                             <div class="call_name">호랑이 님</div>            
                                             <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
                                         </div>
-                                    </div>
-                                    <div class = "cucall_box">
-                                        <div class="row">
-                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
-                                            <div class="call_name">호랑이 님</div>            
-                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call'  %}'"/>
-                                        </div>
-                                    </div>
+                                    </div> {% endcomment %}
                             </div>
                         </div>
                     </div>

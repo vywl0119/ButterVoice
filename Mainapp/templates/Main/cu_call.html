@@ -17,8 +17,8 @@
     <div class="header_container">
 
         <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:cu_main' %}'" />
-        <a class = "profile_name" href="{% url 'Homeapp:logout' %}">(로그아웃)</a>
-        <span class = "profile_name">{{request.session.user_name}}님 반갑습니다 </span>
+        <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.type  %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.cu_name}}님 반갑습니다 </span>
     </div>
 
     <div class="flex-container">
@@ -33,7 +33,7 @@
                     <h2>상담이 지연되고 있어 원활한 상담이 불가한 점 양해 부탁드립니다.</h2>
                     <h2>신속한 응대를 위해 노력하겠습니다</h2>
                 </div>
-                <img class="call_image" src="{% static 'image/no_call.png' %}" onclick="location.href='{% url 'Mainapp:star' co_id 5 %}'"/>
+                <img class="call_image" src="{% static 'image/no_call.png' %}" onclick="location.href='{% url 'Mainapp:star' co_id 6 c_no %}'"/>
             </div>
         </div>
             
