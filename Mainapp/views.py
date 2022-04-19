@@ -16,3 +16,6 @@ def co_main(request):
 
 def star(request, star):
     return render(request, 'Main/star.html', {'star' : star})
+
+def index(request):
+    return render(request, 'Main/index.html')
