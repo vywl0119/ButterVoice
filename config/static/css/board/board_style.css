@@ -55,6 +55,7 @@ body{
     -ms-flex-pack: center; 
     justify-content: center; /* 수평 정렬 */
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .search-box{
