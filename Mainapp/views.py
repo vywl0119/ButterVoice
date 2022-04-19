@@ -18,13 +18,14 @@ def cu_call(request, co_id, category):
 
     return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no})
 
-def co_call(request):
+def co_call(request, c_no):
 
-    # call = calling.objects.get(c_no=c_no)
-    # call.current = '통화중'
-    # call.save()
+    print(c_no)
 
-    
+    call = calling.objects.get(c_no=c_no)
+    call.current = '통화중'
+    call.save()
+
 
     return render(request, 'Main/co_call.html')
 
