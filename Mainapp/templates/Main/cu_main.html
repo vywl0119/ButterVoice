@@ -14,8 +14,8 @@
 
 <body>
     <div class="header_container">
-        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home' %}'" />
-        <a class = "profile_name" style="margin-right:4%;" href="{% url 'Homeapp:logout' request.session.cu_type %}">(로그아웃)</a>
+        <img class="cu_logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home' %}'" />
+        <a class = "profile_name" style="margin-right:3.5%;" href="{% url 'Homeapp:logout' request.session.cu_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.cu_name}}님 반갑습니다 </span>
     </div>
     
@@ -34,23 +34,22 @@
           </div>
 
 
-            <div class="flex-container1">
+            <div class="info-container">
+                <div class="flex-container1">
+                    {% for co in total_co %}
 
-            {% for co in total_co %}
-
-                <div class="cuinfo-box">
-                    <div class="profile-container">
-                        <img class="comain_image" src="{% static 'image/img_co.png' %}" />
-                        <div class="profile-container_col">
-                            <h2 class="comain_name">{{co.name}} 상담사</h2>
+                        <div class="move-container">
+                            <img class="comain_image" src="{% static 'image/img_co.png' %}" />
+                            <div class="profile-container_col">
+                                <h2 class="comain_name">{{co.name}} 상담사</h2>
+                                
+                                <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='{% url 'Mainapp:cu_call' co.co_id co.category%}'"/>
+                            </div>
                             
-                            <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='{% url 'Mainapp:cu_call' co.co_id co.category%}'"/>
                         </div>
-                       
-                    </div>
-                </div>   
-            {%endfor%}
-
+                    
+                    {%endfor%}
+                </div>
             </div>
                     
         
