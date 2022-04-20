@@ -37,7 +37,7 @@
 
             <form action="{% url 'Boardapp:search_board' 'co'%}" method="POST" class="search-container">
                 {% csrf_token %}
-            <div class="search-container">
+            <div class="search-container1">
                 <input type="text" placeholder="이름을 검색하세요." name="q" ">
                 <button class="search-button" style="border:none;background-color:transparent;width: 20%;height: 50%;" type="summit">
                     <img class='search-img' src="{% static 'image/img_search.png' %}">
@@ -54,14 +54,12 @@
             </div>
             <div class="co-container">
                 <div style="width:80px;height:80px;float:left;margin-right:30px">
-  
                         <img style="width: 100%;" src="{% static 'image/img_cu.png' %}" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'">
-                  
                 </div>
             </div>
             <form action="{% url 'Boardapp:search_board' 'cu'%}" method="POST" class="search-container">
                 {% csrf_token %}
-            <div class="search-container">
+            <div class="search-container1">
                 <input type="text" placeholder="이름을 검색하세요." name="q" >
                 <button class="search-button" style="border:none;background-color:transparent;width: 20%;height: 50%;" type="summit">
                     <img class='search-img' src="{% static 'image/img_search.png' %}">
@@ -78,7 +76,7 @@
             
         </div>
 
-        <div class="info-container">
+        <div class="info-container" style="overflow: hidden;">
             <div class="flex-container1">
 
                 {% for user in users%}

@@ -104,7 +104,7 @@ def mike(request):
     return render(request, 'Home/mike.html')
 
 def work():
-    FILE_NAME = './test.wav'
+    FILE_NAME = './config/static/test.wav'
     wave_length = 10
     sample_rate = 16_000
 
@@ -122,7 +122,7 @@ def work():
         wb.writeframes(data.tobytes())
 
     r = sr.Recognizer()
-    harvard = sr.AudioFile('test.wav')
+    harvard = sr.AudioFile('config/static/test.wav')
     with harvard as source:
         audio = r.record(source)
         try:
@@ -133,7 +133,7 @@ def work():
 
     if stt_result != "":
         kor_wav = gTTS(stt_result, lang='ko')
-        kor_wav.save('test.wav')
+        kor_wav.save('config/static/test.wav')
     
         threading.Timer(0.5, work).start()
     else:

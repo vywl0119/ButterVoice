@@ -79,10 +79,10 @@ body{
     width: 80px;
     height: 80px;
     margin-top: 3%;
-    margin-left: 43%;
+    margin-left: 40%;
 }
 .coname{
-    margin-left: 40%;
+    margin-left: 35%;
 }
 /* 상담사 기본정보 컨테이너 */
 .coinfo-container{
@@ -185,6 +185,7 @@ body{
     display: flex;
     flex-direction: row;
     margin-bottom: 2%;
+    margin-top: 2%;
 }
 .customer-phonenumber-title{
     margin-top: 2%;

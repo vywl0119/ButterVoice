@@ -30,7 +30,7 @@ def co_detail(request, id):
 
     if call_list:
         call_cnt = len(call_list)
-        total_star = point.objects.filter(co_id_id=id) 
+        total_star = point.objects.filter(co_id_id=user.co_id) 
         if total_star:
             star_cnt = len(total_star)
             sum_point = 0
@@ -61,8 +61,6 @@ def cu_detail(request, id):
     user = customer.objects.get(cu_id=id)
     call_list = calling.objects.filter(cu_id_id=id)
     call_cnt = len(call_list)
-
-    
 
     context = {
         'user':user,
