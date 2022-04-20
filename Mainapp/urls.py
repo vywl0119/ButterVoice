@@ -10,6 +10,8 @@ urlpatterns = [
     path('cu_main/', views.cu_main, name = 'cu_main'),
     path('co_main/', views.co_main, name = 'co_main'),
     
+    path('category/<str:category>', views.category, name = 'category'),
+
     path('call_update/', views.call_update, name = 'call_update'),
 
     path('star/<str:co_id>/<int:star>/<int:c_no>', views.star, name = 'star'),
