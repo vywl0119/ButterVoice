@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from Mainapp.models import counselor, customer, calling, point
 from datetime import date, datetime, timedelta
+from rest_framework import viewsets
+from .serializers import customerSerializer, counselorSerializer
+from .models import counselor, customer
 
 # Create your views here.
 
@@ -144,3 +147,12 @@ def index(request):
 
 def call(request):
     return render(request, 'Main/call.html')
+
+
+class customerViewSet(viewsets.ModelViewSet):
+    queryset = customer.objects.all()
+    serializer_class = customerSerializer
+
+class counselorViewSet(viewsets.ModelViewSet):
+    queryset = counselor.objects.all()
+    serializer_class = counselorSerializer

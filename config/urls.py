@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib import admin
+
+from rest_framework import routers
+from Mainapp import views
+
+router = routers.DefaultRouter()
+router.register(r'customerinfo', views.customerViewSet)
+router.register(r'counselorinfo', views.customerViewSet)
 
 
 urlpatterns = [
@@ -24,5 +33,6 @@ urlpatterns = [
     path('Main/', include('Mainapp.urls')),
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
+    url(r'^',include(router.urls)),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
