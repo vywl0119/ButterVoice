@@ -25,7 +25,7 @@ from Mainapp import views
 
 router = routers.DefaultRouter()
 router.register(r'customerinfo', views.customerViewSet)
-router.register(r'counselorinfo', views.customerViewSet)
+router.register(r'counselorinfo', views.counselorViewSet)
 
 
 urlpatterns = [
