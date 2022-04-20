@@ -56,13 +56,12 @@
                                 <div class="customer-phonenumber-title">고객 번호</div>
                                 <div class="customer-phonenumber">{{key.phone}}</div>
                             </div>
-
                             
                             <div class="counselor-record-container">
                                 <div class="counselor-record-title">상담 이력</div>
                                 <div class="counselor-record-list">
                                     {% for call in value %}
-                                        <div class="couselor-record">{{call.call_date}} {{call.co_name}} {{call.title}}</div>
+                                        <div class="couselor-record">{{call.call_date}} {{call.title}}</div>
                                     {% endfor %}
                                 </div>
                             </div>

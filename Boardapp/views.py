@@ -7,7 +7,7 @@ def co_detail(request, id):
     
     # 상담사 정보
     user = counselor.objects.get(co_id=id)
-
+   
     # 상담사가 담담한 모든 call list
     call_list = calling.objects.filter(co_id_id=id)
 
@@ -23,11 +23,9 @@ def co_detail(request, id):
         user_list.append(customer.objects.get(cu_id=id))
 
     user_call = {}
-    for i in user_list:
-        user_call[customer.objects.get(cu_id=i.cu_id)] = calling.objects.filter(cu_id_id=i.cu_id, co_id_id=id)
     
-
-
+    for i in user_list:
+        user_call[customer.objects.get(cu_id=i.cu_id)] = calling.objects.filter(cu_id_id=i.cu_id, co_id_id=user.co_id)
 
     if call_list:
         call_cnt = len(call_list)
