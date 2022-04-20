@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Mainapp.models import counselor, customer, calling, point
+from django.db.models import Q
 
 # Create your views here.
 
@@ -79,4 +80,35 @@ def board(request, type):
         users = customer.objects.all()
 
     return render(request, 'Board/board.html', {'users':users,'type':type})
+
+
+
+def search_board(request, type):
+
+    if type == "co":
+        total_board = counselor.objects.all()
+        q = request.POST.get('q', "") 
+
+        if q:
+            users = total_board = total_board.filter(
+                Q(co_id__icontains = q) | #상담사 id
+                Q(name__icontains = q) #상담사 이름
+            )           
+            return render(request, 'Board/board.html', {'users' : users, 'type':type})
+
+        else:
+            return render(request, 'Boardapp:board')
+    else:
+        total_board = customer.objects.all()
+        q = request.POST.get('q', "") 
+
+        if q:
+            users = total_board = total_board.filter(
+                Q(cu_id__icontains = q) | #상담사 id
+                Q(name__icontains = q) #상담사 이름
+            )           
+            return render(request, 'Board/board.html', {'users' : users, 'type':type})
+
+        else:
+            return render(request, 'Boardapp:board')
 
