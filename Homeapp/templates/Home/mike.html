@@ -1,2 +1,32 @@
 {% load static %}
+<header>
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revaliate">
+</header>
+<button onclick="reloading()">클릭</button>
 10초동안 대화가 없으면 녹음이 종료됩니다.
+<audio id="audio">
+    <source id="audioSource" src="{% static 'test.wav' %}" type="audio/wav">
+</audio>
+
+<!-- https://developer.mozilla.org/ko/docs/Web/Events : window.addEventListener 옵션 -->
+<script type="text/javascript">
+    window.addEventListener("load", function(event) {
+        function playWav() {
+            document.getElementById("audio").src = "{% static 'test.wav' %}";
+            document.getElementById("audio").play();
+        }
+        setInterval(playWav, 11000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+    });
+    /*window.onload=function() {
+        function playWav() {
+            alert("play");
+            document.getElementById("audio").src = "{% static 'test.wav' %}";
+            document.getElementById("audio").play();
+        }
+        setInterval(playWav, 10500);
+    }*/
+    function reloading() {
+        document.getElementById("audio").src = "{% static 'test.wav' %}";
+        document.getElementById("audio").play();
+    }
+</script>
