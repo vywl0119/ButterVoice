@@ -1,5 +1,5 @@
 .image_leftBtn {
-    padding-left: 25%;
+    padding-left: 22.5%;
 }
 
 .image_rightBtn {
@@ -42,8 +42,9 @@
     margin-right: 5%;
 }
 
-.button {
-    height: 60%;
+.button {    
+    height: 79%;
+    width: 120%;
     border-radius: 30px;
     background-color: white;
 

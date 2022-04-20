@@ -18,7 +18,19 @@
 
         <form class="bg_invisible" id="send" action="{% url 'Homeapp:signup' %}" method="post" onsubmit="return false;">
             {% csrf_token %}
-            <div class="form-container">    
+            <div class="form-container"> 
+                
+                {% if type == "co" %}
+                <div class="photo-container">
+                    <div class="photo">
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    </div>
+                    <div class="upload_form">
+                        <input type="file" name="profile"
+                        id="last_name" onchange="imageView(this)">
+                    </div>
+                </div>
+                {%else%}
                 <div class="photo-container">
                     <div class="photo">
                         <img id="cophoto" src="/static/image/img_cu.png" alt="프로필 사진">
@@ -28,6 +40,9 @@
                         id="last_name" onchange="imageView(this)">
                     </div>
                 </div>
+                {%endif%}
+
+
                 <div class="input-container">
                     <div class="row bg_invisible">
                         <input type="hidden" id="type" name="type" value="{{type}}"/>
@@ -59,15 +74,14 @@
                         {% if type == "co" %}
                         <div class="col">
                             <div class="text">카테고리</div>
-                            
-                        
-
-
-                            <select class="content-category" name="category" required="required" size="1">
-                                <option value="와이파이">와이파이</option>
-                                <option value="핸드폰">핸드폰</option>
-                                <option value="가입">가입</option>
-                            </select>
+                            <div class="category-container">
+                                <input type="radio" id="type" name="category" value="WIFI" checked class="radio">
+                                    WIFI
+                                <input type="radio" id="type" name="category" value="핸드폰" class="radio">
+                                    핸드폰
+                                <input type="radio" id="type" name="category" value="가입" class="radio">
+                                    가입
+                            </div>
                         </div>
                         {% endif %}
                         <div class="div_confirm">
