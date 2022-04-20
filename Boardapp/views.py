@@ -24,7 +24,7 @@ def co_detail(request, id):
 
     user_call = {}
     for i in user_list:
-        user_call[customer.objects.get(cu_id=i.cu_id)] = calling.objects.filter(cu_id_id=i.cu_id)
+        user_call[customer.objects.get(cu_id=i.cu_id)] = calling.objects.filter(cu_id_id=i.cu_id, co_id_id=id)
     
 
 
