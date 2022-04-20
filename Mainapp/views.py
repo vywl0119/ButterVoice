@@ -74,6 +74,13 @@ def cu_main(request):
 
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
+
+def category(request, category):
+
+    total_co = counselor.objects.filter(category=category)
+
+    return render(request, 'Main/cu_main.html',{'total_co':total_co})
+
 def co_main(request):
 
     co_id = request.session['co_id']
@@ -95,11 +102,6 @@ def co_main(request):
         call_len = 0
 
     
-    
-
-    
-    
-
 
     context = {'wait_call': wait_call,
                 'first_call': first_call,
