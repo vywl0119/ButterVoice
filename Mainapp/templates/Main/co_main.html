@@ -58,11 +58,14 @@
                                             <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" />
                                         </div>
                                     </div>
-                                    {% endfor %}
+                                {% endfor %}
                                     
+                            
                             </div>
-                        </div>
+                        </div>  
                     </div>
+                    <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'co' %}'"><img id="backphoto" src="/static/image/board.png" alt=""></button>
+                           
                 </div>  
         </div>
 </body>
