@@ -35,6 +35,16 @@
                 </div>
             </div>
 
+            <form action="{% url 'Boardapp:search_board' 'co'%}" method="POST" class="search-container">
+                {% csrf_token %}
+            <div class="search-container">
+                <input type="text" placeholder="이름을 검색하세요." name="q" ">
+                <button class="search-button" style="border:none;background-color:transparent;width: 20%;height: 50%;" type="summit">
+                    <img class='search-img' src="{% static 'image/img_search.png' %}">
+                </button>
+            </div>
+        </form>
+
             {%else%}
 
             <div class="cu-container">
@@ -49,6 +59,15 @@
                   
                 </div>
             </div>
+            <form action="{% url 'Boardapp:search_board' 'cu'%}" method="POST" class="search-container">
+                {% csrf_token %}
+            <div class="search-container">
+                <input type="text" placeholder="이름을 검색하세요." name="q" >
+                <button class="search-button" style="border:none;background-color:transparent;width: 20%;height: 50%;" type="summit">
+                    <img class='search-img' src="{% static 'image/img_search.png' %}">
+                </button>
+            </div>
+            </form>
 
 
             {%endif%}
@@ -56,12 +75,7 @@
 
 
 
-            <div class="search-container">
-                <input type="text" placeholder="이름을 검색하세요.">
-                <button class="search-button" style="border:none;background-color:transparent;width: 20%;height: 50%;">
-                    <img class='search-img' src="{% static 'image/img_search.png' %}">
-                </button>
-            </div>
+            
         </div>
 
         <div class="info-container">
