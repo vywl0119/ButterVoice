@@ -1,17 +1,26 @@
 .background {
     border-radius: 30px;
-    width: 80%;
-    height: 83%;
-    margin-top: 2%;
-    margin-left: 10%;
+    width: 60%;
+    height: 62%;
+    margin-top: 4%;
+    margin-left: 30%;
     margin-right: 5%;
-    background-color: white;
+
+  
+    width: 90%;
+    max-width: 800px;
+    max-height: 900px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.7);
+    text-align: center;
 }
 .form-container{
     display: flex;
     flex-direction: row;
     margin-top: 2%;
-    background-color: white;
+
     width: 100%;
     height: 10px;
 }
@@ -19,17 +28,17 @@
     display: flex;
     flex-direction: row;
     margin-top: 2%;
-    background-color: white;
-    color: #313131;
+
+    color: white;
     width: 80%;
     height: 10px;
 }
 .photo-container{
-    /* background-color: aqua; */
+ /* background-color: aqua; * */
     width: 40%;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    /* background-color: white; */
 }
 .profile-container .photo-container > img{
     width: 150px;
@@ -45,7 +54,7 @@
     width: 200px;
     height: 200px;
     margin-top: 10%;
-    margin-left: 30%;
+    margin-left: 20%;
     background-color: #00000000;
 }
 
@@ -56,16 +65,17 @@
     width:300px;
     margin-top: 15px;
     margin-left: 30%;
-    color: black;
+    color: white;
     background-color: #00000000;
 }
 .input-container{
     width: 50%;
-    margin-left: 0;
+    height: 100%;
+    margin-left: 3%;
     display: flex;
     flex-direction: row;
-    background-color: white;
-}
+
+} 
 .col {
     display: flex;
     flex-direction: row;
@@ -81,7 +91,7 @@
 }
 
 .main_text {
-    color: black;
+    color: white;
     font-size: 50px;
     text-align: center;
     padding-top: 2%;
@@ -95,21 +105,24 @@
     font-size: 23px;
     padding-right: 3%;
     margin-top: 1%;
-    color: black;
+    color: white;
     background-color: #00000000;
     float: left;
 }
 
 .input {
-    width: 80%;
-    height: 38px;
+    width: 100%;
+    height: 40px;
     border: 0;
-    border-radius: 40px ;
+    border-radius: 5px;
     outline: none;
-    font-size: 30px;
+    color: #0d0d0d;
+    font-size: 16px;
     font-family: "굴림";
     background-color: rgb(233, 233, 233);
-    margin-bottom: 1%;
+    margin-bottom: 2%;
+    text-align: center;
+
 }
 
 .col {
@@ -118,20 +131,20 @@
 }
 
 .confirm {
-    width: 75%;
-    font-size: 30px;
+    width: 100%;
+    font-size: 25px;
     border: 0;
-    border-radius: 40px;
+    border-radius: 5px;
     padding-top: 15px;
-    margin-left: 0;
+    margin-left: 5%;
     outline: none;
-    background-color: #fce205;
+    background-color: #6aafe6;
     color: white;
 }
 
 .confirm:hover {
     outline: none;
-    background-color: #6aafe6;
+    background-color: #fce205;
     color: white;
 }
 
@@ -151,3 +164,69 @@
 .radio{
     margin-left: 5%;
 }
+
+  /* Simple CSS3 Fade-in Animation */
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  
+  .fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+  
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+  
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+  }
+  
+  .fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+  
+  .fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  
+  .fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+  
+  .fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  
+  /* Simple CSS3 Fade-in Animation */
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+  }
+  
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+  
+  

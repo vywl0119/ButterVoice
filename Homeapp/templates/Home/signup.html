@@ -7,7 +7,7 @@
     <img id="img_Left" src="{% static 'image/img_logo.png' %}" onclick="location.href='/Home/home'"/>
     <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
 </header>
-<div class="background">
+<div class="background fadeIn">
     <div class="container bg_invisible">
         {% if type == "co" %}
             <div class="main_text">상담사 회원가입</div>
@@ -48,28 +48,28 @@
                         <input type="hidden" id="type" name="type" value="{{type}}"/>
                         
                         <div class="col">
-                            <div class="text">아이디</div>
-                            <input class="input" type="text" id="id" name="id"/>
+                            {% comment %} <div class="text">아이디</div> {% endcomment %}
+                            <input class="input" type="text" id="id" name="id" placeholder="id"/>
                         </div>
 
                         <div class="col">
-                            <div class="text">비밀번호</div>
-                            <input class="input" type="password" id="pw" name="pw" />
+                            {% comment %} <div class="text">비밀번호</div> {% endcomment %}
+                            <input class="input" type="password" id="pw" name="pw" placeholder="pw"/>
                         </div>
                         <div class="col">
-                            <div class="text">비밀번호 확인</div>
-                            <input class="input" type="password" id="pw_c" name="pw_c" />
+                            {% comment %} <div class="text">비밀번호 확인</div> {% endcomment %}
+                            <input class="input" type="password" id="pw_c" name="pw_c" placeholder="pw-check"/>
                         </div>
                         <div class="col bg_invisible">
                             <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
                         </div>
                         <div class="col">
-                            <div class="text">이름</div>
-                            <input class="input" type="text" id="name" name="name" />
+                            {% comment %} <div class="text">이름</div> {% endcomment %}
+                            <input class="input" type="text" id="name" name="name" placeholder="name"/>
                         </div>
                         <div class="col">
-                            <div class="text">전화번호</div>
-                            <input class="input" type="text" id="phone" name="phone" />
+                            {% comment %} <div class="text">전화번호</div> {% endcomment %}
+                            <input class="input" type="text" id="phone" name="phone" placeholder="phone-number"/>
                         </div>
                         {% if type == "co" %}
                         <div class="col">

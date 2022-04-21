@@ -190,10 +190,15 @@ h6, .h6 {
 }
 
 p {
+  width: 600px;
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 1rem;
+  margin-right: 3rem;
   color: azure;
+  text-align: center;
+  
+
 }
 
 abbr[title],
@@ -566,6 +571,7 @@ progress {
 
 .display-4 {
   font-size: calc(0.8rem + 2.7vw);
+  text-align: center;
   line-height: 1.2;
   color: azure;
 }
@@ -630,7 +636,9 @@ progress {
 .blockquote-footer {
   margin-top: -1rem;
   margin-bottom: 1rem;
+  margin-left: 10rem;
   font-size: 0.875em;
+  text-align: center;
   color: #6c757d;
 }
 .blockquote-footer::before {
@@ -7235,7 +7243,7 @@ textarea.form-control-lg {
 }
 
 .m-0 {
-  margin: 0 !important;
+  margin-left: 20rem !important;
 }
 
 .m-1 {
@@ -7465,7 +7473,7 @@ textarea.form-control-lg {
 }
 
 .p-5 {
-  padding: 3rem !important;
+  padding: 1.5rem !important;
 }
 
 .px-0 {
@@ -11390,6 +11398,7 @@ header.masthead .masthead-content .masthead-subheading {
 #home_img_1{
   width: 402x;
   height: 402px;
+  margin-left: 4rem;
 }
 
 
@@ -11402,4 +11411,5 @@ header.masthead .masthead-content .masthead-subheading {
 #home_img_3{
   width: 402x;
   height: 402px;
+  margin-left: 4rem;
 }
