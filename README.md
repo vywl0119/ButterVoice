@@ -65,7 +65,7 @@
   <summary>메인 화면</summary>
    <div markdown="1">       
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163407923-5b085483-b7b2-4fb6-85fc-dc8076a7eca9.png" width="740" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/164475591-a4865080-903a-42f2-9084-d6eae1301b29.gif" width="740" height="412">
      <br>
      <text>⇒ 버터보이스의 홈화면으로 회원가입과 로그인을 할 수 있는 버튼이 있다</text>
    </div>
