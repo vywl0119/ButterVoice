@@ -137,6 +137,20 @@ def work():
             stt_result = r.recognize_google(audio, language='ko_KR')
         except:
             stt_result = ""
+        
+        # 욕설 제거 필터링
+
+        file_path='config/static/badwords.txt'
+
+        with open(file_path, 'rt', encoding='UTF8') as f:
+            insult = f.readlines()
+
+        insult=[line.rstrip("\n") for line in insult]
+
+        for i in range(len(insult)):
+            word=insult[i]
+            stt_result = stt_result.replace(f"{word}","")
+        
         print(stt_result)
 
     if stt_result != "":
