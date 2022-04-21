@@ -63,7 +63,7 @@ body{
     width: 40%;
     height: 100%;
     margin: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     display: flex; 
     flex-direction: row;
     
@@ -71,34 +71,39 @@ body{
 /* 고객사진 컨테이너 */
 .photo-container{
     /* background-color: aqua; */
-    width: 40%;
+    width: 70%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4%;
 }
 .profile-container .photo-container > img{
     width: 80px;
     height: 80px;
-    margin-top: 3%;
-    margin-left: 35%;
 }
 .cuname{
-    margin-left: 38%;
 }
 /* 고객 기본 정보 컨테이너 */
 .cuinfo-container{
-    width: 60%;
+    width: 80%;
     display: flex; 
-    flex-direction: column;  
+    flex-direction: column;
+    justify-content: center;
 }
 .customer-phonenumber-container{
     display: flex;
     flex-direction: row;
 }
 .customer-phonenumber-title{
-    margin-top: 10%;
+    margin-top: 2%;
 
 }
 .customer-phonenumber{
-    margin-top: 10%;
-    margin-left: 3%;
+    margin-top: 2%;
+    margin-left: 6%;
 }
 .customer-count-container{
     display: flex;
@@ -110,7 +115,7 @@ body{
 }
 .customer-count{
     margin-top: 2%;
-    margin-left: 3%;
+    margin-left: 6%;
 }
 
 
@@ -173,7 +178,7 @@ body{
     display: flex;
     flex-direction: row;
     
-    margin-bottom: 2%;
+    margin-top: 1%;
     /* background-color: antiquewhite; */
 
 }
@@ -217,7 +222,11 @@ body{
     margin-top: 2%;  
 }
 .counselor-content{
+    height: 70px;
+    width: 400px;
     margin-left: 8%;
+    overflow-y: overlay;
+    font-size: small;
 }
 
 .header_container {  

@@ -65,7 +65,7 @@ body{
     width: 40%;
     height: 100%;
     margin: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     display: flex; 
     flex-direction: row;
     
@@ -73,22 +73,27 @@ body{
 /* 상담사사진 컨테이너 */
 .photo-container{
     /* background-color: aqua; */
-    width: 40%;
+    width: 70%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4%;
 }
 .profile-container .photo-container > img{
     width: 80px;
     height: 80px;
-    margin-top: 3%;
-    margin-left: 40%;
 }
 .coname{
-    margin-left: 35%;
 }
 /* 상담사 기본정보 컨테이너 */
 .coinfo-container{
-    width: 60%;
+    width: 80%;
     display: flex; 
     flex-direction: column;
+    justify-content: center;
     
 }
 .counselor-phonenumber-container{
@@ -97,12 +102,11 @@ body{
     flex-direction: row;
 }
 .counselor-phonenumber-title{
-    margin-top: 5%;
-
+    margin-top: 2%;
 }
 .counselor-phonenumber{
-    margin-top: 5%;
-    margin-left: 3%;
+    margin-left: 6%;
+    margin-top: 2%;
 }
 .counselor-star-container{
     /* background-color: yellow; */
@@ -115,7 +119,7 @@ body{
 }
 .counselor-star{
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 11%;
 }
 .counselor-count-container{
     /* background-color: blueviolet; */
@@ -128,7 +132,7 @@ body{
 }
 .counselor-count{
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 11%;
 }
 
 
@@ -185,7 +189,7 @@ body{
     display: flex;
     flex-direction: row;
     margin-bottom: 2%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 .customer-phonenumber-title{
     margin-top: 2%;
@@ -203,12 +207,12 @@ body{
     margin-top: 2%;
 }
 .counselor-record-list{
-    height: 50%;
-    display:inline-block;    
-    margin-left: 40%;
-    margin-top: 2%;
+    height: 90px;
+    width: 400px;
     margin-left: 5%;
+    margin-top: 2%;
     overflow-y: overlay;
+    font-size: small;
    
 }
 
