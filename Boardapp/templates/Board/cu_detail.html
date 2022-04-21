@@ -38,7 +38,20 @@
                 </div>
             </div>
         </div>
+
+
+
+            <ul class="tabs">
+                <li class="tablinks" data-country="main"><a href="{% url 'Boardapp:detail_category' id 'ALL' %}" class="color-font">전체</a></li>
+                <li class="tablinks" data-country="wifi"><a href="{% url 'Boardapp:detail_category' id 'WIFI' %}" class="color-font">와이파이</a></li>
+                <li class="tablinks" data-country="cellphone"><a href="{% url 'Boardapp:detail_category' id '핸드폰' %}" class="color-font">핸드폰</a></li>
+                <li class="tablinks" data-country="sign"><a href="{% url 'Boardapp:detail_category' id '가입' %}" class="color-font">가입</a></li>
+            </ul>
+
+
+
         <div class="counselor-info-container">
+            
 
             
             <div class="counselor-container">

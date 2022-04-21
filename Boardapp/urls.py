@@ -9,6 +9,7 @@ urlpatterns = [
     path('cu_detail/<str:id>', views.cu_detail, name='cu_detail'),
     path('board/<str:type>', views.board, name='board'),
     path('search_board/<str:type>', views.search_board, name='search_board'),
+    path('detail_category/<str:id>/<str:category>', views.detail_category, name='detail_category'),
 
     
 ]
