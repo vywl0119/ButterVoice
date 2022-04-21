@@ -75,14 +75,11 @@
     <summary><strong>1) 고객과 상담사를 위한 회원가입/로그인</strong></summary>
         <div markdown="1">  
             <h3>📝 고객 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/164473648-a697a9b2-de01-4c93-9909-ef6f7f9b1fec.png
-" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473648-a697a9b2-de01-4c93-9909-ef6f7f9b1fec.png" width="700" height="412">
             <h3>📝 상담사 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/164473446-7faca168-c900-4f12-b014-053480ec585c.png
-" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473446-7faca168-c900-4f12-b014-053480ec585c.png" width="700" height="412">
             <h3>🔒 로그인</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/164473300-fdf43840-5901-4ef7-b2c8-c4562a0c0f31.png
-" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473300-fdf43840-5901-4ef7-b2c8-c4562a0c0f31.png" width="700" height="412">
         </div>
 </details>
  
