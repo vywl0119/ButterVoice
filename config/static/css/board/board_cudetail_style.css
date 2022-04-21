@@ -269,3 +269,20 @@ body{
     width: 70px;
     height: 70px; 
 }
+
+  
+.category_container {
+    
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    margin-left: 60%;
+   
+  }
+
+.category_text {
+    font-size: 100%;
+    color: white;
+    margin-left: 2%;
+    
+  }

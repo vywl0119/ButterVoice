@@ -7,6 +7,7 @@ app_name = 'Homeapp'
 urlpatterns = [
     path('role/', views.role, name ='role'),
     path('home/', views.home, name ='home'),
+    path('home/<str:type>', views.home_type, name ='home_type'),
     path('signin/', views.signin, name ='signin'),
     path('logout/<str:type>', views.logout, name ='logout'),
     path('mike/', views.mike, name ='mike'),

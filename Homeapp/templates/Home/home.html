@@ -26,8 +26,26 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:role' %}">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:signin' %}">Log In</a></li>
+                      
+                        {% if request.session.co_name or request.session.cu_name%}
+                            {% if type %}
+                                {% if type == 'co'%}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Mainapp:co_main' %}">{{request.session.co_name}}님, 반갑습니다</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:logout' type%}">Log Out</a></li>
+                                {%else%}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Mainapp:cu_main' %}">{{request.session.cu_name}}님, 반갑습니다</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:logout' type%}">Log Out</a></li>
+                                {%endif%}
+                            {%else%}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:role' %}">Sign Up</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:signin' %}">Log In</a></li>                   
+                            {% endif %}  
+                        {%else%}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:role' %}">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:signin' %}">Log In</a></li>
+                        {%endif%}
+
+
                     </ul>
                 </div>
             </div>

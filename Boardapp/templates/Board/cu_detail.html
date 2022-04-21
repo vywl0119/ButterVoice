@@ -14,7 +14,7 @@
 <body>
 
     <div class="header_container">
-        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Mainapp:co_main' %}'" />
+        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home_type' request.session.co_type%}'" />
         <a class = "profile_name" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
@@ -38,12 +38,27 @@
                 </div>
             </div>
         </div>
+
+
+    
+        <div class="category_container">
+            
+            <a class="category_text" href="{% url 'Boardapp:detail_category' id 'ALL' %}">  #전체  </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id 'WIFI' %}">  #와이파이 </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id '핸드폰' %}">  #핸드폰 </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id '가입' %}">  #가입 </a>
+           
+          </div>
+
+
+
         <div class="counselor-info-container">
+            
 
             
             <div class="counselor-container">
             {%for call in call_list %}
-                <div class="related-profile-container"> 
+                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
                     <div class="related-photo-container">
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
                         <div class="coname"><p>{{call.co_name}} 상담사</p></div>
@@ -71,11 +86,13 @@
                 </div> 
                 {%endfor%}
 
-                    </div>
+            </div>
               
             <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
         </div>
     </div>
     </div>
+
+
 </body>
 </html>

@@ -199,45 +199,6 @@
             </div>
         </div> 
     </div>
-    <script>    
-        function changeBtnName()  {
-            const btnElement = document.getElementById('save_btn');
-            
-            btnElement.innerText = '수정'
-        }
-        
-        function changeImg()  {
-            const imgElement = document.getElementById('mic');
-            
-            imgElement.src = '{% static 'image/mic_off.png' %}'
-        }  
 
-        // tab 변경
-        var tabBtn = document.querySelectorAll(".tablinks");     //각각의 버튼을 변수에 저장
-        var tabCont = document.querySelectorAll(".tabcontent");       //각각의 콘텐츠를 변수에 저장
-
-
-        tabBtn.forEach(function(el) {
-            el.addEventListener("click", openTabs);
-        });
-         
-         
-        function openTabs(el) {
-            var btnTarget = el.currentTarget;
-            var country = btnTarget.dataset.country;
-            
-            tabCont.forEach(function(el) {
-               el.classList.remove("active");
-            });
-         
-            tabBtn.forEach(function(el) {
-               el.classList.remove("active");
-            });
-         
-            document.querySelector("#" + country).classList.add("active");
-            
-            btnTarget.classList.add("active");
-        }
-    </script>
 </body>
 </html>

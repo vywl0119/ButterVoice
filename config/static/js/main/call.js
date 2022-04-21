@@ -4,6 +4,7 @@ const baseURL = "/"
 
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
+let streamResult = document.getElementsByClassName('streamResult')[0];
 
 let otherUser;
 let remoteRTCMessage;
@@ -61,19 +62,19 @@ let sdpConstraints = {
 
 let socket;
 let callSocket;
-function connectSocket() {
+function connectSocket() { // 소켓 연결
     // let ws_scheme = window.location.protocol == "https:" ? "wss://" : "ws://";
     // console.log(ws_scheme);
 
-    callSocket = new WebSocket(
+    callSocket = new WebSocket( // 소켓 연결 주소
         'ws://'
         + window.location.host
         + '/ws/Mainapp/'
     );
 
-    callSocket.onopen = event =>{
+    callSocket.onopen = event =>{ // 사용자 이름으로 소켓을 보낼 준비
     //let's send myName to the socket
-        callSocket.send(JSON.stringify({
+        callSocket.send(JSON.stringify({ // 서버로 데이터를 보내는 부분
             type: 'login',
             data: {
                 name: myName
@@ -81,7 +82,8 @@ function connectSocket() {
         }));
     }
 
-    callSocket.onmessage = (e) =>{
+    // https://developer.mozilla.org/ko/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
+    callSocket.onmessage = (e) =>{ // 서버로부터 데이터를 받음
         let response = JSON.parse(e.data);
 
         // console.log(response);
@@ -106,7 +108,7 @@ function connectSocket() {
         }
     }
 
-    const onNewCall = (data) =>{
+    const onNewCall = (data) =>{ // 다른 사용자가 전화를 걸어올 때
         //when other called you
         //show answer button
 
@@ -119,7 +121,7 @@ function connectSocket() {
         document.getElementById("answer").style.display = "block";
     }
 
-    const onCallAnswered = (data) =>{
+    const onCallAnswered = (data) =>{ // 통화 중 다른 사용자의 전화를 수락할 때
         //when other accept our call
         remoteRTCMessage = data.rtcMessage
         peerConnection.setRemoteDescription(new RTCSessionDescription(remoteRTCMessage));
@@ -212,21 +214,56 @@ function sendICEcandidate(data) {
 
 }
 
+// ※ 이 함수의 stream을 저장해야함
 function beReady() {
     return navigator.mediaDevices.getUserMedia({
         audio: true,
         video: true
     })
         .then(stream => {
+            recorder(stream);
             localStream = stream;
             localVideo.srcObject = stream;
-
-            return createConnectionAndAddStream()
+            createConnectionAndAddStream();
         })
         .catch(function (e) {
             alert('getUserMedia() error: ' + e.name);
         });
+        //.then(recorder(stream));
 }
+
+// https://melius.tistory.com/59
+/*function recorder(stream) {
+    const options = {
+        audioBitsPerSecond: 128000,
+        mimeType: 'audio/webm;codecs=opus'
+    }
+    const mediaRecorder = new mediaRecorder(stream);
+    
+    const recordedChunks = [];
+    mediaRecorder.addEventListener('dataavailable', function(e){
+        if(e.data.size > 0) {
+            recordedChunks.push(e.data);
+        }
+    });
+
+    mediaRecorder.addEventListener('stop', function() {
+        let blob = new Blob(recordedChunks);
+        
+        // download file
+        let aElm = document.createElement('a');
+        aElm.href = URL.createObjectURL(blob);
+        aElm.download = 'audio.webm';
+        aElm.click();
+        
+        // if video data 
+        // let blob = new Blob(chunks, { 'type': 'video/mp4' });
+        // let video = document.querySelector('video');
+        // video.src = window.URL.createObjectURL(blob);
+    });
+
+    mediaRecorder.start();
+}*/
 
 function createConnectionAndAddStream() {
     createPeerConnection();
