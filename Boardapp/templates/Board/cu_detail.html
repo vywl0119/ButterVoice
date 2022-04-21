@@ -40,13 +40,14 @@
         </div>
 
 
-
+        <div id='tab-cont'>
             <ul class="tabs">
                 <li class="tablinks" data-country="main"><a href="{% url 'Boardapp:detail_category' id 'ALL' %}" class="color-font">전체</a></li>
                 <li class="tablinks" data-country="wifi"><a href="{% url 'Boardapp:detail_category' id 'WIFI' %}" class="color-font">와이파이</a></li>
                 <li class="tablinks" data-country="cellphone"><a href="{% url 'Boardapp:detail_category' id '핸드폰' %}" class="color-font">핸드폰</a></li>
                 <li class="tablinks" data-country="sign"><a href="{% url 'Boardapp:detail_category' id '가입' %}" class="color-font">가입</a></li>
             </ul>
+        </div>
 
 
 
@@ -56,7 +57,7 @@
             
             <div class="counselor-container">
             {%for call in call_list %}
-                <div class="related-profile-container"> 
+                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
                     <div class="related-photo-container">
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
                         <div class="coname"><p>{{call.co_name}} 상담사</p></div>
@@ -90,5 +91,48 @@
         </div>
     </div>
     </div>
+
+
+    <script>    
+        function changeBtnName()  {
+            const btnElement = document.getElementById('save_btn');
+            
+            btnElement.innerText = '수정'
+        }
+        
+        function changeImg()  {
+            const imgElement = document.getElementById('mic');
+            
+            imgElement.src = '{% static 'image/mic_off.png' %}'
+        }  
+
+        // tab 변경
+        var tabBtn = document.querySelectorAll(".tablinks");     //각각의 버튼을 변수에 저장
+        var tabCont = document.querySelectorAll(".tabcontent");       //각각의 콘텐츠를 변수에 저장
+
+
+        tabBtn.forEach(function(el) {
+            el.addEventListener("click", openTabs);
+        });
+         
+         
+        function openTabs(el) {
+            var btnTarget = el.currentTarget;
+            var country = btnTarget.dataset.country;
+            
+            tabCont.forEach(function(el) {
+               el.classList.remove("active");
+            });
+         
+            tabBtn.forEach(function(el) {
+               el.classList.remove("active");
+            });
+         
+            document.querySelector("#" + country).classList.add("active");
+            
+            btnTarget.classList.add("active");
+        }
+    </script>
+
 </body>
 </html>
