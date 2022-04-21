@@ -66,6 +66,7 @@ def cu_detail(request, id):
         'user':user,
         'call_list':call_list,
         'call_cnt':call_cnt,
+        'id':id,
     }
 
     return render(request, 'Board/cu_detail.html', context)
@@ -110,3 +111,27 @@ def search_board(request, type):
         else:
             return render(request, 'Boardapp:board')
 
+
+def detail_category(request, id, category):
+
+    user = customer.objects.get(cu_id=id)
+    call_list = calling.objects.filter(cu_id_id=id)
+    call_cnt = len(call_list)
+
+    if category == 'ALL':
+        call_list = calling.objects.filter(cu_id_id=id)
+    if category == 'WIFI':
+        call_list = calling.objects.filter(cu_id_id=id, category=category)
+    if category == '핸드폰':
+        call_list = calling.objects.filter(cu_id_id=id, category=category)
+    if category == '가입':
+        call_list = calling.objects.filter(cu_id_id=id, category=category)
+
+    context = {
+        'user':user,
+        'call_list':call_list,
+        'call_cnt':call_cnt,
+        'id':id,
+    }
+
+    return render(request, 'Board/cu_detail.html', context)

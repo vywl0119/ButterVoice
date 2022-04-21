@@ -1,6 +1,8 @@
+from pickle import NONE
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from pyrsistent import v
 from .forms import UserForm
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -20,7 +22,12 @@ def role(request):
     return render(request, 'Home/role.html')
 
 def home(request):
+
     return render(request, 'Home/home.html')
+
+def home_type(request, type):
+
+    return render(request, 'Home/home.html', {'type':type})
 
 def logout(request, type):
 
@@ -34,7 +41,7 @@ def logout(request, type):
         del request.session['cu_type']
 
     
-    return redirect('Homeapp:home')
+    return redirect('/Home/home/')
 
 def signin(request):
 
@@ -67,6 +74,7 @@ def signin(request):
                 return redirect('Mainapp:cu_main')
     else:
         return render(request, 'Home/signin.html')
+        
 
 
 def signups(request, type):
