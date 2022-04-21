@@ -127,7 +127,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163586786-77ab97a5-f524-41b7-be66-31cc05ade071.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/164476170-0d77808b-a2ea-4a5d-8a2e-31144698f3c2.png" width="700" height="412">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
