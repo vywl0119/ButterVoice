@@ -65,7 +65,7 @@
   <summary>메인 화면</summary>
    <div markdown="1">       
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163407923-5b085483-b7b2-4fb6-85fc-dc8076a7eca9.png" width="740" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/164475591-a4865080-903a-42f2-9084-d6eae1301b29.gif" width="740" height="412">
      <br>
      <text>⇒ 버터보이스의 홈화면으로 회원가입과 로그인을 할 수 있는 버튼이 있다</text>
    </div>
@@ -75,11 +75,11 @@
     <summary><strong>1) 고객과 상담사를 위한 회원가입/로그인</strong></summary>
         <div markdown="1">  
             <h3>📝 고객 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163437197-c1b98a8c-2a86-48f8-8eee-dcf6aaa2d562.png" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473648-a697a9b2-de01-4c93-9909-ef6f7f9b1fec.png" width="700" height="412">
             <h3>📝 상담사 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436261-80ec240a-bbaf-4665-9e6a-335ead82c907.png" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473446-7faca168-c900-4f12-b014-053480ec585c.png" width="700" height="412">
             <h3>🔒 로그인</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/163436370-506c899e-df35-4929-bdd4-900a752208b3.png" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/164473300-fdf43840-5901-4ef7-b2c8-c4562a0c0f31.png" width="700" height="412">
         </div>
 </details>
  
@@ -127,7 +127,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163586786-77ab97a5-f524-41b7-be66-31cc05ade071.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/164476170-0d77808b-a2ea-4a5d-8a2e-31144698f3c2.png" width="700" height="412">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
