@@ -24,7 +24,9 @@
 #img_left {
     height:50;
     float:left;
+    margin-left: 2%;
     background-color: #00000000;
+    opacity:0.8; 
 }
 
 #img_Right {
