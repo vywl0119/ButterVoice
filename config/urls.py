@@ -21,11 +21,9 @@ from django.conf import settings
 from django.contrib import admin
 
 from rest_framework import routers
-from Mainapp import views
+from Homeapp import views
 
-router = routers.DefaultRouter()
-router.register(r'customerinfo', views.customerViewSet)
-router.register(r'counselorinfo', views.counselorViewSet)
+
 
 
 urlpatterns = [
@@ -33,6 +31,6 @@ urlpatterns = [
     path('Main/', include('Mainapp.urls')),
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
-    url(r'^',include(router.urls)),
+    path("", views.home, name="index"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

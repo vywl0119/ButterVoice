@@ -22,15 +22,16 @@
             <form  id="send" action="{% url 'Homeapp:signin' %}" method="post" onsubmit="return false;">
                 {% csrf_token %}
                 <!-- Login Form -->
-                <input type="radio" id="type" name="type" value="cu" checked class="radio">
+                <input type="radio" id="type" name="type" value="cu" checked class="radios">
                 고객
-        
-                <input type="radio" id="type" name="type" value="co" class="radio">
+                <input type="radio" id="type" name="type" value="co" class="radios">
                 상담사
 
-                    <input type="text" id="id" class="fadeIn second" name="id" placeholder="id">
-                    <input type="text" id="pw" class="fadeIn third" name="pw" placeholder="password">
-                    
+                <div class = "logins">
+                    <input type="id" id="id" class="fadeIn second" name="id" placeholder="id">
+                    <input type="password" id="pw" class="fadeIn second" name="pw" placeholder="password">
+                </div>
+        
                     <input  type="submit" class="fadeIn fourth" onclick="result()" value="Log In">
                     <input  type="submit" class="fadeIn fourth" onclick="location.href='{% url 'Homeapp:role' %}'" value="Sign up">    
                 </form>
