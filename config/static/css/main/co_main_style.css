@@ -213,17 +213,16 @@ body{
 }
 
   /* header css */
-.header_container {  
+  .header_container {  
     flex-direction: row;  
-    margin-top: 1%;
-    height: 80px;
+    margin-top: 0.5%;
+    height: 100px;
 }
  
 .logo {
     width: 20%;
     margin-left: 3.5%;
-    margin-right: 45%;
-    margin-top: 0.1%;
+    float: left;
 }
 
 .profile_name {
@@ -231,17 +230,18 @@ body{
     color: white;
     display: inline-block;
     float: right;
-    margin-top: 2.15%;
-    margin-right: 1%;
+    margin-top: 2.5%;
+    margin-right: 0.99%;
 }
 
 .logout {
     font-size: large;
     color: white;
     display: inline-block;
-    
+    float: right;
     margin-top: 2%;
-    margin-left: 55%;
+    margin-right: 1.5%;
+    margin-left : 0.5%;
 }
 
 

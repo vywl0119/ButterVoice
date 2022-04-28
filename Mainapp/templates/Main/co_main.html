@@ -16,7 +16,7 @@
 
     <div class="header_container">
         <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home_type' request.session.co_type%}'" />
-        <a class = "profile_name" style="margin-right:3.5%;" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
+        <a class = "profile_name" style="margin-right:3.53%;" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
 

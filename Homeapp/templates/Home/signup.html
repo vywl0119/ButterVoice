@@ -3,10 +3,10 @@
 <link rel="stylesheet" href="{% static 'css/home/signup.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/bar.css' %}"/>
 
-<header class="header">
-    <img id="img_Left" src="{% static 'image/img_logo.png' %}" onclick="location.href='/Home/home'"/>
-    <img id="img_Left" src="{% static 'image/img_name.png' %}" onclick="location.href='/Home/home'"/>
-</header>
+<div class="header_container">
+    <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='/Home/home'"/>
+
+</div>
 <div class="background fadeIn">
     <div class="container bg_invisible">
         {% if type == "co" %}

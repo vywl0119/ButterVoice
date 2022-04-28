@@ -174,7 +174,7 @@ body{
     
     flex-direction: row;
     margin-left: 10%;
-    margin-top: 3%;
+    margin-top: 1%;
    
   }
 
@@ -190,7 +190,7 @@ body{
 .header_container {  
     flex-direction: row;  
     margin-top: 1%;
-    height: 80px;
+    height: 100px;
   }
  
 .logo {
@@ -200,7 +200,7 @@ body{
 }
 
 .cu_logo {
-    width: 20.5%;
+    width: 20%;
     margin-left: 3.5%;
     margin-right: 45%;
 }
