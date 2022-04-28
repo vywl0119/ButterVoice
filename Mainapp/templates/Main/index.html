@@ -7,50 +7,32 @@
     <link rel="icon" href="{%static 'image/logo.png' %}" type="image/png" />
     <title>Video Call</title>
     <link rel="stylesheet" href="{% static 'css/main/call.css' %}">
-
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-top: 24px;
-            min-height: 90vh;
-        }
-    </style>
-
     <script>
         let myName;
     </script>
 </head>
-
 <body>
-    <div>
-        <div>
+    <div class=flex-container>
             <!-- to input username and login -->
             <div id="userName">
-                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
-                    <input placeholder="What should we call you?"
-                        style="text-align:center; height: 50px; font-size: xx-large;" type="text" name=""
-                        id="userNameInput">
-                    <div style="height: 5px;"></div>
+                <div class="userName-container">
+                    <input id="userNameInput"placeholder="What's your name?" type="text" name="">
                     <button onclick="login()" class="actionButton">Login</button>
                 </div>
             </div>
 
             <!-- to display current login user information  -->
             <div id="userInfo">
-                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
+                <div class="userInfo-container">
+                    <img id="profileImageA" src="{% static 'image/mimo.png' %}" alt="">
                     <h1>Hello, <span id="nameHere"></span></h1>
                 </div>
-
             </div>
 
             <!-- to make a call with name -->
             <div id="call">
                 <div class="dialWrapper">
-                    <input placeholder="Whom to call?" style="text-align:center; height: 50px; font-size: xx-large;"
-                        type="text" name="callName" id="callName">
+                    <input placeholder="Whom to call?" type="text" name="callName" id="callName">
                     <div class="dialNumpadHWrapper">
                         <div class="dialNumber">
                         </div>
@@ -72,12 +54,12 @@
                     </div>
                     <div class="itemWrapper">
                         <img id="profileImageA" style="padding: 30px; width: 140px; height: 140px;"
-                            src="{% static 'image/profile.png' %}" alt="">
+                            src="{% static 'image/img_cu.png' %}" alt="">
                     </div>
                     <div class="itemWrapper">
-                        <h2 style="line-height: 0px;"><span id="callerName"></span></h2>
+                        <h2 style="line-height: 0px;">from&nbsp;&nbsp;&nbsp;<span id="callerName"></span></h2>
                     </div>
-                    <div class="itemWrapper" style="display: flex; flex-direction: row; margin-bottom: 20px;">
+                    <div class="itemWrapper" style="display: flex; flex-direction: column; margin-bottom: 20px;">
                         <button class="actionButton" onclick="answer()">Answer</button>
                     </div>
                 </div>
@@ -91,10 +73,10 @@
                     </div>
                     <div class="itemWrapper">
                         <img id="profileImageCA" style="padding: 30px; width: 140px; height: 140px;"
-                            src="{% static 'image/profile.png' %}" alt="">
+                            src="{% static 'image/img_co.png' %}" alt="">
                     </div>
                     <div class="itemWrapper">
-                        <h3 style="line-height: 0px;"><span id="otherUserNameCA"></span></h3>
+                        <h3 style="line-height: 0px; color: white;">to&nbsp;&nbsp;&nbsp;<span id="otherUserNameCA"></span></h3>
                     </div>
                 </div>
             </div>
@@ -120,12 +102,7 @@
                     <video style="width: 500px;" id="remoteVideo" autoplay playsinline></video>
                 </div>
             </div>
-          
         </div>
-
-    </div>
-    <div style="flex-grow: 1;">
-    </div>
 
     <script src="{% static 'js/main/call.js' %}"></script>
     <script>
