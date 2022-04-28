@@ -12,7 +12,11 @@
 body{
     background-color: #313131;
 }
-
+#call_mic{
+    margin-left: 35%;
+    width: 30%;
+    height: 30%;
+}
 .flex-container{ 
     width: 100%; 
     height: 80vh; 
@@ -258,4 +262,79 @@ body{
     flex-direction: column;
 
     align-items: center;
+}
+
+
+/* body {
+    height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+} */
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: aqua;
+  padding: 150px;
+}
+
+.bellWrapper {
+  font-size: 50px;
+}
+
+.my-bell {
+  transform-origin: top;
+  animation: bell 2s infinite linear;
+}
+
+@keyframes bell{
+  0%, 50%{
+		transform: rotate(0deg);
+	}
+  5%, 15%, 25%, 35%, 45% {
+    transform: rotate(13deg);
+  }
+  10%, 20%, 30%, 40% {
+    transform: rotate(-13deg);
+  }
+}
+
+.circle {
+  width: 100px;
+	height: 80px;
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 70%;
+  border-color: transparent white;
+  animation: ring 2s infinite linear both;
+}
+
+.second {
+  animation-delay: .3s;
+}
+
+.third {
+  animation-delay: .7s;
+}
+
+@keyframes ring{
+  0%, 100% {
+    opacity: 0; 
+  }
+  
+  1% {
+    opacity: 1;
+  }
+  
+  50% {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+  }
+
 }

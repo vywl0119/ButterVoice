@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ButterVoice</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="{% static 'css/main/cu_style.css' %}">
      
@@ -35,9 +35,28 @@
                 <img class="call_image" src="{% static 'image/no_call.png' %}" onclick="location.href='{% url 'Mainapp:star' co_id 6 c_no %}'"/>
             </div>
         </div>
+        <div class="box">
+            <div class="bellWrapper">
+                <img class="mic" id='call_mic' src="{% static 'image/mic_on.png' %}"/>
+            </div>
             
+            <div class="circle first"></div>
+            <div class="circle second"></div>
+            <div class="circle third"></div>
+        </div>  
+        
   
         
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        setTimeout(function() {
+            $('.flex-container1').fadeOut('fast');
+        }, 3000); // <-- time in milliseconds
+        setTimeout(function() {
+            $('.box').fadeIn();
+        }, 4000); // <-- time in milliseconds
+    </script>
 </body>
 </html>

@@ -19,7 +19,7 @@ def cu_call(request, co_id, category):
     call.save()
 
 
-    return render(request, 'Main/call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu'})
+    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu'})
 
 def co_call(request, c_no):
 
@@ -51,7 +51,7 @@ def co_call(request, c_no):
     }
 
 
-    return render(request, 'Main/call.html', context)
+    return render(request, 'Main/co_call.html', context)
 
 def call_update(request):
 
