@@ -4,6 +4,14 @@ const baseURL = "/"
 
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
+<<<<<<< HEAD
+let streamResult = document.getElementsByClassName('streamResult')[0];
+let btnRec = document.getElementsByClassName('btnRec')[0];
+btnRec.addEventListener('click', () => {
+    startRecording();
+  });
+=======
+>>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
 
 let otherUser;
 let remoteRTCMessage;
@@ -12,6 +20,7 @@ let iceCandidatesFromCaller = [];
 let peerConnection;
 let remoteStream;
 let localStream;
+let localStream2;
 
 let callInProgress = false;
 
@@ -33,7 +42,7 @@ function answer() {
     beReady()
         .then(bool => {
             processAccept();
-        })
+        });
 
     document.getElementById("answer").style.display = "none";
 }
@@ -213,9 +222,9 @@ function sendICEcandidate(data) {
 }
 
 function beReady() {
-    return navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true
+    return navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
+        video: true,
+        audio: false
     })
         .then(stream => {
             localStream = stream;
@@ -227,6 +236,21 @@ function beReady() {
             alert('getUserMedia() error: ' + e.name);
         });
 }
+<<<<<<< HEAD
+function beReady2() {
+    navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
+        audio: true,
+        video: false
+    })
+        .then(stream => {
+            audioRecorder.streamBeingCaptured
+        })
+        .catch(function (e) {
+            alert('getUserMedia2() error: ' + e.name);
+        });
+}*/
+=======
+>>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
 
 function createConnectionAndAddStream() {
     createPeerConnection();

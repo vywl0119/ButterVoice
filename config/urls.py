@@ -31,6 +31,6 @@ urlpatterns = [
     path('Main/', include('Mainapp.urls')),
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
-    path("", views.home, name="index"),
+    path("", views.home),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
