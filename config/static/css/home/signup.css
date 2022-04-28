@@ -2,7 +2,7 @@
     border-radius: 30px;
     width: 60%;
     height: 74%;
-    margin-top: 4%;
+    margin-top: 2%;
     margin-left: 23%;
     margin-right: 5%;
 
@@ -230,3 +230,14 @@
   }
   
   
+.header_container {  
+    flex-direction: row;  
+    margin-top: 1%;
+    height: 100px;
+}
+ 
+.logo {
+    width: 20%;
+    margin-left: 3.5%;
+    margin-top: 0.05%
+}

@@ -4,11 +4,14 @@ const baseURL = "/"
 
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
+<<<<<<< HEAD
 let streamResult = document.getElementsByClassName('streamResult')[0];
 let btnRec = document.getElementsByClassName('btnRec')[0];
 btnRec.addEventListener('click', () => {
     startRecording();
   });
+=======
+>>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
 
 let otherUser;
 let remoteRTCMessage;
@@ -67,19 +70,19 @@ let sdpConstraints = {
 
 let socket;
 let callSocket;
-function connectSocket() { // 소켓 연결
+function connectSocket() {
     // let ws_scheme = window.location.protocol == "https:" ? "wss://" : "ws://";
     // console.log(ws_scheme);
 
-    callSocket = new WebSocket( // 소켓 연결 주소
+    callSocket = new WebSocket(
         'ws://'
         + window.location.host
         + '/ws/Mainapp/'
     );
 
-    callSocket.onopen = event =>{ // 사용자 이름으로 소켓을 보낼 준비
+    callSocket.onopen = event =>{
     //let's send myName to the socket
-        callSocket.send(JSON.stringify({ // 서버로 데이터를 보내는 부분
+        callSocket.send(JSON.stringify({
             type: 'login',
             data: {
                 name: myName
@@ -87,8 +90,7 @@ function connectSocket() { // 소켓 연결
         }));
     }
 
-    // https://developer.mozilla.org/ko/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
-    callSocket.onmessage = (e) =>{ // 서버로부터 데이터를 받음
+    callSocket.onmessage = (e) =>{
         let response = JSON.parse(e.data);
 
         // console.log(response);
@@ -113,7 +115,7 @@ function connectSocket() { // 소켓 연결
         }
     }
 
-    const onNewCall = (data) =>{ // 다른 사용자가 전화를 걸어올 때
+    const onNewCall = (data) =>{
         //when other called you
         //show answer button
 
@@ -126,7 +128,7 @@ function connectSocket() { // 소켓 연결
         document.getElementById("answer").style.display = "block";
     }
 
-    const onCallAnswered = (data) =>{ // 통화 중 다른 사용자의 전화를 수락할 때
+    const onCallAnswered = (data) =>{
         //when other accept our call
         remoteRTCMessage = data.rtcMessage
         peerConnection.setRemoteDescription(new RTCSessionDescription(remoteRTCMessage));
@@ -219,7 +221,6 @@ function sendICEcandidate(data) {
 
 }
 
-// ※ 이 함수의 stream을 저장해야함
 function beReady() {
     return navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
         video: true,
@@ -228,12 +229,14 @@ function beReady() {
         .then(stream => {
             localStream = stream;
             localVideo.srcObject = stream;
-            createConnectionAndAddStream();
+
+            return createConnectionAndAddStream()
         })
         .catch(function (e) {
             alert('getUserMedia() error: ' + e.name);
         });
 }
+<<<<<<< HEAD
 function beReady2() {
     navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
         audio: true,
@@ -246,6 +249,8 @@ function beReady2() {
             alert('getUserMedia2() error: ' + e.name);
         });
 }*/
+=======
+>>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
 
 function createConnectionAndAddStream() {
     createPeerConnection();

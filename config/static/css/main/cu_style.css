@@ -12,10 +12,14 @@
 body{
     background-color: #313131;
 }
-
+#call_mic{
+    margin-left: 35%;
+    width: 30%;
+    height: 30%;
+}
 .flex-container{ 
     width: 100%; 
-    height: 80vh; 
+    height: 80%; 
     display: -webkit-box; 
     display: -moz-box;
     display: -ms-flexbox; 
@@ -36,7 +40,7 @@ body{
 
 .flex-container1{
     width: 100%; 
-    height: 45%;
+    height: 30%;
     display: -webkit-box; 
     display: -moz-box;
     display: -ms-flexbox; 
@@ -134,7 +138,8 @@ body{
 
 
 .call_image {
-    width: 7%;
+    width: 15%;
+    height: 15%;
     display: block; 
     margin: 0px auto;
     margin-top: 3%;
@@ -174,7 +179,7 @@ body{
     
     flex-direction: row;
     margin-left: 10%;
-    margin-top: 3%;
+    margin-top: 1%;
    
   }
 
@@ -190,7 +195,7 @@ body{
 .header_container {  
     flex-direction: row;  
     margin-top: 1%;
-    height: 80px;
+    height: 100px;
   }
  
 .logo {
@@ -200,7 +205,7 @@ body{
 }
 
 .cu_logo {
-    width: 20.5%;
+    width: 20%;
     margin-left: 3.5%;
     margin-right: 45%;
 }
@@ -258,4 +263,84 @@ body{
     flex-direction: column;
 
     align-items: center;
+}
+
+
+/* body {
+    height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+} */
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 150px;
+}
+
+.bellWrapper {
+  font-size: 50px;
+}
+
+.my-bell {
+  transform-origin: top;
+  animation: bell 2s infinite linear;
+}
+
+@keyframes bell{
+  0%, 50%{
+		transform: rotate(0deg);
+	}
+  5%, 15%, 25%, 35%, 45% {
+    transform: rotate(13deg);
+  }
+  10%, 20%, 30%, 40% {
+    transform: rotate(-13deg);
+  }
+}
+
+.circle {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  margin-bottom: 14%;
+  border: 2px solid white;
+  border-radius: 70%;
+  border-color: transparent white;
+  animation: ring 2s infinite linear both;
+}
+
+.second {
+  animation-delay: .3s;
+}
+
+.third {
+  animation-delay: .7s;
+}
+
+@keyframes ring{
+  0%, 100% {
+    opacity: 0; 
+  }
+  
+  1% {
+    opacity: 1;
+  }
+  
+  50% {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+  }
+
+}
+
+.quit_image{
+    margin-top: 7%;
 }

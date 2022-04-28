@@ -289,6 +289,7 @@ body{
 .header_container {  
     flex-direction: row;  
     margin-top: 1%;
+    height: 100px;
 }
  
 .logo {
