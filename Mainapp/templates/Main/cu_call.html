@@ -32,7 +32,7 @@
                     <h2>상담이 지연되고 있어 원활한 상담이 불가한 점 양해 부탁드립니다.</h2>
                     <h2>신속한 응대를 위해 노력하겠습니다</h2>
                 </div>
-                <img class="call_image" src="{% static 'image/no_call.png' %}" onclick="location.href='{% url 'Mainapp:star' co_id 6 c_no %}'"/>
+               
             </div>
         </div>
         <div class="box">
@@ -43,9 +43,12 @@
             <div class="circle first"></div>
             <div class="circle second"></div>
             <div class="circle third"></div>
-        </div>  
+    
+            <div class="quit_image">
+                <img class="call_image" src="{% static 'image/no_call.png' %}" onclick="location.href='{% url 'Mainapp:star' co_id 6 c_no %}'"/>
         
-  
+            </div> 
+        </div>
         
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
