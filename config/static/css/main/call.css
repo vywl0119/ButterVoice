@@ -219,9 +219,10 @@ h2{
   width: 300px;
   display: flex;
   flex-direction: column;
-  /* background-color: #fce205; */
+  background-color: white;
+  border-radius: 15px;
 }
 
 #otherUserNameCA{
-  color: white;
+  color: black;
 }
