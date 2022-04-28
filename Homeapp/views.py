@@ -17,6 +17,10 @@ from gtts import gTTS
 import speech_recognition as sr
 from threading import Thread
 import threading
+from keras.models import load_model
+import os
+import librosa
+import pandas as pd
 
 def role(request):
     return render(request, 'Home/role.html')
@@ -116,6 +120,7 @@ def work():
     wave_length = 10
     sample_rate = 16_000
 
+    # STT
     data = sd.rec(int(wave_length * sample_rate), sample_rate, channels=1)
     sd.wait()
 
@@ -129,6 +134,18 @@ def work():
         wb.setframerate(sample_rate)
         wb.writeframes(data.tobytes())
 
+    # 감정 인식
+    pad2d = lambda a, i: a[:, 0: i] if a.shape[1] > i else np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
+
+    mfcc = get_mfcc(FILE_NAME, 20)
+    mfcc_pad = pad2d(mfcc, 40)
+    mfcc_2d = []
+    mfcc_2d = np.expand_dims(mfcc_pad, -1)
+    mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
+    model = load_model('model.h5')
+    y = model.predict(mfcc_2d)
+    print(y)
+
     r = sr.Recognizer()
     harvard = sr.AudioFile('config/static/test.wav')
     with harvard as source:
@@ -136,10 +153,9 @@ def work():
         try:
             stt_result = r.recognize_google(audio, language='ko_KR')
         except:
-            stt_result = ""
-        
+              stt_result = ""
+          
         # 욕설 제거 필터링
-
         file_path='config/static/badwords.txt'
 
         with open(file_path, 'rt', encoding='UTF8') as f:
@@ -150,13 +166,21 @@ def work():
         for i in range(len(insult)):
             word=insult[i]
             stt_result = stt_result.replace(f"{word}","")
-        
+            
         print(stt_result)
 
+    # TTS
     if stt_result != "":
-        kor_wav = gTTS(stt_result, lang='ko')
-        kor_wav.save('config/static/test.wav')
-    
+        if y.argmax(axis=1) == 1:
+            kor_wav = gTTS(stt_result, lang='ko')
+            kor_wav.save('config/static/test.wav')
+        
         threading.Timer(0.5, work).start()
     else:
         print("## 대화 종료 ##")
+
+def get_mfcc(filepath, n_mfcc = 40):
+    sig, sr = librosa.core.load(filepath)
+    D = np.abs(librosa.stft(sig, n_fft=int(sr*0.025), win_length=int(sr*0.01), hop_length=int(sr*0.01)))
+    mfccs = librosa.feature.mfcc(S=librosa.power_to_db(D), sr=sr, n_mfcc=n_mfcc)
+    return mfccs

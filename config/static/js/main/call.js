@@ -5,6 +5,10 @@ const baseURL = "/"
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
 let streamResult = document.getElementsByClassName('streamResult')[0];
+let btnRec = document.getElementsByClassName('btnRec')[0];
+btnRec.addEventListener('click', () => {
+    startRecording();
+  });
 
 let otherUser;
 let remoteRTCMessage;
@@ -13,6 +17,7 @@ let iceCandidatesFromCaller = [];
 let peerConnection;
 let remoteStream;
 let localStream;
+let localStream2;
 
 let callInProgress = false;
 
@@ -34,7 +39,7 @@ function answer() {
     beReady()
         .then(bool => {
             processAccept();
-        })
+        });
 
     document.getElementById("answer").style.display = "none";
 }
@@ -216,12 +221,11 @@ function sendICEcandidate(data) {
 
 // ※ 이 함수의 stream을 저장해야함
 function beReady() {
-    return navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true
+    return navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
+        video: true,
+        audio: false
     })
         .then(stream => {
-            recorder(stream);
             localStream = stream;
             localVideo.srcObject = stream;
             createConnectionAndAddStream();
@@ -229,40 +233,18 @@ function beReady() {
         .catch(function (e) {
             alert('getUserMedia() error: ' + e.name);
         });
-        //.then(recorder(stream));
 }
-
-// https://melius.tistory.com/59
-/*function recorder(stream) {
-    const options = {
-        audioBitsPerSecond: 128000,
-        mimeType: 'audio/webm;codecs=opus'
-    }
-    const mediaRecorder = new mediaRecorder(stream);
-    
-    const recordedChunks = [];
-    mediaRecorder.addEventListener('dataavailable', function(e){
-        if(e.data.size > 0) {
-            recordedChunks.push(e.data);
-        }
-    });
-
-    mediaRecorder.addEventListener('stop', function() {
-        let blob = new Blob(recordedChunks);
-        
-        // download file
-        let aElm = document.createElement('a');
-        aElm.href = URL.createObjectURL(blob);
-        aElm.download = 'audio.webm';
-        aElm.click();
-        
-        // if video data 
-        // let blob = new Blob(chunks, { 'type': 'video/mp4' });
-        // let video = document.querySelector('video');
-        // video.src = window.URL.createObjectURL(blob);
-    });
-
-    mediaRecorder.start();
+function beReady2() {
+    navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
+        audio: true,
+        video: false
+    })
+        .then(stream => {
+            audioRecorder.streamBeingCaptured
+        })
+        .catch(function (e) {
+            alert('getUserMedia2() error: ' + e.name);
+        });
 }*/
 
 function createConnectionAndAddStream() {
