@@ -13,7 +13,7 @@
     <!-- MAIN JS -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
-     {% comment %} <script src="{% static 'js/main/co_call.js' %}"></script> {% endcomment %}
+     <script src="{% static 'js/main/co_call.js' %}"></script>
     </head>
 <body>
 
@@ -240,7 +240,7 @@
                 path = path.replace(String(num), String(num+1));
                 num += 1;
             }
-            setInterval(playWav, 20000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+            setInterval(playWav, 13000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
         });
         /*window.onload=function() {
             function playWav() {
@@ -284,5 +284,5 @@
              btnTarget.classList.add("active");
          }
     </script>
-</body>
+ 
 </html>
