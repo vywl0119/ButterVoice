@@ -67,12 +67,11 @@ def cu_detail(request, id):
     for i in call_list:
         profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
 
-    user_call = {}
+    user_call = []
     for i, j in zip(profile_list, call_list):
-        user_call[i] = j
+        user_call.append([i,j])
+        
 
-
-    
     context = {
         'user':user,
         'call_list':call_list,
@@ -138,15 +137,17 @@ def detail_category(request, id, category):
     if category == '가입':
         call_list = calling.objects.filter(cu_id_id=id, category=category)
     call_cnt = len(call_list)
-    
+
     # 고객이 상담한 상담사 정보
     profile_list = []
     for i in call_list:
-        profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
+        profile_list.append(counselor.objects.get(co_id=i.co_id_id))
 
-    user_call = {}
+    user_call = []
     for i, j in zip(profile_list, call_list):
-        user_call[i] = j
+        user_call.append([i,j])
+    
+
 
 
     context = {

@@ -121,6 +121,7 @@ def category(request, category):
 
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
+
 def co_main(request):
 
     co_id = request.session['co_id']
@@ -133,20 +134,38 @@ def co_main(request):
     today_call = len(today_call)
 
     if wait_call:
-    
         first_call = wait_call[0]
         wait_call = wait_call[1:]
         call_len = len(wait_call)
+
+        profile_list = []
+        for i in wait_call:
+            profile_list.append(customer.objects.get(cu_id=i.cu_id_id).profile)
+
+        user_call = []
+        for i, j in zip(profile_list, wait_call):
+            user_call.append([i,j])
+
     else:
         first_call = ""
         call_len = 0
 
     
+    if first_call:
+        profile = customer.objects.get(cu_id=first_call.cu_id_id).profile
+    else:
+        profile = ""
+        
+
+    
+
 
     context = {'wait_call': wait_call,
                 'first_call': first_call,
                 'call_len':call_len,
                 'today_call':today_call,
+                'user_call':user_call,
+                'profile':profile,
                 } 
 
     return render(request, 'Main/co_main.html', context)

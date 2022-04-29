@@ -182,10 +182,11 @@
             </div>
             <div class="couselor-container"> 
                 <div class="related-photo-container">
-                    {% if profile %}
-                        <img id="cuphoto" src="/static/image/profile/{{profile}}" alt="프로필 사진">
-                    {%else%}
+                    {% if profile == "null" %}
                         <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
+                        
+                    {%else%}
+                        <img id="cuphoto" src="/static/image/profile/{{profile}}" alt="프로필 사진">
                     
                     {%endif%}
 
