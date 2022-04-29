@@ -4,14 +4,11 @@ const baseURL = "/"
 
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
-<<<<<<< HEAD
-let streamResult = document.getElementsByClassName('streamResult')[0];
-let btnRec = document.getElementsByClassName('btnRec')[0];
-btnRec.addEventListener('click', () => {
-    startRecording();
-  });
-=======
->>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
+// let streamResult = document.getElementsByClassName('streamResult')[0];
+// let btnRec = document.getElementsByClassName('btnRec')[0];
+// btnRec.addEventListener('click', () => {
+//     startRecording();
+//   });
 
 let otherUser;
 let remoteRTCMessage;

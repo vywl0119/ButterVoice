@@ -111,12 +111,16 @@ def signup(request):
             return redirect('/Home/signin')
 
 def mike(request):
+    global num
+    num = -1
     th = Thread(target=work)
     th.start()
     return render(request, 'Home/mike.html')
 
 def work():
-    FILE_NAME = './config/static/test.wav'
+    global num
+    num += 1
+    FILE_NAME = f'./config/static/wav/test_{num}.wav'
     wave_length = 10
     sample_rate = 16_000
 
@@ -143,44 +147,43 @@ def work():
     mfcc_2d = np.expand_dims(mfcc_pad, -1)
     mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
     model = load_model('model.h5')
-    y = model.predict(mfcc_2d)
+    y = model.predict(mfcc_2d).argmax(axis=1)
     print(y)
 
     r = sr.Recognizer()
-    harvard = sr.AudioFile('config/static/test.wav')
+    harvard = sr.AudioFile(f'config/static/wav/test_{num}.wav')
     with harvard as source:
         audio = r.record(source)
         try:
             stt_result = r.recognize_google(audio, language='ko_KR')
         except:
-              stt_result = ""
+            stt_result = ""
           
-        # 욕설 제거 필터링
-        file_path='config/static/badwords.txt'
+    # 욕설 제거 필터링
+    file_path='config/static/badwords.txt'
 
-        with open(file_path, 'rt', encoding='UTF8') as f:
-            insult = f.readlines()
+    with open(file_path, 'rt', encoding='UTF8') as f:
+        insult = f.readlines()
 
-        insult=[line.rstrip("\n") for line in insult]
+    insult=[line.rstrip("\n") for line in insult]
 
-        for i in range(len(insult)):
-            word=insult[i]
-            stt_result = stt_result.replace(f"{word}","")
+    for i in range(len(insult)):
+        word=insult[i]
+        stt_result = stt_result.replace(f"{word}","")
             
-        print(stt_result)
+    print(stt_result)
 
     # TTS
     if stt_result != "":
-        if y.argmax(axis=1) == 1:
+        if y == 1:
             kor_wav = gTTS(stt_result, lang='ko')
-            kor_wav.save('config/static/test.wav')
+            kor_wav.save(f'config/static/wav/test_{num}.wav')
         
         threading.Timer(0.5, work).start()
     else:
         print("## 대화 종료 ##")
 
 def get_mfcc(filepath, n_mfcc = 40):
-    sig, sr = librosa.core.load(filepath)
-    D = np.abs(librosa.stft(sig, n_fft=int(sr*0.025), win_length=int(sr*0.01), hop_length=int(sr*0.01)))
-    mfccs = librosa.feature.mfcc(S=librosa.power_to_db(D), sr=sr, n_mfcc=n_mfcc)
+    sig, sr = librosa.load(filepath)
+    mfccs = librosa.feature.mfcc(sig)
     return mfccs
