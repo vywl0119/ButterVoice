@@ -21,7 +21,7 @@
     </div>
 
     <div class="flex-container_col">
-                <div class = "flex-container1">
+                <div id="calling" class = "flex-container1">
                     <div class="calling-container">
                         <div class="today_container">
                             <div class = "today_container_title">Today:</div>
@@ -68,5 +68,12 @@
                            
                 </div>  
         </div>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            setInterval(function() {
+                $("#calling").load(location.href + ' #calling');
+                console.log("zzz")
+            }, 1000); // <-- time in milliseconds
+        </script>
 </body>
 </html>
