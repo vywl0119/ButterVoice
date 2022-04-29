@@ -23,7 +23,14 @@
         <div class="counselor-container">
             <div class="profile-container">
                 <div class="photo-container">
-                    <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    {% if user.profile %}
+                        <img id="cophoto" src="/static/image/profile/{{user.profile}}" alt="프로필 사진">
+                    {%else%}
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    
+                    {%endif%}
+
+
                     <div class="coname"><p>{{user.name}} 상담사</p></div>
                 </div>
                 <div class="coinfo-container">
