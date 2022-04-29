@@ -1,22 +1,120 @@
+<!DOCTYPE html>
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
-<link rel="stylesheet" href="{% static 'css/home/home.css' %}"/>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Butter Voice</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'image/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/home/home.css' %}"/>
 
-<div style="text-align: center">
-    <img class="logo" style="margin-top: 20px" src="{% static 'image/img_logo.png' %}"/>
-</div>
-<div class="container">
-    <div class="row">
-        <div style="text-align: center">
-            <div class="col">
-                <img src="{% static 'image/img_name.png' %}"/>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#page-top"><img src="{% static 'image/logo_.png' %}" alt="..." class='logo' /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                      
+                        {% if request.session.co_name or request.session.cu_name%}
+                            {% if type %}
+                                {% if type == 'co'%}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Mainapp:co_main' %}">{{request.session.co_name}}님, 반갑습니다</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:logout' type%}">Log Out</a></li>
+                                {%else%}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Mainapp:cu_main' %}">{{request.session.cu_name}}님, 반갑습니다</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:logout' type%}">Log Out</a></li>
+                                {%endif%}
+                            {%else%}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:role' %}">Sign Up</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:signin' %}">Log In</a></li>                   
+                            {% endif %}  
+                        {%else%}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:role' %}">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Homeapp:signin' %}">Log In</a></li>
+                        {%endif%}
+
+
+                    </ul>
+                </div>
             </div>
-            <div class="col">
-                <button class="button" onclick="window.open('../signin', '로그인', 'width=400, height=350, location=no, status=no, scrollbars=yes');">로그인</button>
+        </nav>
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+                <div class="container px-5">
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+                    
+                </div>
             </div>
-            <div class="col">
-                <button class="button" onclick="location.href='../role'">회원가입</button>
+        </header>
+        <!-- Content section 1-->
+        <section >
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img id="home_img_1" class="img-fluid rounded-circle" src="{% static 'image/call_img.png' %}" alt="..." /></div>
+                    </div>
+                    <div id="scroll" class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">&nbsp;&nbsp;&nbsp;&nbsp;고객 음성감정 분석</h2>
+                            <P>'ButterVoice'이 자체 개발한 음성 감정 인식 AI로<br> 고객의 격양된 목소리를 잡아내 상담사들에게 경고 후<br> 상담사 보호 프로그램 발동!</P>
+                            
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+        </section>
+        <!-- Content section 2-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img id="home_img_2" class="img-fluid rounded-circle" src="{% static 'image/call_mic.png' %}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STT를 사용한 욕설 필터링</h2>
+                            <p>STT기술로 고객의 음성을 텍스트로 바꾼 후 'ButterVoice'만의 욕설 탐지 알고리즘으로 업무에 불필요한 단어들을 자동으로 필터링해줘 쾌적한 상담 환경을 조성!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 3-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img id="home_img_3" class="img-fluid rounded-circle" src="{% static 'image/home_img_3.png' %}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">&nbsp;&nbsp;&nbsp;&nbsp;TTS를 사용한 음성 변조</h2>
+                            <p>'ButterVoice'만의 상담사 보호 프로그램을 통해 불필요한 언어와 혐오 단어가 필터링된 고객의 말을 부드럽게 변조해 상담사에게 심적 안정감을!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">[18조]전남/전북1반 2조 &copy; 강가영, 김보연, 유혜리, 정문경, 정수빈</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-family: 'GimpoGothicRegular00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicRegular00.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'Cafe24Ssurround';
+    font-family: 'GimpoGothicRegular00';
     font-size: large;
     margin:0;
     padding:0;
@@ -65,7 +65,7 @@ body{
     width: 40%;
     height: 100%;
     margin: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     display: flex; 
     flex-direction: row;
     
@@ -73,22 +73,27 @@ body{
 /* 상담사사진 컨테이너 */
 .photo-container{
     /* background-color: aqua; */
-    width: 40%;
+    width: 70%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4%;
 }
 .profile-container .photo-container > img{
     width: 80px;
     height: 80px;
-    margin-top: 3%;
-    margin-left: 43%;
 }
 .coname{
-    margin-left: 40%;
 }
 /* 상담사 기본정보 컨테이너 */
 .coinfo-container{
-    width: 60%;
+    width: 80%;
     display: flex; 
     flex-direction: column;
+    justify-content: center;
     
 }
 .counselor-phonenumber-container{
@@ -97,12 +102,11 @@ body{
     flex-direction: row;
 }
 .counselor-phonenumber-title{
-    margin-top: 5%;
-
+    margin-top: 2%;
 }
 .counselor-phonenumber{
-    margin-top: 5%;
-    margin-left: 3%;
+    margin-left: 6%;
+    margin-top: 2%;
 }
 .counselor-star-container{
     /* background-color: yellow; */
@@ -115,7 +119,7 @@ body{
 }
 .counselor-star{
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 11%;
 }
 .counselor-count-container{
     /* background-color: blueviolet; */
@@ -128,7 +132,7 @@ body{
 }
 .counselor-count{
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 11%;
 }
 
 
@@ -137,40 +141,42 @@ body{
     height: 80%;
     
     display:inline-block;    
-    margin-left: 40%;
+    margin-left: 20%;
 
     /* background-color: aqua; */
-    overflow:auto;
-    overflow-y: overlay;
-    
-     
+    overflow-y: overlay;    
 }
+
+.customer-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
 /* 상담사 상세정보 페이지에서 관련 고객정보 컨테이너 */
 .related-profile-container{
     background-color: white;
     border-radius: 40px;
-    width: 60%;
-    height: 30%;
+    width: 900px;
+    height: 35%;
     margin-bottom: 2%;
-
+    margin-left: 1%;
     display: flex; 
-    flex-direction: row;
-    
 }
 
 .related-photo-container{
     width: 40%;
-    height: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 #cuphoto{
     width: 100px;
     height: 100px;
-    margin-top: 5%;
-    margin-left: 53%;
+    
 }
 .cuname{
     margin-top: 2%;
-    margin-left: 53%;
 }
 .cuinfo-container{
     width: 60%;
@@ -182,34 +188,73 @@ body{
 .customer-basic-info-container{
     display: flex;
     flex-direction: row;
-    margin-left: 5%;
     margin-bottom: 2%;
+    margin-top: 1%;
 }
 .customer-phonenumber-title{
-    margin-top: 3%;
+    margin-top: 2%;
     
 }
 .customer-phonenumber{
-    margin-top: 3%;
+    margin-top: 2%;
     margin-left: 5%;
 }
 .counselor-record-container{
     display: flex;
     flex-direction: row;
-    margin-left: 5%;
 }
 .counselor-record-title{
-   
+    margin-top: 2%;
 }
 .counselor-record-list{
-    height: 50%;
-    display:inline-block;    
-    margin-left: 40%;
-    margin-top: 2%;
+    height: 90px;
+    width: 400px;
     margin-left: 5%;
+    margin-top: 2%;
     overflow-y: overlay;
+    font-size: small;
    
 }
-/* .counselor-record-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
-} */
+
+.header_container {  
+    flex-direction: row;  
+    margin-top: 1%;
+    height: 100px;
+  }
+ 
+.logo {
+    width: 19.8%;
+    margin-left: 4%;
+    margin-top: 0.05%
+}
+
+.profile_name {
+    font-size: large;
+    color: white;
+    display: inline-block;
+    float: right;
+    margin-top: 2.5%;
+    margin-right: 1%;
+}
+
+#back_btn {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    border: none;
+    margin-right: 5%;
+    margin-top: 15%;
+}
+
+.customer-info-container{
+    width: 100%;
+    height: 80%;
+
+    display: flex; 
+    flex-direction: row;
+}
+
+#backphoto{
+    width: 70px;
+    height: 70px; 
+}

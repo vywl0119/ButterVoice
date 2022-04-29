@@ -8,41 +8,72 @@
     <title>ButterVoice</title>
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="{% static 'css/main/comain_style.css' %}">
+     <link rel="stylesheet" href="{% static 'css/main/co_main_style.css' %}">
      
 </head>
+
 <body>
-    <img id="logoimg" src="/static/image/img_logo.png">
-    <div id="Butter_Voice">
-        <span>Butter Voice</span>
-    </div>
-    <div class="n_13">
-        <button id='onoff_btn' type="button">ON</button>
-        <div id="Text">
-            <span>김상담</span>
-        </div>
-        <img id="coimg" src="/static/image/img_co.png">
+
+    <div class="header_container">
+        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home_type' request.session.co_type%}'" />
+        <a class = "profile_name" style="margin-right:3.53%;" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
 
-    <div id="Today">
-        <span>Today : 1004</span>
-    </div>
-    
-    <div class="customer-container">
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-            <input type = "image" src = "/static/image/yes_call.png" id="call">
+    <div class="flex-container_col">
+                <div id="calling" class = "flex-container1">
+                    <div class="calling-container">
+                        <div class="today_container">
+                            <div class = "today_container_title">Today:</div>
+                                <div class="today_number">{{today_call}}명</div> 
+                        </div>
+
+                        {% if first_call %}
+                        <div class="info-box" >           
+                            <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
+                            <h1 class = "cu_name">{{first_call.cu_name}} 님</h1>            
+                            <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call' first_call.c_no %}'"/>
+                        </div>
+                        {% else %}
+                        <div class="info-box" >           
+                            <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/> 
+                        </div>
+
+                        {% endif %}
+
+
+                    </div>
+                    <div class="waiting-container">
+                        <div class="waiting-info-container">
+                            <div class = "waiting_conatiner_title">대기자:</div>
+                                <div class="waiting_number">{{call_len}}명</div>
+                        </div>
+                        <div class = "cu_box">
+                            <div class = "col">
+                                {%for call in wait_call %}
+                                    <div class = "cucall_box">
+                                        <div class="row">
+                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            <div class="call_name">{{call.cu_name}} 님</div>            
+                                            <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" />
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                    
+                            
+                            </div>
+                        </div>  
+                    </div>
+                    <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'co' %}'"><img id="backphoto" src="/static/image/board.png" alt=""></button>
+                           
+                </div>  
         </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-        <div class="related-profile-container"> 
-            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
-            <div class="cuname"><p>발랄한 호랑이님</p></div>
-        </div>
-    </div> 
-    
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            setInterval(function() {
+                $("#calling").load(location.href + ' #calling');
+                console.log("zzz")
+            }, 1000); // <-- time in milliseconds
+        </script>
 </body>
 </html>

@@ -1,29 +1,81 @@
-.image {
-    width: 30%;
-    margin-top: 50px;
+.image_leftBtn {
+    padding-left: 22.5%;
 }
 
+.image_rightBtn {
+    padding-right: 25%;
+}
 
 .text {
     font-size: 30px;
-    margin-top: 100px;
-    padding-top: 20%;
     color: black;
+    background-color: #00000000;
+    margin-top: 50px;
+}
+
+.main_div {
+    width: 100%;
+    text-align: center;
+    float: bottom;
 }
 
 .main_text {
     font-size: 50px;
-    margin-top: 100px;
+    margin-top: 50px;
+    background-color: #00000000;
+}
+
+.select_div {
+    text-align: center;
+    
+    height: 70%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .select {
     text-align: center;
     width: 20%;
-    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.button {
-    height: 45%;
+.button {    
+    height: 79%;
+    width: 120%;
     border-radius: 30px;
     background-color: white;
+
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(173, 172, 172, 0.8) -6px -2px 16px 0px;
+}
+
+.button:active{
+    box-shadow: none;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#image {
+    width: 30%;
+    
+    background-color: #00000000;
+}
+
+.header_container {  
+    flex-direction: row;  
+    margin-top: 1%;
+    height: 8%;
+  }
+ 
+.logo {
+    width: 20%;
+    margin-left: 3.5%;
+    float: left;
+    margin-top: 0.05%
 }

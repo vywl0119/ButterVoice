@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib import admin
+
+from rest_framework import routers
+from Homeapp import views
+
+
 
 
 urlpatterns = [
@@ -24,5 +31,6 @@ urlpatterns = [
     path('Main/', include('Mainapp.urls')),
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
+    path("", views.home),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

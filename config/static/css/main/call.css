@@ -1,0 +1,228 @@
+@font-face {
+  font-family: 'GimpoGothicRegular00';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicRegular00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'GimpoGothicRegular00';
+
+}
+body{
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+  
+.flex-container{ 
+  width: 100%; 
+  height: 100vh; 
+  display: -webkit-box; 
+  display: -moz-box;
+  display: -ms-flexbox; 
+  display: flex; 
+  flex-direction: column;
+
+  /* -webkit-box-align: center; 
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; 수직 정렬 */
+
+  -webkit-box-pack: center;
+  -moz-box-pack: center; 
+  -ms-flex-pack: center; 
+  justify-content: center; /* 수평 정렬 */
+  align-items: center; /* 수직 정렬 */
+
+} 
+
+
+.dialNumpadHWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.dialNumber {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#errorMessage {
+  color: red;
+}
+
+/* What is your name? */
+.userName-container{
+  width: 500px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+}
+input[type=text]::-webkit-inner-spin-button, 
+input[type=text]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    outline: none;
+    border-radius:5px; 
+}
+
+#userNameInput{
+  background: none;
+  outline: none;
+  border-left-width:0;
+  border-right-width:0;
+  border-top-width:0;
+  border-bottom-width:1 white;
+  text-align:center; 
+  height: 50px; 
+  font-size: xx-large;
+}
+#userNameInput:focus{
+  border-bottom-width:1 #fce205;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.actionButton {
+  width: 500px;
+  font-size: 25px;
+  border: 0;
+  border-radius: 5px;
+  padding-top: 15px;
+  margin-top: 5%;
+  outline: none;
+  background-color: #fce205;
+  color: white;
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  outline: none;
+  background-color: #6aafe6;
+  color: white;
+}
+
+input[type='text'] {
+  
+}
+input:focus {outline:none;}
+
+.userInfo-container{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 300px;
+}
+
+h1{
+  color: white;
+}
+
+h2{
+  color: white;
+}
+
+
+/* userInfo-container */
+.userInfo-container{
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+  margin-right: 300px;
+}
+
+
+/* whom to call? */
+.dialWrapper {
+  width: 500px;
+  height: 100px;
+  /* background-color: white; */
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#nameHere{
+  margin-top: 2%;
+  color: white;
+}
+
+#callName{
+  background: none;
+  outline: none;
+  border-left-width:0;
+  border-right-width:0;
+  border-top-width:0;
+  border-bottom-width:1 white;
+  margin-bottom: 3%;
+  text-align:center; 
+  height: 50px; 
+  font-size: xx-large;
+}
+
+.dialActionButton {
+  width: 500px;
+  font-size: 25px;
+  border: 0;
+  border-radius: 5px;
+  padding-top: 15px;
+  margin-top: 8%;
+  outline: none;
+  background-color: #fce205;
+  color: white;
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dialActionButton:hover {
+  outline: none;
+  background-color: #6aafe6;
+  color: white;
+}
+
+#profileImageA{
+  padding: 30px; 
+  width: 140px; 
+  height: 140px;"
+}
+
+/* calling */
+.incomingWrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+}
+
+#otherUserNameCA{
+  color: black;
+}

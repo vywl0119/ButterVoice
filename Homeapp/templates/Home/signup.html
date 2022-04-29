@@ -1,58 +1,100 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/signup.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/bar.css' %}"/>
 
-<style>
-    body {
-        color: black;
-    }
-</style>
+<div class="header_container">
+    <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='/Home/home'"/>
 
-<header class="header">
-    <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-</header>
-<div class="background">
-    <div class="container" style="width: 100%">
-        <div class="main_text">회원 정보</div>
-        <div class="row">
-            <form id="send" action="/Home/home" method="post" onsubmit="return false;">
-                {% csrf_token %}
-                <input type="hidden" id="type" name="type" value="{{ type }}"/>
-                <div class="col">
-                    <div class="text" style="float: left">아이디</div>
-                    <input class="input" type="text" id="id" name="id"/>
-                </div>
-                <div class="col">
-                    <div class="text" style="float: left">비밀번호</div>
-                    <input class="input" type="password" id="pw" name="pw"/>
-                </div>
-                <div class="col">
-                    <div class="text" style="float: left">비밀번호 확인</div>
-                    <input class="input" type="password" id="pw_c" name="pw_c"/>
-                </div>
-                <div class="col">
-                    <div id="check" style="margin-left: 24%; margin-top: -10px; color: #00000000">비밀번호가 일치하지 않습니다.</div>
-                </div>
-                <div class="col">
-                    <div class="text" style="float: left">이름</div>
-                    <input class="input" type="text" id="name" name="name"/>
-                </div>
-                <div class="col">
-                    <div class="text" style="float: left">전화번호</div>
-                    <input class="input" type="text" id="phone" name="phone"/>
-                </div>
+</div>
+<div class="background fadeIn">
+    <div class="container bg_invisible">
+        {% if type == "co" %}
+            <div class="main_text">상담사 회원가입</div>
+        {%else%}
+            <div class="main_text">고객 회원가입</div>
+        {%endif%}
+
+
+        <form class="bg_invisible" id="send" action="{% url 'Homeapp:signup' %}" method="post" onsubmit="return false;" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-container"> 
+                
                 {% if type == "co" %}
-                <div class="col">
-                    <div class="text" style="float: left">카테고리</div>
-                    <input class="input" type="text" id="category" name="category"/>
+
+                <div class="photo-container">
+                    <div class="photo">
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    </div>
+                    <div class="upload_form">
+                        <input type="file" name="profile"
+                        id="last_name" onchange="imageView(this)" >
+                    </div> 
+                   
+
                 </div>
-                {% endif %}
-                <div style="text-align: center; margin-top: 2%">
-                    <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
+                {%else%}
+                <div class="photo-container">
+                    <div class="photo">
+                        <img id="cophoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                    </div>
+                    <div class="upload_form">
+                        <input type="file" name="profile"
+                        id="last_name" onchange="imageView(this)">
+                    </div>
                 </div>
-            </form>
-        </div>
+                {%endif%}
+
+
+                <div class="input-container">
+                    <div class="row bg_invisible">
+                        <input type="hidden" id="type" name="type" value="{{type}}"/>
+                        
+                        <div class="col">
+                            {% comment %} <div class="text">아이디</div> {% endcomment %}
+                            <input class="input" type="text" id="id" name="id" placeholder="id"/>
+                        </div>
+
+                        <div class="col">
+                            {% comment %} <div class="text">비밀번호</div> {% endcomment %}
+                            <input class="input" type="password" id="pw" name="pw" placeholder="pw"/>
+                        </div>
+                        <div class="col">
+                            {% comment %} <div class="text">비밀번호 확인</div> {% endcomment %}
+                            <input class="input" type="password" id="pw_c" name="pw_c" placeholder="pw-check"/>
+                        </div>
+                        <div class="col bg_invisible">
+                            <div class="check_pw bg_invisible" id="check">비밀번호가 일치하지 않습니다.</div>
+                        </div>
+                        <div class="col">
+                            {% comment %} <div class="text">이름</div> {% endcomment %}
+                            <input class="input" type="text" id="name" name="name" placeholder="name"/>
+                        </div>
+                        <div class="col">
+                            {% comment %} <div class="text">전화번호</div> {% endcomment %}
+                            <input class="input" type="text" id="phone" name="phone" placeholder="phone-number"/>
+                        </div>
+                        {% if type == "co" %}
+                        <div class="col">
+                            <div class="text">카테고리</div>
+                            <div class="category-container">
+                                <input type="radio" id="category" name="category" value="WIFI" checked class="radio">
+                                    WIFI
+                                <input type="radio" id="category" name="category" value="핸드폰" class="radio">
+                                    핸드폰
+                                <input type="radio" id="category" name="category" value="가입" class="radio">
+                                    가입
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="div_confirm">
+                            <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -95,6 +137,21 @@
         }
         alert("등록되었습니다.");
         document.forms["send"].submit();
-        location.replace('/Home/home');
+        
+    }
+
+
+    function imageView(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+ 
+            reader.onload = function(e) {
+                $('#cophoto').attr('src', e.target.result)
+                 .width(180)
+                 .height(180);
+            }
+ 
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 </script>

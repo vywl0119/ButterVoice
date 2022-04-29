@@ -3,34 +3,28 @@
 <link rel="stylesheet" href="{% static 'css/home/style.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/home/role.css' %}"/>
 
-<header class="header">
-    <img src="{% static 'image/img_logo.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <img src="{% static 'image/img_name.png' %}" style="height:50; float:left" onclick="location.href='/Home/home'"/>
-    <div text-align="center" style="float: right; width: 50%">
-        <div class="bar_text">행복한 호랑이 님</div>
-        <img src="{% static 'image/img_co.png' %}" style="height:50; float: right"/>
-    </div>
-</header>
-<div style="text-align: center; float: bottom">
+<div class="header_container">
+    <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Homeapp:home'  %}'"/>
+</div>
+<div class="main_div">
     <div class="main_text">회원 선택</div>
 </div>
-<div style="text-align: center">
-    <form id="send" action="/Home/signup/" method="post" onsubmit="return false;">
-        {% csrf_token %}
-        <input type="hidden" id="result" name="result" value="cu">
-        <div onclick="result('cu')" class="select" style="padding-left: 20%; padding-right: 10%" onclick="location.href='../signup'">
-            <div class="button">
-                <div class="text">고객</div>
-                <img class="image" src="{% static 'image/img_cu.png' %}"/>
+<div class="select_div">
+
+        <div class="image_leftBtn select">
+            <div class="button" onclick="location.href='{% url 'Homeapp:signups' 'cu'%}'">
+                <img id="image" src="{% static 'image/img_cu.png' %}"/>
+                <div class="text">고객</div>                
             </div>
         </div>
-        <div onclick="result('co')" class="select" style="padding-left: 10%; padding-right: 20%">
-            <div class="button">
+
+        <div class="image_rightBtn select">
+            <div class="button" onclick="location.href='{% url 'Homeapp:signups' 'co'%}'">
+                <img id="image" src="{% static 'image/img_co.png' %}"/>
                 <div class="text">상담사</div>
-                <img class="image" src="{% static 'image/img_co.png' %}"/>
             </div>
         </div>
-    </form>
+
 </div>
 
 <script type="text/javascript">

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revaliate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ButterVoice</title>
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/main/co_call_style.css' %}">
+    <!-- MAIN JS -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
+     {% comment %} <script src="{% static 'js/main/co_call.js' %}"></script> {% endcomment %}
+    </head>
+<body>
+
+    <div class="header_container">
+        <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:co_main'  %}'"/>
+        <img class="mic" id='mic' src="{% static 'image/mic_on.png' %}" onclick='changeImg()'/>
+        <a class = "logout" style='margin-right:4.3%' href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
+    </div>
+
+    <div class="flex-container">
+        <div id='tab-cont'>
+            <ul class="tabs">
+                <li class="tablinks active" data-country="London"><a href="#" class="color-font">메인</a></li>
+                <li class="tablinks" data-country="wifi"><a href="#" class="color-font">와이파이</a></li>
+                <li class="tablinks" data-country="cellphone"><a href="#" class="color-font">핸드폰</a></li>
+                <li class="tablinks" data-country="sign"><a href="#" class="color-font">가입</a></li>
+            </ul>
+            <div class="manual-container">
+                <div class="note">
+                    <div id="London" class="tabcontent active">
+                        <h2 style="color:#586fab;"> 첫 인사 및 용건 확인 </h2>
+                        <h4>- 전화벨이 울리면, 벨이 3회 이상 울리기 전에 빨리 수화기를 든다.<br>
+                        - 고객에게 인사를 한 후 소속과 성명을 밝힌다.<br>
+                        <br>&lt주의&gt<br>
+                        ▢✔ 부득이하게 전화를 늦게 받았다면 반드시 양해를 구한다. <br>
+                        ▢✔ 상대방이 알아듣기 좋은 속도의 발음으로 친절하게 말한다.<br>
+                        <br>
+                        <br></h4>
+                        <h2 style="color:#586fab;">상담 및 전화 연결</h2>
+                        <h4>- 고객에게 용건을 물어본다.<br> 
+                        - 고객의 말을 경청하면서 적절하게 답변하고, 공감을 표현한다. <br>
+                        <br>&lt주의&gt<br>
+                        ▢✔ 단답형 답변보다는 고객을 배려하는 표현을 쓴다. <br><br>
+                        - 중요하거나 잊어버리기 쉬운 내용은 메모한다.<br>
+                        - 어려운 용어나 절차 등은 이해하기 쉽게 풀어서 설명한다.<br>
+                        <br>&lt주의&gt<br>
+                        ▢✔ 고객의 말을 끝까지 경청한 후 답변한다.<br><br>
+                        - 업무 담당자에게 전화를 연결해줄 경우 업무 담당자의 성명, 전화번호(타부서인 경우 부서까지)를 먼저 설명하고 연결해준다. <br>
+                        <br>&lt주의&gt<br>
+                        ▢✔ 전화 연결도중 전화가 끊어지지 않도록 주의한다. <br>
+                        ▢✔ 연결 받을 담당자가 어느 부서, 누구인지 미리 확인한 후 연결한다. <br>
+                        ▢✔ 전화가 연결되지 않아 다시 전화가 온 경우 고객에게 양해를 구하고, 담당자가 고객에게 직접 전화를 걸 수 있도록 고객의 전화번호를 확인하여 담당자에게 알려준다.<br>
+                        <br>
+                        <br></h4>
+                        <h2 style="color:#586fab;">상담 종료 후 끝인사<br></h2>
+                        <h4>- 상담이 끝난 후에 추가적으로 필요한 사항은 없는지 물어본다.<br>
+                        - “감사합니다!” 등 공손한 끝인사 후 전화를 끊는다. <br>
+                        <br>&lt주의&gt<br>
+                        ▢✔ 고객의 말이 끝나기 전에 먼저 전화를 끊지 않도록 주의한다.</h4>
+                    </div>
+                    <div id="wifi" class="tabcontent">
+                        <h2 style="color:#586fab;">KT 홈허브 설정방법</h2>
+                        <pre>
+                            <h4>1) http://172.30.1.254 를 인터넷주소창에 입력하면 KT홈허브 공유기와 연결
+                                
+2) 홈허브 공유기 초기 아이디와 패스워드
+    ID : ktuser   
+    PW : megaap
+    ( 신형 KT Giga Wifi : ktuser / homehub )
+    
+3) 로그인 화면
+
+4) 로그인후 고급설정탭 클릭 -> 트래픽 관리 -> ALG 설정
+    ALG설정: PPTP 비활성화 -> 활성으로 체크 저장
+
+5) 공유기 PPTP 활성화시 에도 오피스IP 프로그램 로그인 안될때..
+    -> (1) 홈허브 펌웨어 업데이트 !!!(필수)
+
+        (2) 홈허브 공유기를 거치게 되면 내부 아이피(사설 172.30.1.0/24)를 
+            받아오나 컴퓨터 아이피를 회선 아이피로 받아올수 있도록 
+            KT에 요청을 하면 처리가능 연결자체는 홈허브를 거치게 되나
+            회선아이피를 받아올수 있습니다.    </h4>   
+                            </pre>       
+                    </div>
+                    <div id="cellphone" class="tabcontent">
+                        <h2 style="color:#586fab;">KT요금제 변경방법</h2>
+                        <h4>1. 마이케이티 앱 실행하기<br>
+                        2. 메뉴<br>
+                        3. 마이<br>
+                        4. 요금/서비스 - 요금제변경<br>
+                        5. 요금제 선택<br>
+                        6. 변경<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">결제 내역 조회 및 한도 조회/변경/차단<br></h2>
+                        <h4>1. KT닷컴에서 ARS 본인인증 후 즉시 변경<br>
+                        - KT닷컴 > 마이페이지 > 요금조회 > 소액결제 내역<br><br><br></h4>
+    
+                        <h2 style="color:#586fab;">번호 변경</h2>
+                        <h4>1. 가까운 플라자나 대리점으로 방문하여 변경<br>
+                        2. KT닷컴에서 ARS 본인인증 후 즉시 변경<br>
+                        - KT닷컴 > 마이 > 가입/이용 > 가입정보 변경 > 번호변경<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">LTE 데이터쿠폰 사용</h2>
+                        <h4>1. 마이케이티 앱을 통해 등록 후 사용 가능<br>
+                        2. KT닷컴에서을 통해 등록 후 사용 가능<br>
+                        - 마이 > 멤버십/혜택 > My쿠폰 > 기타/구매쿠폰<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">데이터 안터질 때</h2>
+                        <h4>1. 설정 -> 연결<br>
+                        2. 모바일 네트워크<br>
+                        3. 데이터 네트워크 방식 -> LTE 선택<br></h4>
+                    </div>
+                    <div id="sign" class="tabcontent">
+                        <h2 style="color:#586fab;">핸드폰 신규가입</h2>
+                        <h4>1. KT Shop 이용<br>
+                        2. 가까운 대리점 및 KT플라자로 방문<br>
+                        - 가까운 KT플라자/대리점 위치 찾기 https://help.kt.com/store/KtStoreSearch.do <br>
+                        - 구비서류 <br>
+                        ㅇ 명의자가 방문할 경우 : 신분증 (주민등록증, 운전면허증 등) <br>
+                        ㅇ 대리인이 방문할 경우 : 명의자 신분증, 명의자 인감도장이 날인된 위임장, 명의자 인감증명서, 대리인 신분증 <br>
+                        - 참고사항 <br>
+                        ㅇ 가입비 : 0원 (2015년 3월 31일 신규가입 고객부터 적용) <br>
+                        ㅇ 유심(가입자 정보 저장) 카드 : 통신전용 유심, 통신전용 + 부가기능(신용카드,멤버십,교통,증권) : 4,400원~13,200원<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">인터넷 전화 가입<br></h2>
+                        <h4>1. KT Shop, 플라자, 고객센터에서 가입 가능<br>
+                        - 월정액 2,200원, 출동비 27,500원(부가세 포함)<br>
+                        - 가입 시 인터넷 전화기 구입 가능<br><br><br></h4>
+    
+                        <h2 style="color:#586fab;">약정없이 가입할 수 있는 요금제</h2>
+                        <h4>- 5G 다이렉트 67/55/37 <br>
+                        - LTE 다이렉트 45 만 <br>
+                        - 29세 미만 고객님에게는 다이렉트55/45 가입 시 추가로 5,500원의 할인까지 적용<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">멤버십 가입</h2>
+                        <h4>- KT닷컴 > 혜택 > 멤버십 혜택 > 멤버십 안내 > 멤버십 가입 
+                        ☞홈페이지 바로가기 https://membership.kt.com/guide/join/JoinForm.do 기변, 가입, 신규, 새 휴대폰, 멤버십, 제휴, 더블할인, VIP<br><br><br></h4>
+
+                        <h2 style="color:#586fab;">인터넷 가입 완료 후 개통일</h2>
+                        <h4>- 고객님께서 지정한 날짜에 개통이 이루어짐<br>
+                        - 설치를 위한 KT 엔지니어가 배정되면 남겨주신 연락처로 방문 예정일 및 담당자 이름, 연락처를 문자메시지로 안내<br>
+                        <br></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="customer-couselor-container"> 
+            <div class="related-profile-container"> 
+                <div class="related-photo-container">
+                    <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                    <div class="cuname"><p>{{cu.name}}</p></div>
+                </div>
+                <div class="cuinfo-container">
+                    <div class="customer-basic-info-container">
+                        <div class="customer-phonenumber-title">고객 번호</div>
+                        <div class="customer-phonenumber">{{cu.phone}}</div>
+                    </div>
+                    <div class="counselor-record-container">
+                        <div class="counselor-record-title">상담 이력</div>
+                        <div class="counselor-record-list">
+                            {% for call in cu_call %}
+                                <div class="couselor-record">{{call.call_date}} {{call.title}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="couselor-container"> 
+                <div class="related-photo-container">
+                    <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    <div class="cuname"><p>{{request.session.co_name}} 님</p></div>
+                </div>
+
+                <form  id="send" action="{% url 'Mainapp:call_update' %}" method="post" >
+                    {% csrf_token %}
+                    <input type="hidden" name="c_no" value="{{call.c_no}}"/>
+
+                    {%if call.title%}
+                    <div class="co-content-container">
+                        <div class="category-container">
+
+                            <div class="category-title">카테고리 </div>
+                            <div class='content-category'>{{call.category}}</div>
+
+                        </div>
+                        <div class="content-container">
+                            <div class="content-title">제목</div>
+                            <p><input name="title" type="text" class="content-title-name" value="{{call.title}}"></p> 
+                        </div>
+                        <p><textarea name="content" class="content">{{call.content}}</textarea></p>
+                        <button id="save_btn" type="submit">저장</button>
+                    </div>
+                    {%else%}
+                    <div class="co-content-container">
+                        <div class="category-container">
+
+                            <div class="category-title">카테고리 </div>
+                            <div class='content-category'>{{call.category}}</div>
+
+                        </div>
+                        <div class="content-container">
+                            <div class="content-title">제목</div>
+                            <p><input name="title" type="text" class="content-title-name" ></p> 
+                        </div>
+                        <p><textarea name="content" class="content"></textarea></p>
+                        <button id="save_btn" type="submit">저장</button>
+                    </div>
+
+
+                    {%endif%}
+
+
+                </form>
+
+
+
+            </div>
+        </div> 
+    </div>
+    
+    <audio id="audio">
+        <source id="audioSource" src="{% static 'wav/test_0.wav' %}" type="audio/wav">
+    </audio>
+    
+    <!-- https://developer.mozilla.org/ko/docs/Web/Events : window.addEventListener 옵션 -->
+    <script type="text/javascript">
+        var path = "{% static 'wav/test_0.wav' %}";
+        var num = 0;
+        window.addEventListener("load", function(event) {
+            function playWav() {
+                document.getElementById("audio").src = path;
+                document.getElementById("audio").play();
+                path = path.replace(String(num), String(num+1));
+                num += 1;
+            }
+            setInterval(playWav, 20000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+        });
+        /*window.onload=function() {
+            function playWav() {
+                alert("play");
+                document.getElementById("audio").src = "{% static 'test.wav' %}";
+                document.getElementById("audio").play();
+            }
+            setInterval(playWav, 10500);
+        }*/
+        function reloading() {
+            document.getElementById("audio").src = path;
+            document.getElementById("audio").play();
+            path = path.replace(String(num), String(num+1));
+            num += 1;
+        }
+
+         // tab 변경
+         var tabBtn = document.querySelectorAll(".tablinks");     //각각의 버튼을 변수에 저장
+         var tabCont = document.querySelectorAll(".tabcontent");       //각각의 콘텐츠를 변수에 저장
+ 
+ 
+         tabBtn.forEach(function(el) {
+             el.addEventListener("click", openTabs);
+         });
+          
+          
+         function openTabs(el) {
+             var btnTarget = el.currentTarget;
+             var country = btnTarget.dataset.country;
+             
+             tabCont.forEach(function(el) {
+                el.classList.remove("active");
+             });
+          
+             tabBtn.forEach(function(el) {
+                el.classList.remove("active");
+             });
+          
+             document.querySelector("#" + country).classList.add("active");
+             
+             btnTarget.classList.add("active");
+         }
+    </script>
+</body>
+</html>

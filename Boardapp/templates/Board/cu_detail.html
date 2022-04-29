@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ButterVoice</title>
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/board/board_cudetail_style.css' %}">
+     
+</head>
+<body>
+
+    <div class="header_container">
+        <img class="logo" src="{% static 'image/logo_.png' %}" onclick="location.href='{% url 'Homeapp:home_type' request.session.co_type%}'" />
+        <a class = "profile_name" style="margin-right:4%;" href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
+        <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
+    </div>
+    
+    <div class="flex-container">
+        <div class="customer-container">
+            <div class="profile-container">
+                <div class="photo-container">
+                {% if user.profile %}
+                    <img id="cuphoto" src="/static/image/profile/{{user.profile}}" alt="프로필 사진">
+                {%else%}
+                    <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                
+                {%endif%}
+                    <div class="cuname"><p>{{user.name}} 님</p></div>
+                
+                </div>
+                <div class="cuinfo-container">
+                    <div class="customer-phonenumber-container">
+                        <div class="customer-phonenumber-title">고객 번호</div>
+                        <div class="customer-phonenumber">{{user.phone}}</div>
+                    </div>
+                    <div class="customer-count-container">
+                        <div class="customer-count-title">상담 횟수</div>
+                        <div class="customer-count">{{call_cnt}}번</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+        <div class="category_container">
+            
+            <a class="category_text" href="{% url 'Boardapp:detail_category' id 'ALL' %}">  #전체  </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id 'WIFI' %}">  #와이파이 </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id '핸드폰' %}">  #핸드폰 </a>
+            <a  class="category_text" href="{% url 'Boardapp:detail_category' id '가입' %}">  #가입 </a>
+           
+          </div>
+
+
+
+        <div class="counselor-info-container">
+            
+
+            
+            <div class="counselor-container">
+            {%for call in call_list %}
+                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
+                    <div class="related-photo-container">
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                        <div class="coname"><p>{{call.co_name}} 상담사</p></div>
+                    </div>
+                    <div class="coinfo-container">
+                        <div class="counselor-basic-info-container">
+                            
+                        </div>
+                        <div class="counselor-record-container">
+                            <div class="counselor-date-container">
+                                <div class="counselor-date-title">상담 날짜</div>
+                                <div class="counselor-date">{{call.call_date}}</div>
+                            </div>
+                            <div class="counselor-category-container">
+                                <div class="counselor-category-title">상담 주제</div>
+                                <div class="counselor-category">{{call.title}}</div>
+                            </div>
+                            <div class="counselor-content-container">
+                                <div class="counselor-content-title">상담 내용</div>
+                                <div class="counselor-content">{{call.content}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+                {%endfor%}
+
+            </div>
+              
+            <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+</html>

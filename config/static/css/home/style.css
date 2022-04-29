@@ -1,24 +1,24 @@
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-family: 'GimpoGothicRegular00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicRegular00.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'Cafe24Ssurround';
+    background-color: #313131;
+    font-family: 'GimpoGothicRegular00';
 }
 
 body {
-    background-color: #313131;
+    
     color: white;
 }
 
 header {
-    height: 50px;
+    height: 70px;
     position: sticky;
     top: 0;
     padding: 5px;
-    background-color: #ffffbb;
-    border: 3px solid orange;
+    
 }

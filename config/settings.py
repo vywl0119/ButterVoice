@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'channels',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +81,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'buttervoice',
+        'USER': 'buttervoice',
+        'PASSWORD': 'aivle202101',
+        'HOST': '15.164.153.191',
+        'PORT': 3306,
+        'OPTIONS': {
+            'sql_mode': 'traditional' ,
+        },
+    },
 }
 
 
@@ -106,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -125,3 +135,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'config/static')
 ]
+
+# AUTH_USER_MODEL = 'Mainapp.User'
+
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS={
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+     }
+}
+MEDIA_URL = 'config/static/image/'
+MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
