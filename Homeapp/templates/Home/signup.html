@@ -16,19 +16,22 @@
         {%endif%}
 
 
-        <form class="bg_invisible" id="send" action="{% url 'Homeapp:signup' %}" method="post" onsubmit="return false;">
+        <form class="bg_invisible" id="send" action="{% url 'Homeapp:signup' %}" method="post" onsubmit="return false;" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-container"> 
                 
                 {% if type == "co" %}
+
                 <div class="photo-container">
                     <div class="photo">
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
                     </div>
                     <div class="upload_form">
                         <input type="file" name="profile"
-                        id="last_name" onchange="imageView(this)">
-                    </div>
+                        id="last_name" onchange="imageView(this)" >
+                    </div> 
+                   
+
                 </div>
                 {%else%}
                 <div class="photo-container">
@@ -135,5 +138,20 @@
         alert("등록되었습니다.");
         document.forms["send"].submit();
         
+    }
+
+
+    function imageView(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+ 
+            reader.onload = function(e) {
+                $('#cophoto').attr('src', e.target.result)
+                 .width(180)
+                 .height(180);
+            }
+ 
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 </script>
