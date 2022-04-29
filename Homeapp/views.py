@@ -37,6 +37,7 @@ def logout(request, type):
     
     return redirect('/Home/home/')
 
+# 상담사와 고객 모두 따로 로그인했을때 각자의 세션이 남아있어야 해서 각 세션값 따로 생성
 def signin(request):
 
     if request.method == 'POST':
