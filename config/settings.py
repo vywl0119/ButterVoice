@@ -145,3 +145,5 @@ CHANNEL_LAYERS={
         "BACKEND": "channels.layers.InMemoryChannelLayer"
      }
 }
+MEDIA_URL = 'config/static/image/'
+MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)

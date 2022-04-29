@@ -1,6 +1,9 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 app_name = 'Homeapp'
 
@@ -14,4 +17,4 @@ urlpatterns = [
 
     path('signups/<str:type>', views.signups, name ='signups'),
     path('signup/', views.signup, name ='signup'),
-]
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
