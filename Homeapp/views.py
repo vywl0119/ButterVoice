@@ -93,22 +93,6 @@ def signup(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         profile = request.FILES.get('profile')
-        print(profile)
-
-        if profile:  
-                profile_name = profile.name
-                with open('config/static/image/profile/%s' % name, 'wb') as file:
-                    for chunk in profile.chunks():
-                        file.write(chunk)
-                profile = profile_name
-
-                # file_path = 'config/static/image/profile/'
-                # file_names = os.listdir(file_path)  
-                
-                # for i in file_names:
-                #     if profile == i:
-                #         profile = '1'+profile 
-                #         break
 
         print(type)
         print(id)

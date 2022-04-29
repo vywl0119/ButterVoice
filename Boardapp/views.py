@@ -62,11 +62,23 @@ def cu_detail(request, id):
     call_list = calling.objects.filter(cu_id_id=id)
     call_cnt = len(call_list)
 
+    # 고객이 상담한 상담사 정보
+    profile_list = []
+    for i in call_list:
+        profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
+
+    user_call = {}
+    for i, j in zip(profile_list, call_list):
+        user_call[i] = j
+
+
+    
     context = {
         'user':user,
         'call_list':call_list,
         'call_cnt':call_cnt,
         'id':id,
+        'user_call':user_call,
     }
 
     return render(request, 'Board/cu_detail.html', context)
@@ -115,8 +127,7 @@ def search_board(request, type):
 def detail_category(request, id, category):
 
     user = customer.objects.get(cu_id=id)
-    call_list = calling.objects.filter(cu_id_id=id)
-    call_cnt = len(call_list)
+   
 
     if category == 'ALL':
         call_list = calling.objects.filter(cu_id_id=id)
@@ -126,12 +137,24 @@ def detail_category(request, id, category):
         call_list = calling.objects.filter(cu_id_id=id, category=category)
     if category == '가입':
         call_list = calling.objects.filter(cu_id_id=id, category=category)
+    call_cnt = len(call_list)
+    
+    # 고객이 상담한 상담사 정보
+    profile_list = []
+    for i in call_list:
+        profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
+
+    user_call = {}
+    for i, j in zip(profile_list, call_list):
+        user_call[i] = j
+
 
     context = {
         'user':user,
         'call_list':call_list,
         'call_cnt':call_cnt,
         'id':id,
+        'user_call':user_call,
     }
 
     return render(request, 'Board/cu_detail.html', context)

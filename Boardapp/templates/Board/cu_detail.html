@@ -63,12 +63,15 @@
 
             
             <div class="counselor-container">
-            {%for call in call_list %}
-                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
+            {% for key, value in user_call.items %}
+                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' value.co_id_id %}'"> 
                     <div class="related-photo-container">
-                        
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>{{call.co_name}} 상담사</p></div>
+                        {% if key%}
+                            <img id="cophoto" src="/static/image/profile/{{key}}" alt="프로필 사진">
+                        {%else%}
+                            <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진"> 
+                        {%endif%}
+                        <div class="coname"><p>{{value.co_name}} 상담사</p></div>
                     </div>
                     <div class="coinfo-container">
                         <div class="counselor-basic-info-container">
@@ -77,15 +80,15 @@
                         <div class="counselor-record-container">
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">{{call.call_date}}</div>
+                                <div class="counselor-date">{{value.call_date}}</div>
                             </div>
                             <div class="counselor-category-container">
                                 <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">{{call.title}}</div>
+                                <div class="counselor-category">{{value.title}}</div>
                             </div>
                             <div class="counselor-content-container">
                                 <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">{{call.content}}</div>
+                                <div class="counselor-content">{{value.content}}</div>
                             </div>
                         </div>
                     </div>
