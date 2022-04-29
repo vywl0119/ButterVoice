@@ -24,7 +24,7 @@
             <div class="profile-container">
                 <div class="photo-container">
                 {% if user.profile %}
-                    <img id="cuphoto" src="/static/image/profile/{{user.profile}}" alt="프로필 사진">
+                    <img id="cuphoto" src="/static/image/{{user.profile}}" alt="프로필 사진">
                 {%else%}
                     <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
                 
@@ -67,7 +67,7 @@
                 <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'"> 
                     <div class="related-photo-container">
                         {% if call.0%}
-                            <img id="cophoto" src="/static/image/profile/{{call.0}}" alt="프로필 사진">
+                            <img id="cophoto" src="/static/image/{{call.0}}" alt="프로필 사진">
                         {%else%}
                             <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진"> 
                         {%endif%}

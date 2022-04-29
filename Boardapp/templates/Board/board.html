@@ -85,7 +85,7 @@
 
                     <div class="move-container" onclick="location.href='{% url 'Boardapp:co_detail' user.co_id %}'">
                         {% if user.profile%}
-                            <img src="/static/image/profile/{{user.profile}}">
+                            <img src="/static/image/{{user.profile}}">
                         {%else%}
                             <img src="{% static 'image/img_co.png' %}">
                         {%endif%}
@@ -95,7 +95,7 @@
 
                     <div class="move-container" onclick="location.href='{% url 'Boardapp:cu_detail' user.cu_id %}'">
                         {% if user.profile%}
-                            <img src="/static/image/profile/{{user.profile}}">
+                            <img src="/static/image/{{user.profile}}">
                         {%else%}
                             <img src="{% static 'image/img_cu.png' %}">
                         {%endif%}

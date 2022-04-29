@@ -38,7 +38,9 @@ def cu_call(request, co_id, category):
     th = Thread(target=work)
     th.start()
 
-    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu'})
+    profile = counselor.objects.get(co_id = co_id).profile
+
+    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu','profile':profile})
 
 def co_call(request, c_no):
 
@@ -155,6 +157,7 @@ def co_main(request):
     else:
         first_call = ""
         call_len = 0
+        user_call = ""
 
     
     if first_call:
@@ -186,21 +189,20 @@ def star(request, co_id, star, c_no):
 
     global num
     num = -999
+    profile = counselor.objects.get(co_id = co_id).profile
+    print(profile)
 
-    print(co_id, star)
 
-    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id, 'c_no':c_no})
+
+    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id, 'c_no':c_no, 'profile':profile})
 
 
 def stars(request, star, co_id):
-
-    print(co_id, star)
-    print(type(star))
-    print(type(co_id))
-
-      
+ 
     star = point.objects.create(co_id_id=co_id, star=star)                                                                                                                                                                                                                                                                                                                                                                                                         
     star.save()
+
+    
 
 
     return redirect('Mainapp:cu_main')

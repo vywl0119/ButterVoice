@@ -130,18 +130,22 @@ def detail_category(request, id, category):
 
     if category == 'ALL':
         call_list = calling.objects.filter(cu_id_id=id)
+        call_cnt = len(call_list)
     if category == 'WIFI':
         call_list = calling.objects.filter(cu_id_id=id, category=category)
     if category == '핸드폰':
         call_list = calling.objects.filter(cu_id_id=id, category=category)
     if category == '가입':
         call_list = calling.objects.filter(cu_id_id=id, category=category)
-    call_cnt = len(call_list)
+
+    all_call_list = calling.objects.filter(cu_id_id=id)
+    call_cnt = len(all_call_list)
+    
 
     # 고객이 상담한 상담사 정보
     profile_list = []
     for i in call_list:
-        profile_list.append(counselor.objects.get(co_id=i.co_id_id))
+        profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
 
     user_call = []
     for i, j in zip(profile_list, call_list):
