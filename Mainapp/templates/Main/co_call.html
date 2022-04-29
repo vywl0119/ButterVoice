@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revaliate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ButterVoice</title>
 
@@ -199,6 +200,38 @@
             </div>
         </div> 
     </div>
-
+    
+    <audio id="audio">
+        <source id="audioSource" src="{% static 'test.wav' %}" type="audio/wav">
+    </audio>
+    
+    <!-- https://developer.mozilla.org/ko/docs/Web/Events : window.addEventListener 옵션 -->
+    <script type="text/javascript">
+        var path = "{% static 'wav/test_0.wav' %}";
+        var num = 0;
+        window.addEventListener("load", function(event) {
+            function playWav() {
+                document.getElementById("audio").src = path;
+                document.getElementById("audio").play();
+                path = path.replace(String(num), String(num+1));
+                num += 1;
+            }
+            setInterval(playWav, 13000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+        });
+        /*window.onload=function() {
+            function playWav() {
+                alert("play");
+                document.getElementById("audio").src = "{% static 'test.wav' %}";
+                document.getElementById("audio").play();
+            }
+            setInterval(playWav, 10500);
+        }*/
+        function reloading() {
+            document.getElementById("audio").src = path;
+            document.getElementById("audio").play();
+            path = path.replace(String(num), String(num+1));
+            num += 1;
+        }
+    </script>
 </body>
 </html>
