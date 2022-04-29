@@ -55,6 +55,10 @@ def co_call(request, c_no):
     # 상담사 id
     co_id = calling.objects.get(c_no=c_no).co_id_id
 
+    # 상담사 정보 이미지
+    profile = counselor.objects.get(co_id = co_id).profile
+    
+
     # 전화를 건 고객 정보
     cu = customer.objects.get(cu_id = cu_id)
 
@@ -66,6 +70,7 @@ def co_call(request, c_no):
                'cu_call':cu_call,
                'call':call,
                'type':'co',
+               'profile':profile,
                
     }
 
