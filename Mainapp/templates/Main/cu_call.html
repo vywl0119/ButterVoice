@@ -51,6 +51,30 @@
         </div>
         
     </div>
+
+    <audio id="audio">
+        <source id="audioSource" src="{% static 'wav/voice_0.wav' %}" type="audio/wav">
+    </audio>
+
+    <script type="text/javascript">
+        var path = "{% static 'wav/voice_0.wav' %}";
+        var num = 0;
+        window.addEventListener("load", function(event) {
+            function playWav2() {
+                document.getElementById("audio").src = path;
+                document.getElementById("audio").play();
+                path = path.replace(String(num), String(num+1));
+                num += 1;
+            }
+            setInterval(playWav2, 20000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+        });
+        function reloading() {
+            document.getElementById("audio").src = path;
+            document.getElementById("audio").play();
+            path = path.replace(String(num), String(num+1));
+            num += 1;
+        }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>

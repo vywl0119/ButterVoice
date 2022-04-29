@@ -69,6 +69,10 @@ def co_call(request, c_no):
                
     }
 
+    global v_num
+    v_num = -1
+    th = Thread(target=voice)
+    th.start()
 
     return render(request, 'Main/co_call.html', context)
 
@@ -117,6 +121,8 @@ def category(request, category):
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
 def co_main(request):
+    global v_num
+    v_num = -999
 
     co_id = request.session['co_id']
 
@@ -181,6 +187,30 @@ def index(request):
 
 def call(request):
     return render(request, 'Main/call.html')
+
+def voice():
+    global v_num
+    v_num += 1
+    
+    FILE_NAME = f'./config/static/wav/voice_{v_num}.wav'
+    wave_length = 10
+    sample_rate = 16_000
+
+    data = sd.rec(int(wave_length * sample_rate), sample_rate, channels=1)
+    sd.wait()
+
+    data = data / data.max() * np.iinfo(np.int16).max
+
+    data = data.astype(np.int16)
+
+    with wave.open(FILE_NAME, mode='wb') as wb:
+        wb.setnchannels(1)
+        wb.setsampwidth(2)
+        wb.setframerate(sample_rate)
+        wb.writeframes(data.tobytes())
+
+    if v_num >= 0:
+        threading.Timer(0.5, voice).start()
 
 def work():
     global num
