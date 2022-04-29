@@ -1,9 +1,12 @@
+from multiprocessing.dummy import current_process
 from django.shortcuts import render, redirect
 from Mainapp.models import counselor, customer, calling, point
 from datetime import date, datetime, timedelta
 from rest_framework import viewsets
 from .serializers import customerSerializer, counselorSerializer
 from .models import counselor, customer
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -53,7 +56,20 @@ def co_call(request, c_no):
 
     return render(request, 'Main/co_call.html', context)
 
-def call_update(request):
+@csrf_exempt
+def ajax_method(request, c_no):
+
+    receive_message = request.POST.get('send_data')
+    # call = calling.objects.get(c_no=c_no)
+    send_message =  {
+                'send_data' : "I received" 
+    }
+    return JsonResponse(send_message)
+
+
+
+
+def call_update(request, c_no):
 
     if request.method == 'POST':
         print('a')
@@ -156,3 +172,4 @@ class customerViewSet(viewsets.ModelViewSet):
 class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
+

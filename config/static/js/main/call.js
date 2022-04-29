@@ -236,21 +236,18 @@ function beReady() {
             alert('getUserMedia() error: ' + e.name);
         });
 }
-<<<<<<< HEAD
-function beReady2() {
-    navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
-        audio: true,
-        video: false
-    })
-        .then(stream => {
-            audioRecorder.streamBeingCaptured
-        })
-        .catch(function (e) {
-            alert('getUserMedia2() error: ' + e.name);
-        });
-}*/
-=======
->>>>>>> ad7d644031e308222a0280d56794d5944187e6e1
+// function beReady2() {
+//     navigator.mediaDevices.getUserMedia({ // 사용 가능한 장치를 찾음
+//         audio: true,
+//         video: false
+//     })
+//         .then(stream => {
+//             audioRecorder.streamBeingCaptured
+//         })
+//         .catch(function (e) {
+//             alert('getUserMedia2() error: ' + e.name);
+//         });
+// }
 
 function createConnectionAndAddStream() {
     createPeerConnection();

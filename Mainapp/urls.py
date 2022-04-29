@@ -7,6 +7,8 @@ app_name = 'Mainapp'
 urlpatterns = [
     path('cu_call/<str:co_id>/<str:category>', views.cu_call, name = 'cu_call'),
     path('co_call/<int:c_no>', views.co_call, name = 'co_call'),
+    path('ajax_method/', views.ajax_method, name='ajax_method'),
+
     path('cu_main/', views.cu_main, name = 'cu_main'),
     path('co_main/', views.co_main, name = 'co_main'),
     
@@ -19,5 +21,6 @@ urlpatterns = [
 
     path('index/', views.index, name='index'),
     path('call/', views.call, name='call'),
+
 ]
 
