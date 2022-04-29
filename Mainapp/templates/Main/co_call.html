@@ -179,6 +179,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="c_no" value="{{call.c_no}}"/>
 
+                    {%if call.title%}
                     <div class="co-content-container">
                         <div class="category-container">
 
@@ -188,11 +189,31 @@
                         </div>
                         <div class="content-container">
                             <div class="content-title">제목</div>
-                            <p><input name="title" type="text" class="content-title-name" value={{call.title}}></p> 
+                            <p><input name="title" type="text" class="content-title-name" value="{{call.title}}"></p> 
                         </div>
                         <p><textarea name="content" class="content">{{call.content}}</textarea></p>
                         <button id="save_btn" type="submit">저장</button>
                     </div>
+                    {%else%}
+                    <div class="co-content-container">
+                        <div class="category-container">
+
+                            <div class="category-title">카테고리 </div>
+                            <div class='content-category'>{{call.category}}</div>
+
+                        </div>
+                        <div class="content-container">
+                            <div class="content-title">제목</div>
+                            <p><input name="title" type="text" class="content-title-name" ></p> 
+                        </div>
+                        <p><textarea name="content" class="content"></textarea></p>
+                        <button id="save_btn" type="submit">저장</button>
+                    </div>
+
+
+                    {%endif%}
+
+
                 </form>
 
 
@@ -232,6 +253,33 @@
             path = path.replace(String(num), String(num+1));
             num += 1;
         }
+
+         // tab 변경
+         var tabBtn = document.querySelectorAll(".tablinks");     //각각의 버튼을 변수에 저장
+         var tabCont = document.querySelectorAll(".tabcontent");       //각각의 콘텐츠를 변수에 저장
+ 
+ 
+         tabBtn.forEach(function(el) {
+             el.addEventListener("click", openTabs);
+         });
+          
+          
+         function openTabs(el) {
+             var btnTarget = el.currentTarget;
+             var country = btnTarget.dataset.country;
+             
+             tabCont.forEach(function(el) {
+                el.classList.remove("active");
+             });
+          
+             tabBtn.forEach(function(el) {
+                el.classList.remove("active");
+             });
+          
+             document.querySelector("#" + country).classList.add("active");
+             
+             btnTarget.classList.add("active");
+         }
     </script>
 </body>
 </html>
