@@ -29,8 +29,13 @@
                         </div>
 
                         {% if first_call %}
-                        <div class="info-box" >           
-                            <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
+                        <div class="info-box" >
+                            {%if profile%}
+                                <img id="cu_photo" class="image" src="/static/image/profile/{{profile}}"/>
+                            {%else%}
+                                <img id="cu_photo" class="image" src="{% static 'image/img_cu.png' %}"/>
+                            {%endif%}           
+                            
                             <h1 class = "cu_name">{{first_call.cu_name}} 님</h1>            
                             <img class="cu_call" src="{% static 'image/long_call.png' %}" onclick="location.href='{% url 'Mainapp:co_call' first_call.c_no %}'"/>
                         </div>
@@ -50,11 +55,17 @@
                         </div>
                         <div class = "cu_box">
                             <div class = "col">
-                                {%for call in wait_call %}
+                                {% for call in user_call %}
                                     <div class = "cucall_box">
                                         <div class="row">
-                                            <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
-                                            <div class="call_name">{{call.cu_name}} 님</div>            
+                                            {%if call.0%}
+                                                <img class="cu_img"  src="/static/image/profile/{{call.0}}"/>
+                                            {%else%}
+                                                <img class="cu_img"  src="{% static 'image/img_cu.png' %}"/>
+                                            {%endif%}
+
+
+                                            <div class="call_name">{{call.1.cu_name}} 님</div>            
                                             <img  id="cu_stop" src="{% static 'image/cu_call.png' %}" />
                                         </div>
                                     </div>

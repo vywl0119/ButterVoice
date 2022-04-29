@@ -39,7 +39,14 @@
                     {% for co in total_co %}
 
                         <div class="move-container">
-                            <img class="comain_image" src="{% static 'image/img_co.png' %}" />
+                            {% if co.profile %}
+                                <img id="comain_image" class="comain_image" src="/static/image/profile/{{co.profile}}" alt="프로필 사진">
+                            {%else%}
+                                <img id="comain_image"class="comain_image" src="/static/image/img_co.png" alt="프로필 사진">
+                            
+                            {%endif%}
+
+                           
                             <div class="profile-container_col">
                                 <h2 class="comain_name">{{co.name}} 상담사</h2>
                                 <img class="yes_call" src="{% static 'image/yes_call.png' %}" onclick="location.href='{% url 'Mainapp:cu_call' co.co_id co.category%}'"/>
