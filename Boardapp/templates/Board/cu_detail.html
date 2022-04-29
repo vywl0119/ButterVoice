@@ -66,6 +66,7 @@
             {%for call in call_list %}
                 <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
                     <div class="related-photo-container">
+                        
                         <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
                         <div class="coname"><p>{{call.co_name}} 상담사</p></div>
                     </div>
