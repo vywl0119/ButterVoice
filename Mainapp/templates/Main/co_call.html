@@ -13,7 +13,7 @@
     <!-- MAIN JS -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
-     <script src="{% static 'js/main/co_call.js' %}"></script>
+     {% comment %} <script src="{% static 'js/main/co_call.js' %}"></script> {% endcomment %}
     </head>
 <body>
 
@@ -284,5 +284,19 @@
              btnTarget.classList.add("active");
          }
     </script>
- 
+    <script>
+        co_id= '{{ co.co_id }}'
+
+        var callSocket = new WebSocket(
+        'ws://' + window.location.host
+        + '/ws/Mainapp' + co_id + '/');
+    );
+        callSocket.onmessage = (e) =>{
+           console.log(e);
+           var data = JSON.parse(e.data);
+           var message = data['message'];
+           console.log(message);
+        };
+
+    <script>
 </html>
