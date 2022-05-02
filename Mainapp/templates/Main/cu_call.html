@@ -24,7 +24,13 @@
         <div class="flex-container1">
             <div class="info-box" >
                 <div class="profile-container">
-                        <img id="cophoto" class="image" src="{% static 'image/img_co.png' %}"/>
+                    {% if profile %}
+                         <img id="cophoto" class="image" src="/static/image/{{profile}}"/>
+                    {% else %}
+                         <img id="cophoto" class="image" src="{% static 'image/img_cu.png' %}"/>
+                    {%endif%}
+
+
                         <h1 class = "co_name">{{co_name}} 상담사</h1>
                 </div>
                 <div class = "outer">

@@ -30,8 +30,11 @@
 
             <div class="info-box" >
 
-           
-                    <img class="cu_image" src="{% static 'image/img_cu.png' %}"/>
+                    {% if profile %}
+                         <img class="cu_image" src="/static/image/{{profile}}"/>
+                    {% else %}
+                         <img class="cu_image" src="{% static 'image/img_cu.png' %}"/>
+                    {%endif%}
 
                     <div class = "outer">
                         <h1>상담이 종료 되었습니다.</h1>

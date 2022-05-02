@@ -22,6 +22,7 @@ import pandas as pd
 
 # Create your views here.
 
+# 고객 상담중 페이지
 def cu_call(request, co_id, category):
 
     cu_id = request.session['cu_id']
@@ -30,6 +31,7 @@ def cu_call(request, co_id, category):
  
     today = datetime.now().date()
 
+    # 고객이 상담사 누르면 상담요청됨
     call = calling.objects.create(cu_id_id=cu_id, co_id_id=co_id, cu_name=cu_name, co_name=co_name, category = category, call_date = today)
     call.save()
 
@@ -38,13 +40,18 @@ def cu_call(request, co_id, category):
     th = Thread(target=work)
     th.start()
 
-    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu'})
+    # 상담요청한 상담사의 프로필 사진
+    profile = counselor.objects.get(co_id = co_id).profile
 
+    return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu','profile':profile})
+
+# 상담사 상담중 페이지
 def co_call(request, c_no):
 
     # 해당 전화 내역
     call = calling.objects.get(c_no=c_no)
 
+    # 상담사가 전화를 받았으니까 상담 상태는 통화중으로 변경
     if call.current == '대기':
         call.current = '통화중'
         call.save()
@@ -55,6 +62,9 @@ def co_call(request, c_no):
     # 상담사 id
     co_id = calling.objects.get(c_no=c_no).co_id_id
 
+    # 상담사 정보 이미지
+    profile = counselor.objects.get(co_id = co_id).profile
+    
     # 전화를 건 고객 정보
     cu = customer.objects.get(cu_id = cu_id)
 
@@ -66,6 +76,7 @@ def co_call(request, c_no):
                'cu_call':cu_call,
                'call':call,
                'type':'co',
+               'profile':profile,
                
     }
 
@@ -87,9 +98,8 @@ def ajax_method(request, c_no):
     return JsonResponse(send_message)
 
 
-
-
-def call_update(request, c_no):
+# 상담사가 상담정보 업데이트
+def call_update(request):
 
     if request.method == 'POST':
         print('a')
@@ -107,54 +117,83 @@ def call_update(request, c_no):
         
     return redirect('Mainapp:co_call', c_no=c_no )
 
+# 고객 메인페이지
 def cu_main(request):
 
+    # 모든 상담사 정보
     total_co = counselor.objects.all()
 
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
-
+# 고객이 카테고리별로 상담사 확인
 def category(request, category):
 
+    # 해당 카테고리별 모든 상담사 정보 
     total_co = counselor.objects.filter(category=category)
 
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
+# 상담사 메인페이지
 def co_main(request):
     global v_num
     v_num = -999
 
     co_id = request.session['co_id']
 
+    # 상담사에 대기중인 콜 정보
     wait_call = calling.objects.filter(co_id=co_id,current='대기')
 
     today = datetime.today()
 
+    # 오늘 상담사가 받은 모든 콜 수
     today_call = calling.objects.filter(call_date=today, co_id_id=co_id)
     today_call = len(today_call)
 
+    # 첫번째로 대기중인 콜 과 나머지 대기콜 정보
     if wait_call:
-    
         first_call = wait_call[0]
         wait_call = wait_call[1:]
         call_len = len(wait_call)
+
+        # 통화 대기중인 고객의 정보
+        profile_list = []
+        for i in wait_call:
+            profile_list.append(customer.objects.get(cu_id=i.cu_id_id).profile)
+
+        user_call = []
+        for i, j in zip(profile_list, wait_call):
+            user_call.append([i,j])
+
+    # 콜이 없을때 null 값으로 에러처리함
     else:
         first_call = ""
         call_len = 0
+        user_call = ""
+
+    # 첫번째 대기고객의 사진
+    if first_call:
+        profile = customer.objects.get(cu_id=first_call.cu_id_id).profile
+    else:
+        profile = ""
+        
 
     
+
 
     context = {'wait_call': wait_call,
                 'first_call': first_call,
                 'call_len':call_len,
                 'today_call':today_call,
+                'user_call':user_call,
+                'profile':profile,
                 } 
 
     return render(request, 'Main/co_main.html', context)
 
-
+# 별점 페이지 이동
 def star(request, co_id, star, c_no):
 
+    # 통화종료를 했을때 별점페이지로 왔기 때문에 통화상태 종료로 변경
     if star == 6:
         call = calling.objects.get(c_no=c_no)
         call.current = '종료'
@@ -163,21 +202,19 @@ def star(request, co_id, star, c_no):
     global num
     num = -999
 
-    print(co_id, star)
+    # 상담사 사진 정보
+    profile = counselor.objects.get(co_id = co_id).profile
+    print(profile)
 
-    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id, 'c_no':c_no})
 
 
+    return render(request, 'Main/star.html', {'star' : star, 'co_id':co_id, 'c_no':c_no, 'profile':profile})
+
+# 고객이 상담한 상담사 별점 부여
 def stars(request, star, co_id):
-
-    print(co_id, star)
-    print(type(star))
-    print(type(co_id))
-
-      
+ 
     star = point.objects.create(co_id_id=co_id, star=star)                                                                                                                                                                                                                                                                                                                                                                                                         
     star.save()
-
 
     return redirect('Mainapp:cu_main')
 
@@ -288,4 +325,11 @@ class customerViewSet(viewsets.ModelViewSet):
 class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
+
+@csrf_exempt
+def call_current(request):
+    c_no = request.POST.get('send_data')
+    call = calling.objects.get(c_no=c_no)
+    send_message = {'send_data' : call.current}
+    return JsonResponse(send_message)
 
