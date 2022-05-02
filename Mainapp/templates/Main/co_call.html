@@ -28,7 +28,7 @@
 
             <img class="mic" id='mic_on' src="{% static 'image/mic_on.png' %}"/> 
      
-            <img class="mic" id='mic_off' src="{% static 'image/mic_off.png' %}"/>
+            <img class="mic" id='mic_off' src="{% static 'image/mic_off.png' %}"/ onclick="location.href='{% url 'Mainapp:co_main'  %}'">
        
         <a class = "logout" style='margin-right:4.3%' href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
