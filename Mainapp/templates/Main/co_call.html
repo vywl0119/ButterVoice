@@ -11,15 +11,25 @@
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="{% static 'css/main/co_call_style.css' %}">
     <!-- MAIN JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
-     <script src="{% static 'js/main/co_call.js' %}"></script>
+    
     </head>
 <body>
+        <article
+            id="electriccars"
+            data-c_no="{{call.c_no}}"
+            >
 
     <div class="header_container">
         <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:co_main'  %}'"/>
-        <img class="mic" id='mic' src="{% static 'image/mic_on.png' %}" />
+
+            <img class="mic" id='mic_on' src="{% static 'image/mic_on.png' %}"/> 
+     
+            <img class="mic" id='mic_off' src="{% static 'image/mic_off.png' %}"/>
+       
         <a class = "logout" style='margin-right:4.3%' href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
@@ -196,7 +206,7 @@
 
                 <form  id="send" action="{% url 'Mainapp:call_update' %}" method="post" >
                     {% csrf_token %}
-                    <input type="hidden" name="c_no" value="{{call.c_no}}"/>
+                    <input type="hidden" id = "c_no" name="c_no" value="{{call.c_no}}"/>
 
                     {%if call.title%}
                     <div class="co-content-container">
@@ -299,6 +309,35 @@
              
              btnTarget.classList.add("active");
          }
+         
+         
+         
+
     </script>
+    <script src="{% static 'js/main/co_call.js' %}"> </script>
+    <script >
+
+        document.getElementById("mic_off").style.display = "none";
+
+        var testInterval = setInterval(function()
+        {
+            current = call_current();
+
+            if (current.send_data == "통화중"){
+                console.log(current.send_data)
+                document.getElementById("mic_on").style.display = "";
+                document.getElementById("mic_off").style.display = "none";
+            }else{
+                document.getElementById("mic_on").style.display = "none";
+                document.getElementById("mic_off").style.display = "";
+            }
+        }, 1000 );
+
+
+        
+    </script>
+
+    
+
  
 </html>

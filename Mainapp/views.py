@@ -99,7 +99,7 @@ def ajax_method(request, c_no):
 
 
 # 상담사가 상담정보 업데이트
-def call_update(request, c_no):
+def call_update(request):
 
     if request.method == 'POST':
         print('a')
@@ -325,4 +325,11 @@ class customerViewSet(viewsets.ModelViewSet):
 class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
+
+@csrf_exempt
+def call_current(request):
+    c_no = request.POST.get('send_data')
+    call = calling.objects.get(c_no=c_no)
+    send_message = {'send_data' : call.current}
+    return JsonResponse(send_message)
 
