@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from Mainapp.models import counselor, customer, calling, point
 from django.db.models import Q
 
@@ -179,3 +179,9 @@ def detail_category(request, id, category):
     }
 
     return render(request, 'Board/cu_detail.html', context)
+
+def call_delete(request, c_no, id):
+        call = calling.objects.get(c_no=c_no)
+        call.delete()
+        return redirect( 'Boardapp:cu_detail', id=id)
+    

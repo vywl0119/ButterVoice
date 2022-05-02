@@ -64,8 +64,8 @@
             
             <div class="counselor-container">
             {% for call in user_call %}
-                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'"> 
-                    <div class="related-photo-container">
+                <div class="related-profile-container"> 
+                    <div class="related-photo-container"  onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'">
                         {% if call.0%}
                             <img id="cophoto" src="/static/image/{{call.0}}" alt="프로필 사진">
                         {%else%}
@@ -81,6 +81,7 @@
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
                                 <div class="counselor-date">{{call.1.call_date}}</div>
+                                <img id="call_delete" src="/static/image/delete.png" onclick="location.href='{% url 'Boardapp:call_delete' call.1.c_no id%}'"> 
                             </div>
                             <div class="counselor-category-container">
                                 <div class="counselor-category-title">상담 주제</div>
@@ -90,6 +91,9 @@
                                 <div class="counselor-content-title">상담 내용</div>
                                 <div class="counselor-content">{{call.1.content}}</div>
                             </div>
+
+                           
+
                         </div>
                     </div>
 
