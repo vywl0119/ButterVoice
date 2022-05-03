@@ -89,7 +89,7 @@
                             </div>
                             <div class="counselor-content-container">
                                 <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">{{call.1.content}}</div>
+                                <div class="counselor-content">{% autoescape off %}{{call.1.content}} {% endautoescape %}</pre></div>
                             </div>
 
                            
