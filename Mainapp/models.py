@@ -9,7 +9,7 @@ class customer(models.Model):
     pw = models.CharField(max_length=45, null=False)
     name = models.CharField(max_length=45, null=False)
     phone = models.CharField(max_length=45, null=False)
-    profile = models.CharField(max_length=100, null=True)
+    profile = models.FileField(upload_to = "profile/")
 
     class Meta:
         db_table = 'customer'
@@ -22,7 +22,7 @@ class counselor(models.Model):
     category = models.CharField(max_length=45, null=False)
     name = models.CharField(max_length=45, null=False)
     phone = models.CharField(max_length=45, null=False)
-    profile = models.CharField(max_length=100, null=True)
+    profile = models.FileField(upload_to = "profile/")
     onoff = models.CharField(max_length=45, null=False, default='OFF')
 
     class Meta:
@@ -54,6 +54,7 @@ class point(models.Model):
     class Meta:
         db_table = 'point'
         managed = False
+
 
 
         

@@ -24,7 +24,7 @@
             <div class="profile-container">
                 <div class="photo-container">
                 {% if user.profile %}
-                    <img id="cuphoto" src="/static/image/profile/{{user.profile}}" alt="프로필 사진">
+                    <img id="cuphoto" src="/static/image/{{user.profile}}" alt="프로필 사진">
                 {%else%}
                     <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
                 
@@ -63,11 +63,15 @@
 
             
             <div class="counselor-container">
-            {%for call in call_list %}
-                <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:co_detail' call.co_id_id %}'"> 
-                    <div class="related-photo-container">
-                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
-                        <div class="coname"><p>{{call.co_name}} 상담사</p></div>
+            {% for call in user_call %}
+                <div class="related-profile-container"> 
+                    <div class="related-photo-container"  onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'">
+                        {% if call.0%}
+                            <img id="cophoto" src="/static/image/{{call.0}}" alt="프로필 사진">
+                        {%else%}
+                            <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진"> 
+                        {%endif%}
+                        <div class="coname"><p>{{call.1.co_name}} 상담사</p></div>
                     </div>
                     <div class="coinfo-container">
                         <div class="counselor-basic-info-container">
@@ -76,16 +80,20 @@
                         <div class="counselor-record-container">
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
-                                <div class="counselor-date">{{call.call_date}}</div>
+                                <div class="counselor-date">{{call.1.call_date}}</div>
+                                <img id="call_delete" src="/static/image/delete.png" onclick="location.href='{% url 'Boardapp:call_delete' call.1.c_no id%}'"> 
                             </div>
                             <div class="counselor-category-container">
                                 <div class="counselor-category-title">상담 주제</div>
-                                <div class="counselor-category">{{call.title}}</div>
+                                <div class="counselor-category">{{call.1.title}}</div>
                             </div>
                             <div class="counselor-content-container">
                                 <div class="counselor-content-title">상담 내용</div>
-                                <div class="counselor-content">{{call.content}}</div>
+                                <div class="counselor-content">{% autoescape off %}{{call.1.content}} {% endautoescape %}</pre></div>
                             </div>
+
+                           
+
                         </div>
                     </div>
 

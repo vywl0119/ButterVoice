@@ -23,6 +23,7 @@ from django.contrib import admin
 
 from rest_framework import routers
 from Homeapp import views
+from Mainapp import views as main_views
 
 
 
@@ -33,5 +34,7 @@ urlpatterns = [
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
     path("", views.home),
+    path('call_current/', main_views.call_current, name='call_current'),
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

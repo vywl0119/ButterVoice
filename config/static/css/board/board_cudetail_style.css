@@ -195,6 +195,11 @@ body{
     flex-direction: column;
     /* background-color: aqua; */
 }
+.counselor-record-container2{
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+}
 
 .counselor-date-container{
     display: flex;
@@ -286,5 +291,12 @@ body{
     font-size: 100%;
     color: white;
     margin-left: 2%;
+    
+  }
+
+#call_delete{
+    width: 40px;
+    height: 40px; 
+    margin-left: 35%;
     
   }

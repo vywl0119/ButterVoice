@@ -12,15 +12,25 @@
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="{% static 'css/main/co_call_style.css' %}">
     <!-- MAIN JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
-     {% comment %} <script src="{% static 'js/main/co_call.js' %}"></script> {% endcomment %}
+    
     </head>
 <body>
+        <article
+            id="electriccars"
+            data-c_no="{{call.c_no}}"
+            >
 
     <div class="header_container">
         <img class="logo" src="{% static 'image/logo_.png' %}"  onclick="location.href='{% url 'Mainapp:co_main'  %}'"/>
-        <img class="mic" id='mic' src="{% static 'image/mic_on.png' %}" />
+
+            <img class="mic" id='mic_on' src="{% static 'image/mic_on.png' %}"/> 
+     
+            <img class="mic" id='mic_off' src="{% static 'image/mic_off.png' %}"/ onclick="location.href='{% url 'Mainapp:co_main'  %}'">
+       
         <a class = "logout" style='margin-right:4.3%' href="{% url 'Homeapp:logout' request.session.co_type %}">(로그아웃)</a>
         <span class = "profile_name">{{request.session.co_name}}님 반갑습니다 </span>
     </div>
@@ -155,7 +165,15 @@
         <div class="customer-couselor-container"> 
             <div class="related-profile-container"> 
                 <div class="related-photo-container">
-                    <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                    
+                    {% if cu.profile %}
+                        <img id="cuphoto" src="/static/image/{{cu.profile}}" alt="프로필 사진">
+                    {%else%}
+                        <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                    
+                    {%endif%}
+               
+
                     <div class="cuname"><p>{{cu.name}}</p></div>
                 </div>
                 <div class="cuinfo-container">
@@ -175,27 +193,36 @@
             </div>
             <div class="couselor-container"> 
                 <div class="related-photo-container">
-                    <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    {% if profile == "null" %}
+                        <img id="cuphoto" src="/static/image/img_co.png" alt="프로필 사진">
+                        
+                    {%else%}
+                        <img id="cuphoto" src="/static/image/{{profile}}" alt="프로필 사진">
+                    
+                    {%endif%}
+
+
                     <div class="cuname"><p>{{request.session.co_name}} 님</p></div>
                 </div>
 
                 <form  id="send" action="{% url 'Mainapp:call_update' %}" method="post" >
                     {% csrf_token %}
-                    <input type="hidden" name="c_no" value="{{call.c_no}}"/>
+                    <input type="hidden" name="c_no"  value="{{call.c_no}}"/>
 
                     {%if call.title%}
+                    <input id = "a" name="title" type="hidden" class="content-title-name" value="{{call.content}}">
                     <div class="co-content-container">
                         <div class="category-container">
 
                             <div class="category-title">카테고리 </div>
                             <div class='content-category'>{{call.category}}</div>
-
+                            
                         </div>
                         <div class="content-container">
                             <div class="content-title">제목</div>
                             <p><input name="title" type="text" class="content-title-name" value="{{call.title}}"></p> 
                         </div>
-                        <p><textarea name="content" class="content">{{call.content}}</textarea></p>
+                        <p><textarea name="content" class="content" id ="textarea_a"></textarea></p>
                         <button id="save_btn" type="submit">저장</button>
                     </div>
                     {%else%}
@@ -339,6 +366,38 @@
              
              btnTarget.classList.add("active");
          }
+         
+         
+         
+
     </script>
-</body>
+    <script src="{% static 'js/main/co_call.js' %}"> </script>
+    <script >
+
+        document.getElementById("mic_off").style.display = "none";
+
+        var testInterval = setInterval(function()
+        {
+            current = call_current();
+
+            if (current.send_data == "통화중"){
+                
+                document.getElementById("mic_on").style.display = "";
+                document.getElementById("mic_off").style.display = "none";
+            }else{
+                document.getElementById("mic_on").style.display = "none";
+                document.getElementById("mic_off").style.display = "";
+            }
+        }, 1000 );
+
+        var a = document.getElementById('a').value
+        a = a.replace(/<br>/g, '\r\n');
+        document.getElementById("textarea_a").value = a;
+
+        console.log(a)
+    </script>
+
+    
+
+ 
 </html>

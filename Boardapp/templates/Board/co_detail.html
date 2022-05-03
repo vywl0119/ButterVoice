@@ -23,7 +23,14 @@
         <div class="counselor-container">
             <div class="profile-container">
                 <div class="photo-container">
-                    <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    {% if user.profile %}
+                        <img id="cophoto" src="/static/image/{{user.profile}}" alt="프로필 사진">
+                    {%else%}
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진">
+                    
+                    {%endif%}
+
+
                     <div class="coname"><p>{{user.name}} 상담사</p></div>
                 </div>
                 <div class="coinfo-container">
@@ -48,7 +55,13 @@
                 {% for key, value in user_call.items %}
                     <div class="related-profile-container" onclick="location.href='{% url 'Boardapp:cu_detail' key.cu_id %}'"> 
                         <div class="related-photo-container">
-                            <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                            {% if key.profile %}
+                                <img id="cuphoto" src="/static/image/{{key.profile}}" alt="프로필 사진">
+                            {%else%}
+                                <img id="cuphoto" src="/static/image/img_cu.png" alt="프로필 사진">
+                            
+                            {%endif%}
+
                             <div class="cuname"><p>{{key.name}}</p></div>
                         </div>
                         <div class="cuinfo-container">
