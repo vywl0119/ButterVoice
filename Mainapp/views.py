@@ -102,16 +102,17 @@ def ajax_method(request, c_no):
 def call_update(request):
 
     if request.method == 'POST':
-        print('a')
    
         
         title = request.POST.get('title')
         content = request.POST.get('content')
         c_no = request.POST.get('c_no')
+        content = content.replace("\r\n", "<br>")
 
         call = calling.objects.get(c_no=c_no)
         call.title = title
         call.content = content
+        
         call.save()
         
         
