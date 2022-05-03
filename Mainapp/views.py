@@ -301,7 +301,6 @@ class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
 
-<<<<<<< HEAD
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
@@ -382,7 +381,6 @@ def upload_cu(request):
         kor_wav.save(f'config/static/wav/cu_{num_cu}.wav')
 
     return JsonResponse({"ok": "ok"})
-=======
 @csrf_exempt
 def call_current(request):
     c_no = request.POST.get('send_data')
@@ -390,4 +388,3 @@ def call_current(request):
     send_message = {'send_data' : call.current}
     return JsonResponse(send_message)
 
->>>>>>> d585f133e1b6ded7bb694fa017fa71663eb13314

@@ -21,13 +21,8 @@ urlpatterns = [
 
     path('index/', views.index, name='index'),
     path('call/', views.call, name='call'),
-<<<<<<< HEAD
 
     path('cu_call/upload_cu/', views.upload_cu, name='upload_cu'),
     path('upload_co/', views.upload_co, name='upload_co'),
-=======
-    
-   
->>>>>>> d585f133e1b6ded7bb694fa017fa71663eb13314
 ]
 
