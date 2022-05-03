@@ -282,7 +282,7 @@ def upload_cu(request):
     mfcc_2d = []
     mfcc_2d = np.expand_dims(mfcc_pad, -1)
     mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
-    model = load_model('model.h5')
+    model = load_model('84%.h5')
     y = model.predict(mfcc_2d).argmax(axis=1)
     print(y)
 
