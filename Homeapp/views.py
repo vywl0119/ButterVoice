@@ -1,4 +1,6 @@
+from ast import Num
 from unicodedata import category
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from pyrsistent import v
@@ -102,4 +104,19 @@ def signup(request):
             return redirect('/Home/signin')
 
 def mike(request):
+    global num
+    num = 0
     return render(request, 'Home/mike.html')
+
+from django.core.files.storage import FileSystemStorage
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def uploadFile(request):
+    if request.method == "POST":
+        uploaded = request.FILES['file']
+        fs = FileSystemStorage(location='config/static/wav/')
+        global num
+        fs.save(f'test_{num}.wav', uploaded)
+        num += 1
+
+    return JsonResponse({"ok": "ok"})
