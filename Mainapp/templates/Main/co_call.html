@@ -185,7 +185,9 @@
                         <div class="counselor-record-title">상담 이력</div>
                         <div class="counselor-record-list">
                             {% for call in cu_call %}
+                            {%if call.title%}
                                 <div class="couselor-record">{{call.call_date}} {{call.title}}</div>
+                            {%endif%}
                             {% endfor %}
                         </div>
                     </div>
@@ -223,7 +225,7 @@
                             <p><input name="title" type="text" class="content-title-name" value="{{call.title}}"></p> 
                         </div>
                         <p><textarea name="content" class="content" id ="textarea_a"></textarea></p>
-                        <button id="save_btn" type="submit">저장</button>
+                        <button id="save_btn" type="submit">수정</button>
                     </div>
                     {%else%}
                     <div class="co-content-container">
