@@ -37,8 +37,6 @@ def cu_call(request, co_id, category):
 
     global num_cu
     num_cu = -1
-    th = Thread(target=work)
-    th.start()
 
     # 상담요청한 상담사의 프로필 사진
     profile = counselor.objects.get(co_id = co_id).profile
@@ -223,70 +221,6 @@ def index(request):
 
 def call(request):
     return render(request, 'Main/call.html')
-
-def work():
-    global num
-    num += 1
-    
-    FILE_NAME = f'./config/static/wav/test_{num}.wav'
-    wave_length = 10
-    sample_rate = 16_000
-    # STT
-    data = sd.rec(int(wave_length * sample_rate), sample_rate, channels=1)
-    sd.wait()
-
-    data = data / data.max() * np.iinfo(np.int16).max
-
-    data = data.astype(np.int16)
-
-    with wave.open(FILE_NAME, mode='wb') as wb:
-        wb.setnchannels(1)
-        wb.setsampwidth(2)
-        wb.setframerate(sample_rate)
-        wb.writeframes(data.tobytes())
-
-    # 감정 인식
-    pad2d = lambda a, i: a[:, 0: i] if a.shape[1] > i else np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
-
-    mfcc = get_mfcc(FILE_NAME, 20)
-    mfcc_pad = pad2d(mfcc, 40)
-    mfcc_2d = []
-    mfcc_2d = np.expand_dims(mfcc_pad, -1)
-    mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
-    model = load_model('model.h5')
-    y = model.predict(mfcc_2d).argmax(axis=1)
-    print(y)
-
-    r = sr.Recognizer()
-    harvard = sr.AudioFile(f'config/static/wav/test_{num}.wav')
-    with harvard as source:
-        audio = r.record(source)
-        try:
-            stt_result = r.recognize_google(audio, language='ko_KR')
-        except:
-            stt_result = ""
-            
-    # 욕설 제거 필터링
-    file_path='config/static/badwords.txt'
-
-    with open(file_path, 'rt', encoding='UTF8') as f:
-        insult = f.readlines()
-
-    insult=[line.rstrip("\n") for line in insult]
-
-    for i in range(len(insult)):
-        word=insult[i]
-        stt_result = stt_result.replace(f"{word}","")
-                
-    print(stt_result)
-
-    # TTS
-    if y == 1:
-        kor_wav = gTTS(stt_result, lang='ko')
-        kor_wav.save(f'config/static/wav/test_{num}.wav')
-    
-    if num >= 0:
-        threading.Timer(0.5, work).start()
 
 def get_mfcc(filepath, n_mfcc = 40):
     sig, sr = librosa.load(filepath)
