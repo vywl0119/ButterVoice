@@ -126,7 +126,7 @@ def cu_main(request):
 def category(request, category):
 
     # 해당 카테고리별 모든 상담사 정보 
-    if category=="ALL":
+    if category=='ALL':
         total_co = counselor.objects.all()
     else:
         total_co = counselor.objects.filter(category=category)
