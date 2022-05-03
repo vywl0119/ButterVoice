@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,26 +54,82 @@
     </div>
 
     <audio id="audio">
-        <source id="audioSource" src="{% static 'wav/voice_0.wav' %}" type="audio/wav">
+        <source id="audioSource" src="{% static 'wav/co_0.wav' %}" type="audio/wav">
     </audio>
 
     <script type="text/javascript">
-        var path = "{% static 'wav/voice_0.wav' %}";
-        var num = 0;
-        window.addEventListener("load", function(event) {
-            function playWav2() {
+        // MediaRecorder 변수 생성
+        let mediaRecorder = null;
+        // 녹음 데이터 저장 배열
+        const audioArray = [];
+        // 파일 전송을 위한 변수 생성
+        var blobFile;
+        var path = "{% static 'wav/co_0.wav' %}";
+        var num = -1;
+
+        window.addEventListener("load", async function(event) {
+            // 마이크 mediaStream 생성: Promise를 반환하므로 async/await 사용
+            const mediaStream = await navigator.mediaDevices.getUserMedia({audio: true});
+            // MediaRecorder 생성
+            mediaRecorder = new MediaRecorder(mediaStream);
+
+            record();
+            setInterval(record, 10000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+            num = 0;
+
+            function playWav() {
                 document.getElementById("audio").src = path;
                 document.getElementById("audio").play();
                 path = path.replace(String(num), String(num+1));
                 num += 1;
             }
-            setInterval(playWav2, 20000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
+            setInterval(playWav, 13000); // 변환시간이랑 맞지 않으므로 추후에 시간 조절 필요
         });
-        function reloading() {
-            document.getElementById("audio").src = path;
-            document.getElementById("audio").play();
-            path = path.replace(String(num), String(num+1));
-            num += 1;
+        function record() {
+            if(num > -1) {
+                mediaRecorder.stop();
+            } 
+
+            // 이벤트핸들러: 녹음 데이터 취득 처리
+            mediaRecorder.ondataavailable = (event)=>{
+                // 오디오 데이터가 취득될 때마다 배열에 담아둔다.
+                audioArray.push(event.data);
+            }
+
+            // 이벤트핸들러: 녹음 종료 처리 & 재생하기
+            mediaRecorder.onstop = (event)=>{
+                // 녹음이 종료되면, 배열에 담긴 오디오 데이터(Blob)들을 합친다: 코덱도 설정해준다.
+                const blob = new Blob(audioArray, {"type": "audio/wav codecs=opus"});
+                blobFile = blob;
+                audioArray.splice(0);
+                // 기존 오디오 데이터들은 모두 비워 초기화한다.
+                /* // Blob 데이터에 접근할 수 있는 주소를 생성한다.
+                const blobURL = window.URL.createObjectURL(blob);
+                // audio엘리먼트로 재생한다.
+                $audioEl.src = blobURL;
+                $audioEl.play(); */
+                uploadFile(blobFile);
+            }
+            mediaRecorder.start();
+        }
+        function uploadFile(blob) {
+            console.log("start sending binary data...");
+            var form = new FormData();
+            form.append('file', blob, "data.wav");
+
+            $.ajax({
+                url: '../upload_cu/',
+                type: 'POST',
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log('response' + JSON.stringify(data));
+                },
+                error: function () {
+                    // handle error case here
+                }
+            });
         }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

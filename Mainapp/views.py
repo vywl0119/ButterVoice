@@ -33,14 +33,17 @@ def cu_call(request, co_id, category):
     call = calling.objects.create(cu_id_id=cu_id, co_id_id=co_id, cu_name=cu_name, co_name=co_name, category = category, call_date = today)
     call.save()
 
-    global num
-    num = -1
+    global num_cu
+    num_cu = -1
     th = Thread(target=work)
     th.start()
 
     return render(request, 'Main/cu_call.html', {'co_name' : co_name, 'co_id':co_id, 'c_no':call.c_no, 'type':'cu'})
 
 def co_call(request, c_no):
+
+    global num_co
+    num_co = -1
 
     # 해당 전화 내역
     call = calling.objects.get(c_no=c_no)
@@ -68,11 +71,6 @@ def co_call(request, c_no):
                'type':'co',
                
     }
-
-    global v_num
-    v_num = -1
-    th = Thread(target=voice)
-    th.start()
 
     return render(request, 'Main/co_call.html', context)
 
@@ -121,8 +119,8 @@ def category(request, category):
     return render(request, 'Main/cu_main.html',{'total_co':total_co})
 
 def co_main(request):
-    global v_num
-    v_num = -999
+    global num_co
+    num_co = -1
 
     co_id = request.session['co_id']
 
@@ -160,8 +158,8 @@ def star(request, co_id, star, c_no):
         call.current = '종료'
         call.save()
 
-    global num
-    num = -999
+    global num_cu
+    num_cu = -1
 
     print(co_id, star)
 
@@ -187,30 +185,6 @@ def index(request):
 
 def call(request):
     return render(request, 'Main/call.html')
-
-def voice():
-    global v_num
-    v_num += 1
-    
-    FILE_NAME = f'./config/static/wav/voice_{v_num}.wav'
-    wave_length = 10
-    sample_rate = 16_000
-
-    data = sd.rec(int(wave_length * sample_rate), sample_rate, channels=1)
-    sd.wait()
-
-    data = data / data.max() * np.iinfo(np.int16).max
-
-    data = data.astype(np.int16)
-
-    with wave.open(FILE_NAME, mode='wb') as wb:
-        wb.setnchannels(1)
-        wb.setsampwidth(2)
-        wb.setframerate(sample_rate)
-        wb.writeframes(data.tobytes())
-
-    if v_num >= 0:
-        threading.Timer(0.5, voice).start()
 
 def work():
     global num
@@ -289,3 +263,83 @@ class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
 
+from django.core.files.storage import FileSystemStorage
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def upload_co(request):
+    global num_co
+    # 기존 녹음 파일 삭제
+    if num_co < 0:
+        co_path = './config/static/wav/'
+        file_list = os.listdir(co_path)
+        file_list = [s for s in file_list if "co" in s]
+        for f in file_list:
+            os.remove(co_path + f)
+
+    if request.method == "POST":
+        uploaded = request.FILES['file']
+        fs = FileSystemStorage(location='config/static/wav/')
+        num_co += 1
+        fs.save(f'co_{num_co}.wav', uploaded)
+
+    return JsonResponse({"ok": "ok"})
+
+@csrf_exempt
+def upload_cu(request):
+    global num_cu
+    if num_cu < 0:
+        # 기존 녹음 파일 삭제
+        cu_path = './config/static/wav/'
+        file_list = os.listdir(cu_path)
+        file_list = [s for s in file_list if "cu" in s]
+        for f in file_list:
+            os.remove(cu_path + f)
+    num_cu += 1
+    FILE_NAME = f'./config/static/wav/cu_{num_cu}.wav'
+
+    if request.method == "POST":
+        uploaded = request.FILES['file']
+        fs = FileSystemStorage(location='config/static/wav/')
+        fs.save(f'cu_{num_cu}.wav', uploaded)
+    
+    # 감정 인식
+    pad2d = lambda a, i: a[:, 0: i] if a.shape[1] > i else np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
+
+    mfcc = get_mfcc(FILE_NAME, 20)
+    mfcc_pad = pad2d(mfcc, 40)
+    mfcc_2d = []
+    mfcc_2d = np.expand_dims(mfcc_pad, -1)
+    mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
+    model = load_model('model.h5')
+    y = model.predict(mfcc_2d).argmax(axis=1)
+    print(y)
+
+    r = sr.Recognizer()
+    harvard = sr.AudioFile(f'config/static/wav/cu_{num_cu}.wav')
+    with harvard as source:
+        audio = r.record(source)
+        try:
+            stt_result = r.recognize_google(audio, language='ko_KR')
+        except:
+            stt_result = ""
+            
+    # 욕설 제거 필터링
+    file_path='config/static/badwords.txt'
+
+    with open(file_path, 'rt', encoding='UTF8') as f:
+        insult = f.readlines()
+
+    insult=[line.rstrip("\n") for line in insult]
+
+    for i in range(len(insult)):
+        word=insult[i]
+        stt_result = stt_result.replace(f"{word}","")
+                
+    print(stt_result)
+
+    # TTS
+    if y == 1:
+        kor_wav = gTTS(stt_result, lang='ko')
+        kor_wav.save(f'config/static/wav/cu_{num_cu}.wav')
+
+    return JsonResponse({"ok": "ok"})
