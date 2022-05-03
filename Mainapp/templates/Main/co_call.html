@@ -206,21 +206,22 @@
 
                 <form  id="send" action="{% url 'Mainapp:call_update' %}" method="post" >
                     {% csrf_token %}
-                    <input type="hidden" id = "c_no" name="c_no" value="{{call.c_no}}"/>
+                    <input type="hidden" name="c_no"  value="{{call.c_no}}"/>
 
                     {%if call.title%}
+                    <input id = "a" name="title" type="hidden" class="content-title-name" value="{{call.content}}">
                     <div class="co-content-container">
                         <div class="category-container">
 
                             <div class="category-title">카테고리 </div>
                             <div class='content-category'>{{call.category}}</div>
-
+                            
                         </div>
                         <div class="content-container">
                             <div class="content-title">제목</div>
                             <p><input name="title" type="text" class="content-title-name" value="{{call.title}}"></p> 
                         </div>
-                        <p><textarea name="content" class="content">{{call.content|linebreaks}}</textarea></p>
+                        <p><textarea name="content" class="content" id ="textarea_a"></textarea></p>
                         <button id="save_btn" type="submit">저장</button>
                     </div>
                     {%else%}
@@ -324,7 +325,7 @@
             current = call_current();
 
             if (current.send_data == "통화중"){
-                console.log(current.send_data)
+                
                 document.getElementById("mic_on").style.display = "";
                 document.getElementById("mic_off").style.display = "none";
             }else{
@@ -333,8 +334,11 @@
             }
         }, 1000 );
 
+        var a = document.getElementById('a').value
+        a = a.replace(/<br>/g, '\r\n');
+        document.getElementById("textarea_a").value = a;
 
-        
+        console.log(a)
     </script>
 
     
