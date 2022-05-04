@@ -219,8 +219,8 @@ def stars(request, star, co_id):
     return redirect('Mainapp:cu_main')
 
 
-def index(request):
-    return render(request, 'Main/index.html')
+def index(request, type):
+    return render(request, 'Main/index.html',{'type':type})
 
 def call(request):
     return render(request, 'Main/call.html')

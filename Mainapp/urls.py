@@ -19,7 +19,7 @@ urlpatterns = [
     path('star/<str:co_id>/<int:star>/<int:c_no>', views.star, name = 'star'),
     path('stars/<int:star>/<str:co_id>', views.stars, name = 'stars'),
 
-    path('index/', views.index, name='index'),
+    path('index/<str:type>', views.index, name='index'),
     path('call/', views.call, name='call'),
 
     path('cu_call/upload_cu/', views.upload_cu, name='upload_cu'),
