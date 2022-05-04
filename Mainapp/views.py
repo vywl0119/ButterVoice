@@ -226,7 +226,7 @@ def call(request):
     return render(request, 'Main/call.html')
 
 def get_mfcc(filepath, n_mfcc = 40):
-    sig, sr = librosa.load(filepath)
+    sig, sr = librosa.load(filepath) # 이쪽에 오류 발생
     mfccs = librosa.feature.mfcc(sig)
     return mfccs
 
@@ -276,7 +276,7 @@ def upload_cu(request):
         uploaded = request.FILES['file']
         fs = FileSystemStorage(location='config/static/wav/')
         fs.save(f'cu_{num_cu}.wav', uploaded)
-    
+        
     # 감정 인식
     pad2d = lambda a, i: a[:, 0: i] if a.shape[1] > i else np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
 
@@ -287,17 +287,15 @@ def upload_cu(request):
     mfcc_2d = np.reshape(mfcc_2d, (1, 20, 40, 1))
     model = load_model('84%.h5')
     y = model.predict(mfcc_2d).argmax(axis=1)
-    print(y)
+    print("감정 결과:", y)
 
     r = sr.Recognizer()
     harvard = sr.AudioFile(f'config/static/wav/cu_{num_cu}.wav')
-    with harvard as source:
-        audio = r.record(source)
-        try:
-            stt_result = r.recognize_google(audio, language='ko_KR')
-        except:
-            stt_result = ""
-            
+    try:
+        stt_result = r.recognize_google(FILE_NAME, language='ko_KR')
+    except:
+        stt_result = ""
+    
     # 욕설 제거 필터링
     file_path='config/static/badwords.txt'
 
@@ -305,12 +303,12 @@ def upload_cu(request):
         insult = f.readlines()
 
     insult=[line.rstrip("\n") for line in insult]
-
+    
     for i in range(len(insult)):
         word=insult[i]
         stt_result = stt_result.replace(f"{word}","")
                 
-    print(stt_result)
+    print("음성 텍스트:", stt_result)
 
     # TTS
     if y == 1:
