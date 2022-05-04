@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from Mainapp.models import counselor, customer
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+from django.contrib import messages
 
 from django.shortcuts import render
 from argon2 import PasswordHasher
@@ -51,24 +52,34 @@ def signin(request):
             print("pw = ",pw )
             print("type = ",type )
         
-            if type=='co':                
-                user = counselor.objects.get(co_id = id, pw=pw)
-                print(user.pw)
-                request.session['co_id'] = user.co_id
-                request.session['co_name'] = user.name
-                request.session['co_type'] = 'co'
+            if type=='co':     
+                if counselor.objects.filter(co_id=id).exists():
+                    user = counselor.objects.get(co_id = id, pw=pw)
+                    print(user.pw)
 
-                return redirect('Mainapp:co_main')
+                    request.session['co_id'] = user.co_id
+                    request.session['co_name'] = user.name
+                    request.session['co_type'] = 'co'
+
+                    return redirect('Mainapp:co_main')
+                else:
+                    messages.error(request, '아이디와 비밀번호를 확인해주세요.')
+                    return render(request, 'Home/signin.html')
 
 
             else:
-                user = customer.objects.get(cu_id = id, pw=pw)   
-                   
-                request.session['cu_id'] = user.cu_id
-                request.session['cu_name'] = user.name 
-                request.session['cu_type'] = 'cu'
- 
-                return redirect('Mainapp:cu_main')
+                if customer.objects.filter(cu_id=id).exists():
+                    user = customer.objects.get(cu_id = id, pw=pw)   
+                    
+                    request.session['cu_id'] = user.cu_id
+                    request.session['cu_name'] = user.name 
+                    request.session['cu_type'] = 'cu'
+    
+                    return redirect('Mainapp:cu_main')
+                else:
+                    messages.error(request, '아이디와 비밀번호를 확인해주세요')
+                    return render(request, 'Home/signin.html')
+
     else:
         return render(request, 'Home/signin.html')
         
