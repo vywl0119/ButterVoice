@@ -12,6 +12,12 @@
   font-style: normal;
 }
 
+#index_btn {
+  border-radius: 40px;
+  width: 90px;
+  height: 30px;
+}
+
 .button {
     border-radius: 40px;
     width: 300px;
