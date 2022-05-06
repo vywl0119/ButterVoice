@@ -31,16 +31,18 @@
                     <input type="id" id="id" class="fadeIn second" name="id" placeholder="id">
                     <input type="password" id="pw" class="fadeIn second" name="pw" placeholder="password">
                 </div>
+
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            {{ message.message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
         
                     <input  type="submit" class="fadeIn fourth" onclick="result()" value="Log In">
                     <input  type="submit" class="fadeIn fourth" onclick="location.href='{% url 'Homeapp:role' %}'" value="Sign up">    
-                </form>
-
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-            </div>
-
+            </form>
         </div>
     </div>
 </div>
