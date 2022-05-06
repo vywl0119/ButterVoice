@@ -40,12 +40,11 @@ class MainappConsumer(WebsocketConsumer):
                 self.my_name,
                 self.channel_name
             )
-        
+
         if eventType == 'call':
             name = text_data_json['data']['name']
-            print(self.my_name, "is calling", name);
+            print(self.my_name, "is calling", name)
             # print(text_data_json)
-
 
             # to notify the callee we sent an event to the group name
             # and their's groun name is the name
@@ -63,7 +62,7 @@ class MainappConsumer(WebsocketConsumer):
         if eventType == 'answer_call':
             # has received call from someone now notify the calling user
             # we can notify to the group with the caller name
-            
+
             caller = text_data_json['data']['caller']
             # print(self.my_name, "is answering", caller, "calls.")
 
@@ -78,7 +77,6 @@ class MainappConsumer(WebsocketConsumer):
             )
 
         if eventType == 'ICEcandidate':
-
             user = text_data_json['data']['user']
 
             async_to_sync(self.channel_layer.group_send)(
@@ -92,24 +90,18 @@ class MainappConsumer(WebsocketConsumer):
             )
 
     def call_received(self, event):
-
-        # print(event)
-        print('Call received by ', self.my_name )
+        print('Call received by ', self.my_name)
         self.send(text_data=json.dumps({
             'type': 'call_received',
             'data': event['data']
         }))
 
-
     def call_answered(self, event):
-
-        # print(event)
         print(self.my_name, "'s call answered")
         self.send(text_data=json.dumps({
             'type': 'call_answered',
             'data': event['data']
         }))
-
 
     def ICEcandidate(self, event):
         self.send(text_data=json.dumps({

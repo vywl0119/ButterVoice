@@ -16,17 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
-from django.contrib import admin
-
-from rest_framework import routers
 from Homeapp import views
 from Mainapp import views as main_views
-
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,7 +27,5 @@ urlpatterns = [
     path('Board/', include('Boardapp.urls')),
     path('Home/', include('Homeapp.urls')),
     path("", views.home),
-    path('call_current/', main_views.call_current, name='call_current'),
-
-]
+    path('call_current/', main_views.call_current, name='call_current')]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

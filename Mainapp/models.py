@@ -1,20 +1,15 @@
-# Create your models here.
-from unicodedata import category
 from django.db import models
-
-# Create your models here.
 
 class customer(models.Model):
     cu_id = models.CharField(max_length=45, null=False, primary_key=True)
     pw = models.CharField(max_length=45, null=False)
     name = models.CharField(max_length=45, null=False)
     phone = models.CharField(max_length=45, null=False)
-    profile = models.FileField(upload_to = "profile/")
+    profile = models.FileField(upload_to="profile/")
 
     class Meta:
         db_table = 'customer'
         managed = False
-
 
 class counselor(models.Model):
     co_id = models.CharField(max_length=45, null=False, primary_key=True)
@@ -22,7 +17,7 @@ class counselor(models.Model):
     category = models.CharField(max_length=45, null=False)
     name = models.CharField(max_length=45, null=False)
     phone = models.CharField(max_length=45, null=False)
-    profile = models.FileField(upload_to = "profile/")
+    profile = models.FileField(upload_to="profile/")
     onoff = models.CharField(max_length=45, null=False, default='OFF')
 
     class Meta:
@@ -45,16 +40,11 @@ class calling(models.Model):
         db_table = 'calling'
         managed = False
 
-
 class point(models.Model):
-    star_id = models.AutoField(primary_key=True) 
+    star_id = models.AutoField(primary_key=True)
     co_id = models.ForeignKey('counselor', on_delete=models.CASCADE, db_column='co_id')
     star = models.IntegerField(null=False)
 
     class Meta:
         db_table = 'point'
         managed = False
-
-
-
-        

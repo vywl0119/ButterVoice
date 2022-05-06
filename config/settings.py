@@ -88,7 +88,7 @@ DATABASES = {
         'HOST': '15.164.153.191',
         'PORT': 3306,
         'OPTIONS': {
-            'sql_mode': 'traditional' ,
+            'sql_mode': 'traditional'
         },
     },
 }
@@ -140,7 +140,7 @@ STATICFILES_DIRS = [
 
 ASGI_APPLICATION = 'config.asgi.application'
 
-CHANNEL_LAYERS={
+CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
      }
