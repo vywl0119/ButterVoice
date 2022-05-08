@@ -152,7 +152,9 @@ def detail_category(request, id, category):
 
     user_call = []
     for i, j in zip(profile_list, call_list):
-        user_call.append([i, j])
+
+        user_call.append([i,j])
+
 
     context = {
         'user': user,
@@ -168,3 +170,56 @@ def call_delete(request, c_no, id):
     call = calling.objects.get(c_no=c_no)
     call.delete()
     return redirect('Boardapp:cu_detail', id=id)
+
+        
+
+def call_update(request, c_no):
+
+    call = calling.objects.get(c_no=c_no)
+    id = call.cu_id_id
+
+    # 고객 정보
+    user = customer.objects.get(cu_id=id)
+
+    # 고객이 상담 리스트
+    call_list = calling.objects.filter(cu_id_id=id)
+
+    # 고객 상담 횟수
+    call_cnt = len(call_list)
+
+    # 고객이 상담한 상담사 정보
+    profile_list = []
+    for i in call_list:
+        profile_list.append(counselor.objects.get(co_id=i.co_id_id).profile)
+
+    # 고객이 상담한 상담사의 정보와 상담내용
+    user_call = []
+    for i, j in zip(profile_list, call_list):
+        user_call.append([i,j])
+        
+
+    context = {
+        'user':user,
+        'call_list':call_list,
+        'call_cnt':call_cnt,
+        'id':id,
+        'user_call':user_call,
+        'c_no' : c_no,
+    }
+
+    if request.method == 'POST':
+        
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        content = content.replace("\r\n", "<br>")
+
+        
+        call.title = title
+        call.content = content
+        
+        call.save()
+        return redirect('Boardapp:cu_detail', id=id)
+    else:
+        return render(request, 'Board/cu_update.html', context)
+    
+

@@ -61,10 +61,9 @@
 
         <div class="counselor-info-container">
             
-
-            
             <div class="counselor-container">
             {% for call in user_call %}
+            {% if c_no != call.1.c_no %}
                 <div class="related-profile-container"> 
                     <div class="related-photo-container"  onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'">
                         {% if call.0%}
@@ -82,9 +81,11 @@
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
                                 <div class="counselor-date">{{call.1.call_date}}</div>
-                                    <span id = "update" class="history" onclick="location.href='{% url 'Boardapp:call_update' call.1.c_no%}'"> 수정 </span>    
-                                    <img id="call_delete" class="send" src="/static/image/delete.png" onclick="location.href='{% url 'Boardapp:call_delete' call.1.c_no id%}'">
-                                </div>
+                                <span id = "update" class="history" onclick="location.href='{% url 'Boardapp:call_update' call.1.c_no%}'"> 수정 </span>    
+                                <img id="call_delete" class="send" src="/static/image/delete.png" onclick="location.href='{% url 'Boardapp:call_delete' call.1.c_no id%}'">
+                            </div>  
+                        
+                        
             
                                 <div class="counselor-category-container">
                                     <div class="counselor-category-title">상담 주제</div>
@@ -92,23 +93,70 @@
                                 </div>
                                 <div class="counselor-content-container">
                                     <div class="counselor-content-title">상담 내용</div>
-                                    
                                     <div class="counselor-content">{% autoescape off %}{{call.1.content}} {% endautoescape %}</pre></div>
                                 </div>
+                            </div>
+                        </div>
+                    </div> 
+                            
+                        
+            {%else%}
+                <div class="related-profile-container"> 
+                    <div class="related-photo-container"  onclick="location.href='{% url 'Boardapp:co_detail' call.1.co_id_id %}'">
+                    {% if call.0%}
+                        <img id="cophoto" src="/static/image/{{call.0}}" alt="프로필 사진">
+                    {%else%}
+                        <img id="cophoto" src="/static/image/img_co.png" alt="프로필 사진"> 
+                    {%endif%}
+                        <div class="coname"><p>{{call.1.co_name}} 상담사</p></div>
+                    </div>
+                    <div class="coinfo-container">
+                        <div class="counselor-basic-info-container"></div>
+                        
+                        <div class="counselor-record-container">
+                            <div class="counselor-date-container">
+                                <div class="counselor-date-title">상담 날짜</div>
+                                <div class="counselor-date">{{call.1.call_date}}</div>
+                            </div>  
+
+                            <form  action="{% url 'Boardapp:call_update' call.1.c_no %}" method="post" >
+                            {% csrf_token %}
+                            <input id = "a" name="title" type="hidden" class="content-title-name" value="{{call.1.content}}">
+                            <div class="counselor-category-container">
+                                <div class="counselor-category-title">상담 주제</div>
+                                <div class="counselor-category">
+                                    <input name="title" type="text" id = "update_title"  value="{{call.1.title}}" >
+                                </div>
+                            </div>
+                            <div class="counselor-content-container">
+                                <div class="counselor-content-title">상담 내용</div>
+                                <div class="counselor-content">
+                                    <textarea name="content" id="update_content"></textarea>
+                                    <button id="save_btn" type="submit">저장</button>
+                                </div>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div> 
-          
-                {%endfor%}
+            {%endif%}
+                       
+                    
+            
+            {%endfor%}
 
             </div>
-              
             <button id="back_btn" type="button" onclick="location.href='{% url 'Boardapp:board' 'cu' %}'"><img id="backphoto" src="/static/image/img_back.png" alt=""></button>
         </div>
     </div>
     </div>
-
+<script>
+    var a = document.getElementById('a').value
+    a = a.replace(/<br>/g, '\r\n');
+    document.getElementById("update_content").value = a;
+</script>
 
 </body>
+
 
 </html>
