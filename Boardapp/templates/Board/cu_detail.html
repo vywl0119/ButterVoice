@@ -82,7 +82,7 @@
                             <div class="counselor-date-container">
                                 <div class="counselor-date-title">상담 날짜</div>
                                 <div class="counselor-date">{{call.1.call_date}}</div>
-                                    <span id = "update" class="history" onclick="location.href='{% url 'Boardapp:call_update' call.1.c_no%}'"> 수정 </span>    
+                                    <img id="update" class="history" src="/static/image/update.png" onclick="location.href='{% url 'Boardapp:call_update' call.1.c_no%}'">
                                     <img id="call_delete" class="send" src="/static/image/delete.png" onclick="location.href='{% url 'Boardapp:call_delete' call.1.c_no id%}'">
                                 </div>
             

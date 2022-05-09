@@ -313,8 +313,10 @@ body{
   }
 
 #update{
+    width: 30px;
+    height: 30px; 
     margin-left: 30%;
-    margin-top: 1%;
+    
   }
 
 #update_title{
