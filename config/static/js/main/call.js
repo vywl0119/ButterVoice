@@ -72,7 +72,7 @@ function connectSocket() {
     // console.log(ws_scheme);
 
     callSocket = new WebSocket(
-        'ws://'
+        'wss://'
         + window.location.host
         + '/ws/Mainapp/'
     );
