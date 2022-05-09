@@ -74,7 +74,7 @@ function connectSocket() {
     callSocket = new WebSocket(
         'wss://'
         + window.location.host
-        + '/ws/Mainapp/'
+        //+ '/ws/Mainapp/'
     );
 
     callSocket.onopen = event =>{
