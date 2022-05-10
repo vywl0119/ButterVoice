@@ -218,7 +218,39 @@
 <br>
 
 ## 7. 유저 가이드
+### ** [1PC]실행 방법**
 
+#### 1.가상환경 설정
 
+python -m venv (가상환경이름)
+
+#### 2. Requiremetns
+
+pip install -r requirments.txt
+
+#### 3. 실행
+
+python manage.py runserver
+
+### ** [2PC]실행 방법**
+
+#### 1.가상환경 설정
+
+python -m venv (가상환경이름)
+
+#### 2. Requiremetns
+
+pip install -r requirments.txt
+
+#### 3. IP확인
+
+- CMD 창에서 ipconfig입력 후 ipv4 주소 확인
+- settings.py의 ALLOWED_HOSTS = ['ipv4 주소']
+
+#### 4. 실행
+
+python manage.py runsslserver 0.0.0.0:8000
+
+<br><br><br>
 <br><br><br>
 ###### Readme 템플릿 참고 : 전남/전북1반 안지예
