@@ -66,7 +66,7 @@
   <summary>메인 화면</summary>
    <div markdown="1">       
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/167591566-ed84dd23-0c52-4ef8-b7bd-c38ebf5d66a3.gif" width="740" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167593556-48e70081-1a25-4d6f-b3bd-fad01060fce0.gif" width="740" height="412">
      <br>
      <text>⇒ 버터보이스의 홈화면으로 회원가입과 로그인을 할 수 있는 버튼이 있다</text>
    </div>
@@ -76,9 +76,9 @@
     <summary><strong>1) 고객과 상담사를 위한 회원가입/로그인</strong></summary>
         <div markdown="1">  
             <h3>📝 고객 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/167591437-19fc62e0-ccda-44d3-9ff1-7ea38c8643dd.png" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/167593951-40108fc2-5f0e-4de0-b47f-6e9158c8fcca.png" width="700" height="412">
             <h3>📝 상담사 회원가입</h3>
-            <img src="https://user-images.githubusercontent.com/37900424/167591695-c997221b-7fb1-4dbd-8b18-b42dc057b350.png" width="700" height="412">
+            <img src="https://user-images.githubusercontent.com/37900424/167594017-ef9d7933-2321-4f06-a0c1-425ab7595cb8.png" width="700" height="412">
             <h3>🔒 로그인</h3>
             <img src="https://user-images.githubusercontent.com/37900424/167591490-5825df2d-db94-44b9-9918-3a948bda1072.png" width="700" height="412">
         </div>
@@ -169,12 +169,12 @@
   - `특별한 추가 기능`
  <details>
     <summary><strong>1) WebRTC기반 P2P 상담 서비스</strong></summary>
-       <img src="https://user-images.githubusercontent.com/37900424/167592692-da61826c-1fc9-4bdb-b647-92d3e921fc0c.png" width="700" height="412">
+       <img src="https://user-images.githubusercontent.com/37900424/167592692-da61826c-1fc9-4bdb-b647-92d3e921fc0c.png" width="700" height="412"><br>
     <text>⇒ 안정적인 WebRTC 기능을 통해 서비스 완성도 UP! </text>
  </details>
   <details>
-    <summary><strong>3) Voice뿐만 아니라 화상 통화 가능</strong></summary>
-       <img src="https://user-images.githubusercontent.com/37900424/167592754-41d3a2a2-51a7-45fc-a87b-e49569f4c64e.png" width="700" height="412">
+    <summary><strong>2) Voice뿐만 아니라 화상 통화 가능</strong></summary>
+       <img src="https://user-images.githubusercontent.com/37900424/167592754-41d3a2a2-51a7-45fc-a87b-e49569f4c64e.png" width="700" height="412"><br>
     <text>⇒ 고객의 얼굴을 마주하며 비언어적 소통이 가능</text>
  </details>
 
