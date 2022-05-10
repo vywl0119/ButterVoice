@@ -131,7 +131,7 @@
      <br>
      <img src="https://user-images.githubusercontent.com/37900424/167589639-1e2351da-8657-4d84-8f31-a9cc0c664234.png" width="700" height="412">
      <br>
-     <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
+     <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용 글쓰기 및 수정 부분으로 이루어져있다</text>
      <br>
    </div>
  </details>
@@ -147,7 +147,7 @@
        <h3>👩🏻 고객 상세정보</h3>
         <img src="https://user-images.githubusercontent.com/37900424/167589851-887aecff-4490-436a-918f-97acf01d563a.png" width="700" height="412">
      <br>
-     <text>⇒ 고객정보게시판/상담사정보게시판으로 이루어져있다</text>
+     <text>⇒ 고객정보게시판/상담사정보게시판으로 이루어져있다. 고객상세정보페이지에서는 고객의 상담내용에 대해 수정 및 삭제가 가능하다</text>
    </div>
  </details>
  <br>
@@ -159,7 +159,7 @@
  </details>
   <details>
     <summary><strong>3) 화자의 언어 중에서 욕설이 있으면 필터링</strong></summary>
-    <text>⇒ STT + 필터링</text>
+    <text>⇒ STT + 욕설 필터링</text>
  </details>
   <details>
     <summary><strong>2) 감정 상태가 격양 되어있으면 듣기 편한 목소리로 변조</strong></summary>
