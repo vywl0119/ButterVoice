@@ -242,7 +242,7 @@ pip install -r requirments.txt
 #### 3. 실행
 
 python manage.py runserver
-
+<br>
 ### **[2PC] 실행 방법**
 
 #### 1.가상환경 설정
