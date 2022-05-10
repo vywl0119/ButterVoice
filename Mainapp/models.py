@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class customer(models.Model):
     cu_id = models.CharField(max_length=45, null=False, primary_key=True)
     pw = models.CharField(max_length=45, null=False)
@@ -10,6 +11,7 @@ class customer(models.Model):
     class Meta:
         db_table = 'customer'
         managed = False
+
 
 class counselor(models.Model):
     co_id = models.CharField(max_length=45, null=False, primary_key=True)
@@ -23,6 +25,7 @@ class counselor(models.Model):
     class Meta:
         db_table = 'counselor'
         managed = False
+
 
 class calling(models.Model):
     c_no = models.AutoField(primary_key=True)
@@ -39,6 +42,7 @@ class calling(models.Model):
     class Meta:
         db_table = 'calling'
         managed = False
+
 
 class point(models.Model):
     star_id = models.AutoField(primary_key=True)

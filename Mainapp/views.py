@@ -15,6 +15,7 @@ from gtts import gTTS
 from keras.models import load_model
 from django.core.files.storage import FileSystemStorage
 
+
 # 고객 상담중 페이지
 def cu_call(request, co_id, category):
     cu_id = request.session['cu_id']
@@ -34,6 +35,7 @@ def cu_call(request, co_id, category):
     profile = counselor.objects.get(co_id=co_id).profile
 
     return render(request, 'Main/cu_call.html', {'co_name': co_name, 'co_id': co_id, 'c_no': call.c_no, 'type': 'cu', 'profile': profile})
+
 
 # 상담사 상담중 페이지
 def co_call(request, c_no):
@@ -73,6 +75,7 @@ def co_call(request, c_no):
 
     return render(request, 'Main/co_call.html', context)
 
+
 @csrf_exempt
 def ajax_method(request, c_no):
     # receive_message = request.POST.get('send_data')
@@ -81,6 +84,7 @@ def ajax_method(request, c_no):
         'send_data': "I received"
     }
     return JsonResponse(send_message)
+
 
 # 상담사가 상담정보 업데이트
 def call_update(request):
@@ -98,12 +102,14 @@ def call_update(request):
 
     return redirect('Mainapp:co_call', c_no=c_no)
 
+
 # 고객 메인페이지
 def cu_main(request):
     # 모든 상담사 정보
     total_co = counselor.objects.all()
 
     return render(request, 'Main/cu_main.html', {'total_co': total_co})
+
 
 # 고객이 카테고리별로 상담사 확인
 def category(request, category):
@@ -114,6 +120,7 @@ def category(request, category):
         total_co = counselor.objects.filter(category=category)
 
     return render(request, 'Main/cu_main.html', {'total_co': total_co})
+
 
 # 상담사 메인페이지
 def co_main(request):
@@ -168,6 +175,7 @@ def co_main(request):
 
     return render(request, 'Main/co_main.html', context)
 
+
 # 별점 페이지 이동
 def star(request, co_id, star, c_no):
     # 통화종료를 했을때 별점페이지로 왔기 때문에 통화상태 종료로 변경
@@ -190,6 +198,7 @@ def star(request, co_id, star, c_no):
         'profile': profile
     })
 
+
 # 고객이 상담한 상담사 별점 부여
 def stars(request, star, co_id):
     star = point.objects.create(co_id_id=co_id, star=star)
@@ -197,24 +206,30 @@ def stars(request, star, co_id):
 
     return redirect('Mainapp:cu_main')
 
+
 def index(request):
     return render(request, 'Main/index.html')
 
+
 def call(request):
     return render(request, 'Main/call.html')
+
 
 def get_mfcc(filepath, n_mfcc=40):
     sig, sr = librosa.load(filepath)
     mfccs = librosa.feature.mfcc(sig)
     return mfccs
 
+
 class customerViewSet(viewsets.ModelViewSet):
     queryset = customer.objects.all()
     serializer_class = customerSerializer
 
+
 class counselorViewSet(viewsets.ModelViewSet):
     queryset = counselor.objects.all()
     serializer_class = counselorSerializer
+
 
 @csrf_exempt
 def upload_co(request):
@@ -235,11 +250,13 @@ def upload_co(request):
 
     return JsonResponse({"ok": "ok"})
 
+
 def pad2d(a, i):
     if a.shape[1] > i:
         return a[:, 0:i]
     else:
         return np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
+
 
 @csrf_exempt
 def upload_cu(request):
@@ -261,7 +278,6 @@ def upload_cu(request):
         fs.save(f'cu_{num_cu}.wav', uploaded)
 
     # 감정 인식
-    # pad2d = lambda a, i: a[:, 0: i] if a.shape[1] > i else np.hstack((a, np.zeros(a.shape[0], i-a.shape[1])))
     mfcc = get_mfcc(FILE_NAME, 20)
     mfcc_pad = pad2d(mfcc, 40)
     mfcc_2d = []
@@ -299,6 +315,7 @@ def upload_cu(request):
         kor_wav.save(f'config/static/wav/cu_{num_cu}.wav')
 
     return JsonResponse({"ok": "ok"})
+
 
 @csrf_exempt
 def call_current(request):

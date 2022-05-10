@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from Mainapp.models import counselor, customer, calling, point
 from django.db.models import Q
 
+
 # 상담사 상세페이지
 def co_detail(request, id):
     # 상담사 정보
@@ -55,6 +56,7 @@ def co_detail(request, id):
 
     return render(request, 'Board/co_detail.html', context)
 
+
 # 고객 상세페이지
 def cu_detail(request, id):
     # 고객 정보
@@ -86,6 +88,7 @@ def cu_detail(request, id):
 
     return render(request, 'Board/cu_detail.html', context)
 
+
 # 상담사와 고객 정보
 def board(request, type):
     # 모든 상담사
@@ -97,6 +100,7 @@ def board(request, type):
         users = customer.objects.all()
 
     return render(request, 'Board/board.html', {'users': users, 'type': type})
+
 
 # 이름, id 찾기
 def search_board(request, type):
@@ -125,7 +129,9 @@ def search_board(request, type):
         else:
             return render(request, 'Boardapp:board')
 
+
 # 고객의 상담 카테고리별
+
 def detail_category(request, id, category):
     # 고객 정보
     user = customer.objects.get(cu_id=id)
@@ -153,8 +159,7 @@ def detail_category(request, id, category):
     user_call = []
     for i, j in zip(profile_list, call_list):
 
-        user_call.append([i,j])
-
+        user_call.append([i, j])
 
     context = {
         'user': user,
@@ -166,12 +171,12 @@ def detail_category(request, id, category):
 
     return render(request, 'Board/cu_detail.html', context)
 
+
 def call_delete(request, c_no, id):
     call = calling.objects.get(c_no=c_no)
     call.delete()
     return redirect('Boardapp:cu_detail', id=id)
 
-        
 
 def call_update(request, c_no):
 
@@ -195,31 +200,27 @@ def call_update(request, c_no):
     # 고객이 상담한 상담사의 정보와 상담내용
     user_call = []
     for i, j in zip(profile_list, call_list):
-        user_call.append([i,j])
-        
+        user_call.append([i, j])
 
     context = {
-        'user':user,
-        'call_list':call_list,
-        'call_cnt':call_cnt,
-        'id':id,
-        'user_call':user_call,
-        'c_no' : c_no,
+        'user': user,
+        'call_list': call_list,
+        'call_cnt': call_cnt,
+        'id': id,
+        'user_call': user_call,
+        'c_no': c_no,
     }
 
     if request.method == 'POST':
-        
+
         title = request.POST.get('title')
         content = request.POST.get('content')
         content = content.replace("\r\n", "<br>")
 
-        
         call.title = title
         call.content = content
-        
+
         call.save()
         return redirect('Boardapp:cu_detail', id=id)
     else:
         return render(request, 'Board/cu_update.html', context)
-    
-

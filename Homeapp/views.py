@@ -5,14 +5,18 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 
+
 def role(request):
     return render(request, 'Home/role.html')
+
 
 def home(request):
     return render(request, 'Home/home.html')
 
+
 def home_type(request, type):
     return render(request, 'Home/home.html', {'type': type})
+
 
 def logout(request, type):
     if type == 'co':
@@ -26,7 +30,10 @@ def logout(request, type):
 
     return redirect('/Home/home/')
 
+
 # 상담사와 고객 모두 따로 로그인했을때 각자의 세션이 남아있어야 해서 각 세션값 따로 생성
+
+
 def signin(request):
     if request.method == 'POST':
         id = request.POST.get('id')
@@ -62,8 +69,10 @@ def signin(request):
     else:
         return render(request, 'Home/signin.html')
 
+
 def signups(request, type):
     return render(request, 'Home/signup.html', {'type': type})
+
 
 def signup(request):
     if request.method == 'POST':
@@ -89,10 +98,12 @@ def signup(request):
 
             return redirect('/Home/signin')
 
+
 def mike(request):
     global num
     num = 0
     return render(request, 'Home/mike.html')
+
 
 @csrf_exempt
 def uploadFile(request):
