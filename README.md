@@ -218,7 +218,7 @@
 <br>
 
 ## 7. 유저 가이드
-### **[1PC]실행 방법**
+### **[1PC] 실행 방법**
 
 #### 1.가상환경 설정
 
@@ -232,7 +232,7 @@ pip install -r requirments.txt
 
 python manage.py runserver
 
-### **[2PC]실행 방법**
+### **[2PC] 실행 방법**
 
 #### 1.가상환경 설정
 
