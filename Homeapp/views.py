@@ -45,26 +45,37 @@ def signin(request):
 
         if type == 'co':
             if counselor.objects.filter(co_id=id).exists():
-                user = counselor.objects.get(co_id=id, pw=pw)
-                print(user.pw)
-                request.session['co_id'] = user.co_id
-                request.session['co_name'] = user.name
-                request.session['co_type'] = 'co'
-
-                return redirect('Mainapp:co_main')
+                userid = counselor.objects.get(co_id=id)
+                if userid.pw == pw:
+                    user = counselor.objects.get(co_id=id, pw=pw)
+                    print(user.pw)
+                    request.session['co_id'] = user.co_id
+                    request.session['co_name'] = user.name
+                    request.session['co_type'] = 'co'
+                    return redirect('Mainapp:co_main')
+                else:
+                    messages.error(request, '비밀번호를 확인해주세요.')
+                    return render(request, 'Home/signin.html')
             else:
-                messages.error(request, '아이디와 비밀번호를 확인해주세요.')
+                messages.error(request, '아이디를 확인해주세요.')
                 return render(request, 'Home/signin.html')
         else:
             if customer.objects.filter(cu_id=id).exists():
-                user = customer.objects.get(cu_id=id, pw=pw)
-                request.session['cu_id'] = user.cu_id
-                request.session['cu_name'] = user.name
-                request.session['cu_type'] = 'cu'
+                userid = customer.objects.get(cu_id=id)
+                if userid.pw == pw:
+                    user = customer.objects.get(cu_id=id, pw=pw)
+                    request.session['cu_id'] = user.cu_id
+                    request.session['cu_name'] = user.name
+                    request.session['cu_type'] = 'cu'
 
-                return redirect('Mainapp:cu_main')
+                    return redirect('Mainapp:cu_main')
+                else:
+                    messages.error(request, '비밀번호를 확인해주세요.')
+                    return render(request, 'Home/signin.html')
+
+                
             else:
-                messages.error(request, '아이디와 비밀번호를 확인해주세요')
+                messages.error(request, '아이디를 확인해주세요')
                 return render(request, 'Home/signin.html')
     else:
         return render(request, 'Home/signin.html')
