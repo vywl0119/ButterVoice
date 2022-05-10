@@ -52,7 +52,13 @@
                             {% comment %} <div class="text">아이디</div> {% endcomment %}
                             <input class="input" type="text" id="id" name="id" placeholder="id"/>
                         </div>
-
+                        {% if messages %}
+                            <div id='id_check' style="color:red;">
+                                {% for message in messages %}
+                                    {{ message.message }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                         <div class="col">
                             {% comment %} <div class="text">비밀번호</div> {% endcomment %}
                             <input class="input" type="password" id="pw" name="pw" placeholder="pw"/>
@@ -89,7 +95,6 @@
                             <input class="confirm" type="submit" value="회원 등록" onclick="result()"/>
                         </div>
                     </div>
-        
                 </div>
             </div>
         </form>
@@ -134,9 +139,14 @@
                 return false;
             }
         }
-        alert("등록되었습니다.");
         document.forms["send"].submit();
         
+        if(id_check.style.coler == 'red'){
+            alert("중복된 아이디 입니다.");
+            return false;
+        } else {
+            alert("등록되었습니다.");
+        }        
     }
 
     </script>
