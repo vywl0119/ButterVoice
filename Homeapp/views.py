@@ -87,22 +87,24 @@ def signup(request):
         print(id)
 
         if request.POST.get('type') == 'co':
-            category = request.POST.get('category')
-            comment = counselor.objects.create(co_id=id, pw=pw, category=category, name=name, phone=phone, profile=profile)
-            comment.save()
+            if counselor.objects.filter(co_id=id).exists():
+                messages.error(request, '중복된 아이디 입니다.')
+                return render(request, 'Home/signup.html')
+            else:
+                category = request.POST.get('category')
+                comment = counselor.objects.create(co_id=id, pw=pw, category=category, name=name, phone=phone, profile=profile)
+                comment.save()
 
-            return redirect('/Home/signin')
+                return redirect('/Home/signin')
         else:
-            comment = customer.objects.create(cu_id=id, pw=pw, name=name, phone=phone, profile=profile)
-            comment.save()
+            if customer.objects.filter(cu_id=id).exists():
+                messages.error(request, '중복된 아이디 입니다.')
+                return render(request, 'Home/signup.html')
+            else:
+                comment = customer.objects.create(cu_id=id, pw=pw, name=name, phone=phone, profile=profile)
+                comment.save()
 
-            return redirect('/Home/signin')
-
-
-def mike(request):
-    global num
-    num = 0
-    return render(request, 'Home/mike.html')
+                return redirect('/Home/signin')
 
 
 @csrf_exempt
