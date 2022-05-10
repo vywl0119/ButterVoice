@@ -88,7 +88,7 @@
   <summary><strong>2) 고객이 로그인 했을때 들어가는 고객 메인 페이지</strong></summary>
    <div markdown="1"> 
     <br>      
-     <img src="https://user-images.githubusercontent.com/37900424/163409801-9a159360-4278-43cd-8f48-adf6dfd2cdf0.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167588687-ba52d2a5-bdc3-473b-a7ab-17808e5b9121.png" width="700" height="412">
      <br>
      <text>⇒ 고객이 상담할 수 있는 상담사를 선택해 상담을 신청할 수 있다</text>
    </div>
@@ -98,7 +98,8 @@
   <summary><strong>3) 고객이 상담사와 전화연결이 되었을때 나오는 페이지</strong></summary>
    <div markdown="1">
      <br>      
-     <img src="https://user-images.githubusercontent.com/37900424/163410276-f70505e4-c0be-4872-9167-43ca654dba58.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167588939-154dae7b-b6ee-4481-a3a6-9981936e87c6.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167589023-d790e269-ddb8-499e-b900-0c6114a619b9.png" width="700" height="412">
      <br>
       <text>⇒ 상담 시 안내 문구와 고객이 상담을 종료하고 싶으면 누르는 상담 종료버튼으로 구성</text>
    </div>
@@ -108,7 +109,7 @@
   <summary><strong>4) 상담사와 상담이 종료된 후 상담사에 대한 별점을 줄 수 있는 기능</strong></summary>
    <div markdown="1">  
    <br>     
-     <img src="https://user-images.githubusercontent.com/37900424/163410761-dd963844-9ba7-4e48-8900-bcf01fa5109c.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167589301-13a71d5b-9388-480b-bca0-68a7a83e73fc.png" width="700" height="412">
      <br>
      <text>⇒ 상담사에 대한 별점을 1~5까지 줄 수 있다</text>
    </div>
@@ -118,7 +119,7 @@
   <summary><strong>5) 상담사가 로그인했을 때 나오는 상담사 메인 페이지</strong></summary>
    <div markdown="1">
    <br>
-     <img src="https://user-images.githubusercontent.com/37900424/163586717-20420f45-7cf8-4d06-b932-5e66cef28572.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167589519-11745225-9cde-46b4-b0f6-ca0a83c50074.png" width="700" height="412">
      <br>
      <text>⇒ 상담사가 전화가 걸려온 순서대로 전화 대기자들을 확인 할 수 있다 </text>
    </div>
@@ -128,7 +129,7 @@
   <summary><strong>6) 상담사가 고객과 상담을 진행중에 나오는 페이지</strong></summary>
    <div markdown="1">  
      <br>
-     <img src="https://user-images.githubusercontent.com/37900424/164476170-0d77808b-a2ea-4a5d-8a2e-31144698f3c2.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167589639-1e2351da-8657-4d84-8f31-a9cc0c664234.png" width="700" height="412">
      <br>
      <text>⇒ 고객 상담 메뉴얼, 고객의 기본 정보, 고객과 상담시 적는 상담내용글쓰기 부분으로 이루어져있다</text>
      <br>
@@ -139,12 +140,12 @@
   <summary><strong>7) 관리자가 회원으로 등록된 고객과 상담사의 정보를 확인할 수 있는 게시판</strong></summary>
    <div markdown="1">    
       <h3>📝 전체 게시판</h3>
-     <img src="https://user-images.githubusercontent.com/37900424/163411263-e498edba-7ddb-4edc-b3a7-bfa816ad8229.png" width="700" height="412">
+     <img src="https://user-images.githubusercontent.com/37900424/167589721-b4aa89c8-0842-4c89-9b96-00a3b9316b87.png" width="700" height="412">
      <br>
       <h3>👩🏻‍🏫 상담사 상세정보</h3>
-        <img src="https://user-images.githubusercontent.com/37900424/163411932-c621d148-9480-428c-9db0-8c07c226a6f7.png" width="700" height="412">    
+        <img src="https://user-images.githubusercontent.com/37900424/167589786-ace9eba8-8e97-493f-9fa2-0da5ef66123d.png" width="700" height="412">    
        <h3>👩🏻 고객 상세정보</h3>
-        <img src="https://user-images.githubusercontent.com/37900424/163412054-0467ba80-1b07-4e79-a5a4-d2e787ddcee8.png" width="700" height="412">
+        <img src="https://user-images.githubusercontent.com/37900424/167589851-887aecff-4490-436a-918f-97acf01d563a.png" width="700" height="412">
      <br>
      <text>⇒ 고객정보게시판/상담사정보게시판으로 이루어져있다</text>
    </div>
@@ -157,17 +158,14 @@
     <text>⇒ CNN 기반 전이 학습을 이용한 음성 감정 인식</text>
  </details>
   <details>
-    <summary><strong>2) 감정 상태가 격양 되어있으면 듣기 편한 목소리로 변조</strong></summary>
-    <text>⇒ 기가지니 API(지니 Voice) 사용</text>
- </details>
-  <details>
     <summary><strong>3) 화자의 언어 중에서 욕설이 있으면 필터링</strong></summary>
-    <text>⇒ STT/TTS + 필터링</text>
+    <text>⇒ STT + 필터링</text>
  </details>
   <details>
-    <summary><strong>4) 상담 내용 요약본 정리</strong></summary>
-    <text>⇒ 어텐션을 이용한 Text Summeraiztion</text>
+    <summary><strong>2) 감정 상태가 격양 되어있으면 듣기 편한 목소리로 변조</strong></summary>
+    <text>⇒ Google의 gTTS 사용</text>
  </details>
+
 <br>
 
 <br>
