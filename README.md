@@ -198,8 +198,8 @@
 
 ## 5. DB 설계
   - `ERD`
- 
-![erd](https://user-images.githubusercontent.com/37900424/163577340-6466295f-87a0-48de-86f5-54bfe0d9d057.png)
+![Butter ERD](https://user-images.githubusercontent.com/43737828/167744005-b16d0eb8-c43c-40ea-836d-5a31434c264b.PNG)
+
 <br>
 
 ## 6. 개발 환경
