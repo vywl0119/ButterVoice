@@ -54,10 +54,10 @@ def signin(request):
                     request.session['co_type'] = 'co'
                     return redirect('Mainapp:co_main')
                 else:
-                    messages.error(request, '비밀번호를 확인해주세요.')
+                    messages.error(request, '비밀번호를 확인해주세요')
                     return render(request, 'Home/signin.html')
             else:
-                messages.error(request, '아이디를 확인해주세요.')
+                messages.error(request, '아이디를 확인해주세요')
                 return render(request, 'Home/signin.html')
         else:
             if customer.objects.filter(cu_id=id).exists():
@@ -70,10 +70,9 @@ def signin(request):
 
                     return redirect('Mainapp:cu_main')
                 else:
-                    messages.error(request, '비밀번호를 확인해주세요.')
+                    messages.error(request, '비밀번호를 확인해주세요')
                     return render(request, 'Home/signin.html')
 
-                
             else:
                 messages.error(request, '아이디를 확인해주세요')
                 return render(request, 'Home/signin.html')
@@ -100,22 +99,22 @@ def signup(request):
         if request.POST.get('type') == 'co':
             if counselor.objects.filter(co_id=id).exists():
                 messages.error(request, '중복된 아이디 입니다.')
-                return render(request, 'Home/signup.html')
+                return redirect('/Home/signups/co')
             else:
                 category = request.POST.get('category')
                 comment = counselor.objects.create(co_id=id, pw=pw, category=category, name=name, phone=phone, profile=profile)
                 comment.save()
-
-                return redirect('/Home/signin')
+                messages.success(request, '등록되었습니다')
+                return render(request, 'Home/signin.html')
         else:
             if customer.objects.filter(cu_id=id).exists():
                 messages.error(request, '중복된 아이디 입니다.')
-                return render(request, 'Home/signup.html')
+                return redirect('/Home/signups/cu')
             else:
                 comment = customer.objects.create(cu_id=id, pw=pw, name=name, phone=phone, profile=profile)
                 comment.save()
-
-                return redirect('/Home/signin')
+                messages.success(request, '등록되었습니다')
+                return render(request, 'Home/signin.html')
 
 
 @csrf_exempt

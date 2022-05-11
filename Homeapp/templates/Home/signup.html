@@ -55,7 +55,7 @@
                         {% if messages %}
                             <div id='id_check' style="color:red;">
                                 {% for message in messages %}
-                                    {{ message.message }}
+                                    <script>alert("중복된 아이디 입니다.");</script>
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -139,14 +139,8 @@
                 return false;
             }
         }
+
         document.forms["send"].submit();
-        
-        if(id_check.style.coler == 'red'){
-            alert("중복된 아이디 입니다.");
-            return false;
-        } else {
-            alert("등록되었습니다.");
-        }        
     }
 
     </script>
