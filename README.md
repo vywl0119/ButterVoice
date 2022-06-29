@@ -25,6 +25,8 @@
 
 [7. 유저 가이드](#7-유저-)
 
+[8. 시연 영상](#7-시연-영상)
+
 ***
 
 ## 1. 개발 배경 및 목적
@@ -263,5 +265,9 @@ pip install -r requirments.txt
 python manage.py runsslserver 0.0.0.0:8000
 
 <br><br><br>
+
+## 8. 시연 영상
+https://www.youtube.com/watch?v=dvDzs_cCXHc&t=2s
+
 <br><br><br>
 ###### Readme 템플릿 참고 : 전남/전북1반 안지예
